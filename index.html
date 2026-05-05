@@ -3,1489 +3,1847 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>応仁の乱と二つの一揆 ★ キッズ完全ガイド</title>
+<title>応仁の乱と二つの一揆 ─ 完全理解ジャーナル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --pink: #ff6b9d;
-    --red: #ff5757;
-    --orange: #ff9f43;
-    --yellow: #ffd93d;
-    --green: #26de81;
-    --teal: #4ecdc4;
-    --blue: #54a0ff;
-    --purple: #a55eea;
-    --dark: #2d3436;
-    --paper: #fffdf5;
-    --paper2: #fef3d6;
+    --ivory:    #f5efe2;
+    --paper:    #fbf7ec;
+    --ink:      #1a1a28;
+    --ink-soft: #4a4a5e;
+    --ink-mute: #8a8a9a;
+    --rule:     #e0d8c5;
+
+    /* Chapter accents */
+    --c-onin:        #b8312d;
+    --c-onin-deep:   #7a1f1c;
+    --c-onin-soft:   #f4dad7;
+
+    --c-yamashiro:   #1f4e6b;
+    --c-yamashiro-deep: #133344;
+    --c-yamashiro-soft: #d6e4ec;
+
+    --c-kaga:        #5e3a87;
+    --c-kaga-deep:   #3d2557;
+    --c-kaga-soft:   #e3daee;
+
+    --gold:     #b48a36;
+    --gold-soft:#f0e3c4;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body {
-    font-family: "Hiragino Maru Gothic ProN", "ヒラギノ丸ゴ ProN W4", "Yu Gothic", "游ゴシック", sans-serif;
-    background:
-      radial-gradient(circle at 10% 10%, #ffe9f0 0%, transparent 25%),
-      radial-gradient(circle at 90% 30%, #fff7d6 0%, transparent 30%),
-      radial-gradient(circle at 50% 80%, #e0f7f5 0%, transparent 30%),
-      var(--paper);
-    color: var(--dark);
-    line-height: 1.7;
-    padding: 12px;
-  }
-  .book {
-    max-width: 820px;
-    margin: 0 auto;
+    font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+    background: var(--ivory);
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 15px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* === PAGE === */
-  .page {
-    background: white;
-    border-radius: 18px;
-    padding: 28px 24px;
-    margin-bottom: 16px;
-    box-shadow: 0 6px 24px rgba(45,52,54,0.08);
-    border: 3px solid #fff;
-    position: relative;
+  .magazine {
+    max-width: 880px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 0 0 1px rgba(26,26,40,0.04), 0 30px 80px -20px rgba(26,26,40,0.18);
     overflow: hidden;
+    position: relative;
   }
+
+  /* === SHARED === */
+  .serif { font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif; }
+  .display { font-family: "Cormorant Garamond", "Noto Serif JP", serif; font-weight: 500; }
+  .mono { font-family: "Inter", -apple-system, sans-serif; letter-spacing: 0.02em; font-feature-settings: "tnum"; }
+
+  .spread {
+    padding: 80px 64px;
+    position: relative;
+  }
+  .spread + .spread { border-top: 1px solid var(--rule); }
 
   /* === COVER === */
   .cover {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%);
-    text-align: center;
-    padding: 50px 24px 60px;
-    color: white;
-    position: relative;
-  }
-  .cover::before, .cover::after {
-    content: "✨";
-    position: absolute;
-    font-size: 30px;
-    opacity: 0.7;
-  }
-  .cover::before { top: 24px; left: 24px; }
-  .cover::after { bottom: 24px; right: 24px; }
-  .cover .small {
-    background: white;
-    color: var(--pink);
-    display: inline-block;
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-    margin-bottom: 18px;
-    letter-spacing: 0.1em;
-  }
-  .cover h1 {
-    font-size: 38px;
-    color: white;
-    text-shadow: 3px 3px 0 rgba(0,0,0,0.15), 0 0 20px rgba(255,255,255,0.3);
-    margin-bottom: 6px;
-    letter-spacing: 0.05em;
-    line-height: 1.3;
-  }
-  .cover h1 .deco { color: var(--yellow); }
-  .cover .tagline {
-    font-size: 16px;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
-  }
-  .cover .three-badges {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 26px;
-  }
-  .cover .badge {
-    background: white;
-    color: var(--dark);
-    padding: 16px 18px;
-    border-radius: 18px;
-    width: 180px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-  .cover .badge .num {
-    background: var(--yellow);
-    color: var(--dark);
-    border-radius: 50%;
-    width: 36px; height: 36px;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: bold;
-    margin-bottom: 6px;
-  }
-  .cover .badge .icon {
-    font-size: 36px;
-    display: block;
-    margin: 6px 0;
-  }
-  .cover .badge .ttl {
-    font-weight: bold;
-    font-size: 15px;
-    margin-bottom: 4px;
-  }
-  .cover .badge .yr {
-    font-size: 11px;
-    color: var(--pink);
-    font-weight: bold;
-  }
-  .cover .for {
-    margin-top: 30px;
-    font-size: 12px;
-    background: rgba(0,0,0,0.15);
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 12px;
-  }
-
-  /* === BIG HEADER === */
-  .ch-header {
-    text-align: center;
-    margin-bottom: 24px;
-    padding: 20px;
-    border-radius: 16px;
-    color: white;
-    position: relative;
-  }
-  .ch-header.c-onin { background: linear-gradient(135deg, #ff5757, #ff9f43); }
-  .ch-header.c-yamashiro { background: linear-gradient(135deg, #4ecdc4, #54a0ff); }
-  .ch-header.c-kaga { background: linear-gradient(135deg, #a55eea, #ff6b9d); }
-  .ch-header.c-intro { background: linear-gradient(135deg, #26de81, #4ecdc4); }
-  .ch-header.c-compare { background: linear-gradient(135deg, #ffd93d, #ff9f43); color: var(--dark); }
-  .ch-header.c-final { background: linear-gradient(135deg, #ff6b9d, #a55eea); }
-  .ch-header .chapter-no {
-    background: white;
-    color: var(--dark);
-    display: inline-block;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 0.15em;
-    margin-bottom: 8px;
-  }
-  .ch-header h2 {
-    font-size: 28px;
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-    margin-bottom: 4px;
-    line-height: 1.4;
-  }
-  .ch-header .icon {
-    font-size: 42px;
-    margin: 6px 0;
-  }
-  .ch-header .sub {
-    font-size: 13px;
-    opacity: 0.95;
-  }
-
-  /* === BIG TEXT BOX === */
-  .lead-box {
-    background: linear-gradient(135deg, #fff9c4, #fff);
-    border: 3px dashed var(--orange);
-    border-radius: 16px;
-    padding: 16px 18px;
-    margin-bottom: 20px;
-    font-size: 15px;
-    line-height: 1.9;
-  }
-  .lead-box::before {
-    content: "📣 ";
-    font-size: 20px;
-  }
-
-  h3 {
-    font-size: 20px;
-    margin: 24px 0 12px;
-    color: var(--dark);
-    background: var(--paper2);
-    padding: 8px 14px;
-    border-radius: 10px 10px 10px 0;
-    border-left: 6px solid var(--orange);
-  }
-  h3.c-onin { border-color: var(--red); background: #ffe9e9; }
-  h3.c-yamashiro { border-color: var(--blue); background: #e3f0ff; }
-  h3.c-kaga { border-color: var(--purple); background: #f3e9ff; }
-
-  p { margin-bottom: 10px; font-size: 14px; }
-  strong { color: var(--red); font-weight: bold; }
-  .blue { color: var(--blue); font-weight: bold; }
-  .green { color: var(--green); font-weight: bold; }
-  .purple { color: var(--purple); font-weight: bold; }
-
-  /* === SPEECH BUBBLES === */
-  .talk-row {
-    display: flex;
-    gap: 12px;
-    margin: 14px 0;
-    align-items: flex-start;
-  }
-  .talk-row.right { flex-direction: row-reverse; }
-  .talker {
-    flex-shrink: 0;
-    width: 64px;
-    text-align: center;
-  }
-  .talker .face {
-    font-size: 36px;
-    background: var(--paper2);
-    border: 3px solid var(--orange);
-    border-radius: 50%;
-    width: 64px; height: 64px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .talker .face.b { border-color: var(--blue); background: #e3f0ff; }
-  .talker .face.r { border-color: var(--red); background: #ffe9e9; }
-  .talker .face.g { border-color: var(--green); background: #e0f7e7; }
-  .talker .face.p { border-color: var(--purple); background: #f3e9ff; }
-  .talker .face.y { border-color: var(--yellow); background: #fff5cc; }
-  .talker .name {
-    font-size: 10px;
-    margin-top: 4px;
-    color: var(--dark);
-    font-weight: bold;
-  }
-  .bubble {
-    background: white;
-    border: 3px solid var(--dark);
-    border-radius: 18px;
-    padding: 12px 16px;
-    font-size: 14px;
-    position: relative;
-    flex: 1;
-    line-height: 1.7;
-  }
-  .bubble::before {
-    content: "";
-    position: absolute;
-    left: -10px; top: 18px;
-    width: 0; height: 0;
-    border-style: solid;
-    border-width: 8px 12px 8px 0;
-    border-color: transparent var(--dark) transparent transparent;
-  }
-  .bubble::after {
-    content: "";
-    position: absolute;
-    left: -6px; top: 19px;
-    width: 0; height: 0;
-    border-style: solid;
-    border-width: 7px 10px 7px 0;
-    border-color: transparent white transparent transparent;
-  }
-  .talk-row.right .bubble::before {
-    left: auto; right: -10px;
-    border-width: 8px 0 8px 12px;
-    border-color: transparent transparent transparent var(--dark);
-  }
-  .talk-row.right .bubble::after {
-    left: auto; right: -6px;
-    border-width: 7px 0 7px 10px;
-    border-color: transparent transparent transparent white;
-  }
-
-  /* === COMIC PANELS === */
-  .panels {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin: 16px 0;
-  }
-  .panel {
-    background: white;
-    border: 3px solid var(--dark);
-    border-radius: 12px;
-    padding: 12px;
-    position: relative;
-    min-height: 140px;
-    box-shadow: 4px 4px 0 var(--dark);
-  }
-  .panel .num {
-    position: absolute;
-    top: -14px; left: -14px;
-    background: var(--yellow);
-    color: var(--dark);
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; font-weight: bold;
-    border: 3px solid var(--dark);
-    box-shadow: 2px 2px 0 var(--dark);
-  }
-  .panel .ttl {
-    font-weight: bold;
-    color: var(--red);
-    margin-bottom: 6px;
-    font-size: 14px;
-  }
-  .panel .body {
-    font-size: 13px;
-    line-height: 1.7;
-  }
-  .panel .pic {
-    font-size: 36px;
-    text-align: center;
-    margin: 6px 0;
-  }
-
-  /* === CHARACTER TRADING CARDS === */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin: 16px 0;
-  }
-  .card {
-    background: linear-gradient(165deg, white, #f9f9f9);
-    border: 4px solid var(--dark);
-    border-radius: 14px;
-    padding: 12px;
-    box-shadow: 4px 4px 0 var(--dark);
+    background:
+      radial-gradient(circle at 20% 30%, rgba(184,49,45,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(94,58,135,0.08) 0%, transparent 40%),
+      linear-gradient(180deg, var(--paper) 0%, #f1ead8 100%);
+    padding: 90px 64px 70px;
     position: relative;
     overflow: hidden;
   }
-  .card.east { border-color: var(--red); box-shadow: 4px 4px 0 var(--red); }
-  .card.west { border-color: var(--blue); box-shadow: 4px 4px 0 var(--blue); }
-  .card.kaga { border-color: var(--purple); box-shadow: 4px 4px 0 var(--purple); }
-  .card .top-band {
-    background: var(--dark);
-    color: white;
-    margin: -12px -12px 8px;
-    padding: 4px 10px;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-  }
-  .card.east .top-band { background: var(--red); }
-  .card.west .top-band { background: var(--blue); }
-  .card.kaga .top-band { background: var(--purple); }
-  .card .av {
-    font-size: 60px;
-    text-align: center;
-    background: var(--paper2);
-    border-radius: 10px;
-    padding: 6px;
-    margin-bottom: 8px;
-  }
-  .card.east .av { background: #ffe9e9; }
-  .card.west .av { background: #e3f0ff; }
-  .card.kaga .av { background: #f3e9ff; }
-  .card .name {
-    font-size: 17px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 4px;
-  }
-  .card .role {
-    font-size: 10px;
-    text-align: center;
-    color: var(--dark);
-    background: var(--yellow);
-    padding: 2px 8px;
-    border-radius: 8px;
-    display: inline-block;
-    margin: 0 auto 8px;
-  }
-  .card .role-row { text-align: center; margin-bottom: 8px; }
-  .card .desc {
-    font-size: 12px;
-    line-height: 1.7;
-    border-top: 2px dashed #ddd;
-    padding-top: 6px;
-  }
-  .card .stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 6px;
-    border-top: 2px dashed #ddd;
-    padding-top: 6px;
-  }
-  .card .stats .stat {
-    text-align: center;
-  }
-  .card .stats .stat .lbl {
-    font-size: 9px;
-    color: #999;
-  }
-  .card .stats .stat .val {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--red);
-  }
-
-  /* === BATTLE === */
-  .battle {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 10px;
-    align-items: center;
-    margin: 16px 0;
-    background: linear-gradient(135deg, #fff5cc, #ffe9e9, #e3f0ff);
-    border-radius: 16px;
-    padding: 14px;
-    border: 3px solid var(--dark);
-  }
-  .army-box {
-    background: white;
-    border-radius: 12px;
-    padding: 12px;
-    border: 3px solid var(--dark);
-  }
-  .army-box.east { border-color: var(--red); }
-  .army-box.west { border-color: var(--blue); }
-  .army-box h4 {
-    text-align: center;
-    margin-bottom: 8px;
-    padding: 6px;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-  }
-  .army-box.east h4 { background: var(--red); }
-  .army-box.west h4 { background: var(--blue); }
-  .army-box ul { list-style: none; font-size: 12px; }
-  .army-box li { padding: 3px 0; }
-  .army-box li::before { content: "👉 "; }
-  .vs-big {
-    font-size: 32px;
-    color: var(--dark);
-    font-weight: bold;
-    background: var(--yellow);
-    border: 3px solid var(--dark);
-    border-radius: 50%;
-    width: 60px; height: 60px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 3px 3px 0 var(--dark);
-  }
-
-  /* === ARROW STEPS === */
-  .arrow-steps {
-    background: linear-gradient(135deg, #fff9c4, white);
-    border: 3px solid var(--orange);
-    border-radius: 14px;
-    padding: 14px;
-    margin: 14px 0;
-  }
-  .arrow-step {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 10px;
-    background: white;
-    border-radius: 10px;
-    padding: 10px 12px;
-    border: 2px solid var(--paper2);
-  }
-  .arrow-step:last-child { margin-bottom: 0; }
-  .arrow-step .num-circle {
-    flex-shrink: 0;
-    width: 36px; height: 36px;
-    background: var(--orange);
-    color: white;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  .arrow-step .text-step { font-size: 13px; line-height: 1.7; flex: 1; }
-  .big-arrow {
-    text-align: center;
-    font-size: 24px;
-    color: var(--orange);
-    margin: 4px 0;
-  }
-  .result-box {
-    background: var(--orange);
-    color: white;
-    padding: 12px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 15px;
-    margin-top: 10px;
-  }
-
-  /* === TIMELINE === */
-  .timeline {
-    position: relative;
-    margin: 16px 0;
-    padding: 16px 0 16px 20px;
-  }
-  .timeline::before {
+  .cover::before {
     content: "";
     position: absolute;
-    left: 24px; top: 0; bottom: 0;
-    width: 6px;
-    background: linear-gradient(180deg, var(--red), var(--orange), var(--yellow));
-    border-radius: 3px;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--c-onin), var(--c-yamashiro), var(--c-kaga));
   }
-  .tl-event {
+  .cover .meta-row {
     display: flex;
-    gap: 14px;
-    margin-bottom: 12px;
-    align-items: flex-start;
-    position: relative;
-    padding-left: 36px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 60px;
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
   }
-  .tl-event::before {
-    content: "";
-    position: absolute;
-    left: 18px; top: 14px;
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: white;
-    border: 4px solid var(--red);
-    z-index: 1;
-  }
-  .tl-event.big::before {
-    background: var(--red);
-    width: 22px; height: 22px;
-    left: 16px;
-  }
-  .tl-event .yr-tag {
-    background: var(--red);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 12px;
-    flex-shrink: 0;
-    align-self: flex-start;
-    margin-top: 8px;
-  }
-  .tl-event.big .yr-tag {
-    background: var(--dark);
-    font-size: 14px;
-  }
-  .tl-event .ev-text {
-    background: white;
-    padding: 8px 12px;
-    border-radius: 10px;
-    border: 2px solid #f0f0f0;
+  .cover .meta-row .right { color: var(--ink-soft); }
+
+  .cover .issue-num {
+    font-family: "Cormorant Garamond", serif;
     font-size: 13px;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .cover h1 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 78px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .cover h1 .amp {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    margin: 0 6px;
+  }
+  .cover .deck {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 400;
+    font-size: 19px;
     line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin-bottom: 60px;
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+  }
+
+  .cover .three-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+  }
+  .cover .ev {
+    position: relative;
+  }
+  .cover .ev .num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .cover .ev .yr {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .cover .ev:nth-child(1) .yr { color: var(--c-onin); }
+  .cover .ev:nth-child(2) .yr { color: var(--c-yamashiro); }
+  .cover .ev:nth-child(3) .yr { color: var(--c-kaga); }
+  .cover .ev .ttl {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 21px;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .cover .ev .desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .cover .footer {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .cover .footer .price {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-transform: none;
+    letter-spacing: 0.05em;
+  }
+
+  /* === SECTION HEADER === */
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .section-label .num {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .section-label .lab {
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
     flex: 1;
   }
+  .section-label .lab strong { color: var(--ink); }
 
-  /* === COMPARE TABLE === */
-  .compare-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 4px;
-    margin: 14px 0;
+  h2.story-title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
   }
-  .compare-table th, .compare-table td {
-    padding: 10px 8px;
-    border-radius: 8px;
-    font-size: 12px;
-    text-align: center;
-    vertical-align: middle;
+  h2.story-title em {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
   }
-  .compare-table th {
+  .story-deck {
+    font-family: "Noto Serif JP", serif;
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+    max-width: 620px;
+  }
+
+  /* === BODY === */
+  h3 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 50px 0 18px;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+  h3 .marker {
+    display: inline-block;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+  p { margin-bottom: 14px; }
+  p strong { font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--gold-soft); padding-bottom: 1px; }
+  .key { font-weight: 700; color: var(--c-onin); }
+  .blue { font-weight: 700; color: var(--c-yamashiro); }
+  .purple { font-weight: 700; color: var(--c-kaga); }
+
+  /* === CHAPTER OPENER (full-bleed) === */
+  .opener {
+    padding: 0;
     color: white;
-    font-size: 13px;
-  }
-  .compare-table th.h1 { background: var(--red); }
-  .compare-table th.h2 { background: var(--blue); }
-  .compare-table th.h3 { background: var(--purple); }
-  .compare-table th.h0 { background: var(--dark); }
-  .compare-table td:first-child {
-    background: var(--paper2);
-    font-weight: bold;
-  }
-  .compare-table td.t1 { background: #ffe9e9; }
-  .compare-table td.t2 { background: #e3f0ff; }
-  .compare-table td.t3 { background: #f3e9ff; }
-
-  /* === STAMP === */
-  .stamp {
-    background: white;
-    border: 4px dashed var(--red);
-    border-radius: 14px;
-    padding: 16px;
-    margin: 16px 0;
-    text-align: center;
     position: relative;
+    overflow: hidden;
   }
-  .stamp::before {
-    content: "🌟";
+  .opener.c1 { background: linear-gradient(135deg, var(--c-onin) 0%, var(--c-onin-deep) 100%); }
+  .opener.c2 { background: linear-gradient(135deg, var(--c-yamashiro) 0%, var(--c-yamashiro-deep) 100%); }
+  .opener.c3 { background: linear-gradient(135deg, var(--c-kaga) 0%, var(--c-kaga-deep) 100%); }
+  .opener.intro { background: linear-gradient(135deg, #2d3e50 0%, #1a1a28 100%); }
+  .opener.compare { background: linear-gradient(135deg, var(--gold) 0%, #8c6722 100%); }
+  .opener.final { background: linear-gradient(135deg, #2d3e50 0%, var(--c-kaga-deep) 100%); }
+
+  .opener-inner {
+    padding: 100px 64px 90px;
+    position: relative;
+    z-index: 2;
+  }
+  .opener::before {
+    content: "";
     position: absolute;
-    top: -16px; left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    padding: 0 8px;
-    font-size: 28px;
+    top: -50%; right: -30%;
+    width: 80%; height: 200%;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 50%);
+    pointer-events: none;
   }
-  .stamp .label {
-    font-size: 11px;
-    color: var(--red);
-    font-weight: bold;
-    letter-spacing: 0.2em;
+  .opener .ch-tag {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .opener .ch-tag::before {
+    content: "";
+    width: 36px; height: 1px;
+    background: rgba(255,255,255,0.7);
+  }
+  .opener .ch-num {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 110px;
+    line-height: 1;
+    color: rgba(255,255,255,0.18);
+    margin-bottom: -20px;
+    font-weight: 500;
+  }
+  .opener h1 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .opener .subline {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    max-width: 560px;
+    margin-bottom: 50px;
+  }
+  .opener .key-stat-row {
+    display: flex;
+    gap: 60px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+  }
+  .opener .stat .lbl {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
     margin-bottom: 6px;
   }
-  .stamp .main-text {
-    font-size: 17px;
-    font-weight: bold;
-    color: var(--dark);
+  .opener .stat .val {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 38px;
+    line-height: 1;
+    color: white;
+  }
+
+  /* === PULL QUOTE === */
+  .pull-quote {
+    margin: 50px -20px;
+    padding: 30px 40px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    text-align: center;
+  }
+  .pull-quote .text {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.6;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .pull-quote .text em {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .pull-quote .attribution {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-top: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  /* === DROP CAP === */
+  .drop-cap::first-letter {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 68px;
+    float: left;
+    line-height: 0.85;
+    margin: 6px 10px 0 0;
+    color: var(--gold);
+  }
+
+  /* === CHARACTER PORTRAITS === */
+  .portraits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin: 36px 0 30px;
+  }
+  .portrait {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 26px 24px 22px;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .portrait::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--ink-mute);
+  }
+  .portrait.east::before { background: var(--c-onin); }
+  .portrait.west::before { background: var(--c-yamashiro); }
+  .portrait.k::before { background: var(--c-kaga); }
+  .portrait .head {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .portrait .glyph {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ivory);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .portrait.east .glyph { color: var(--c-onin); border-color: var(--c-onin); background: var(--c-onin-soft); }
+  .portrait.west .glyph { color: var(--c-yamashiro); border-color: var(--c-yamashiro); background: var(--c-yamashiro-soft); }
+  .portrait.k .glyph { color: var(--c-kaga); border-color: var(--c-kaga); background: var(--c-kaga-soft); }
+  .portrait .name-block .role-tag {
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 4px;
+  }
+  .portrait .name-block .name {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+  .portrait .name-block .read {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+  }
+  .portrait .quote {
+    font-family: "Noto Serif JP", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink);
+    border-left: 2px solid var(--gold);
+    padding: 4px 0 4px 12px;
+    margin-bottom: 12px;
     line-height: 1.6;
   }
-
-  /* === TIPS BOX === */
-  .tips {
-    background: linear-gradient(135deg, #d1f4e0, white);
-    border: 3px solid var(--green);
-    border-radius: 14px;
-    padding: 14px 16px;
-    margin: 14px 0;
-  }
-  .tips .tlabel {
-    background: var(--green);
-    color: white;
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  .tips ul {
-    padding-left: 20px;
+  .portrait .bio {
     font-size: 13px;
-  }
-  .tips li {
-    margin-bottom: 4px;
-    line-height: 1.7;
+    line-height: 1.8;
+    color: var(--ink-soft);
   }
 
-  /* === WARNING === */
-  .warn {
-    background: linear-gradient(135deg, #ffe5e5, white);
-    border: 3px solid var(--red);
-    border-radius: 14px;
-    padding: 14px 16px;
-    margin: 14px 0;
+  /* === NUMBERED STORY STEPS === */
+  .story-steps {
+    margin: 36px 0;
   }
-  .warn .wlabel {
-    background: var(--red);
-    color: white;
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  .warn ul { padding-left: 20px; font-size: 13px; }
-  .warn li { margin-bottom: 6px; line-height: 1.7; }
-
-  /* === MEMO STICKY === */
-  .memo {
-    background: var(--yellow);
-    padding: 12px 14px;
-    border-radius: 4px;
-    margin: 12px 0;
-    font-size: 13px;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-    transform: rotate(-1deg);
-  }
-  .memo strong { color: var(--red); }
-
-  /* === CHEAT SHEET === */
-  .cheat {
+  .ss-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
-    margin: 14px 0;
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
   }
-  .cheat-item {
-    background: white;
-    border: 3px solid var(--dark);
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: 3px 3px 0 var(--dark);
+  .ss-row:last-child { border-bottom: 1px solid var(--rule); }
+  .ss-row .num {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--gold);
+    font-weight: 500;
   }
-  .cheat-item.r { border-color: var(--red); box-shadow: 3px 3px 0 var(--red); }
-  .cheat-item.b { border-color: var(--blue); box-shadow: 3px 3px 0 var(--blue); }
-  .cheat-item.p { border-color: var(--purple); box-shadow: 3px 3px 0 var(--purple); }
-  .cheat-item .icon-big {
-    font-size: 30px;
-    text-align: center;
+  .ss-row .body {
+    padding-top: 8px;
+  }
+  .ss-row .body h4 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 17px;
     margin-bottom: 6px;
   }
-  .cheat-item .ttl {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 4px;
+  .ss-row .body p {
     font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin: 0;
   }
-  .cheat-item .yr-line {
-    background: var(--yellow);
-    text-align: center;
-    padding: 3px 8px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-bottom: 6px;
+  .ss-row.outcome {
+    border-top: 2px solid var(--ink);
+    margin-top: 8px;
+    padding-top: 22px;
+    background: linear-gradient(90deg, var(--gold-soft) 0%, transparent 70%);
+    padding-left: 16px;
+    margin-left: -16px;
   }
-  .cheat-item .body-text {
-    font-size: 12px;
-    line-height: 1.7;
+  .ss-row.outcome .num { color: var(--ink); font-style: normal; }
+  .ss-row.outcome .body h4 { color: var(--ink); }
+
+  /* === TIMELINE (vertical, elegant) === */
+  .timeline-wrap {
+    margin: 32px 0;
+  }
+  .tl-event {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .tl-event:last-child { border-bottom: 1px solid var(--rule); }
+  .tl-event .yr {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--ink);
+    text-align: right;
+  }
+  .tl-event.key .yr { color: var(--c-onin); font-weight: 700; }
+  .tl-event.key.c2 .yr { color: var(--c-yamashiro); }
+  .tl-event.key.c3 .yr { color: var(--c-kaga); }
+  .tl-event .what {
+    font-family: "Noto Serif JP", serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+  .tl-event.key .what {
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .tl-event .what .ev-tag {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2px 8px;
+    margin-right: 10px;
+    vertical-align: 3px;
   }
 
-  /* === QUIZ === */
-  .quiz-box {
-    background: linear-gradient(135deg, #f0e0ff, white);
-    border: 3px solid var(--purple);
-    border-radius: 14px;
-    padding: 14px 16px;
-    margin: 12px 0;
+  /* === TWO-COLUMN BATTLE === */
+  .battle-grid {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 0;
+    margin: 40px 0;
+    align-items: stretch;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
   }
-  .quiz-box .q {
-    font-weight: bold;
-    color: var(--purple);
-    margin-bottom: 8px;
-    font-size: 14px;
+  .army-col {
+    padding: 28px 26px;
   }
-  .quiz-box .q::before { content: "🤔 "; }
-  .quiz-box .a {
-    background: white;
-    border-left: 4px solid var(--green);
-    padding: 8px 12px;
-    border-radius: 6px;
+  .army-col.east {
+    background: var(--c-onin-soft);
+    color: var(--c-onin-deep);
+  }
+  .army-col.west {
+    background: var(--c-yamashiro-soft);
+    color: var(--c-yamashiro-deep);
+  }
+  .army-col .a-tag {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .army-col .a-name {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .army-col .a-leader {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+  .army-col .a-list {
+    list-style: none;
     font-size: 13px;
+    line-height: 1.9;
   }
-  .quiz-box .a::before { content: "✨ "; color: var(--green); font-weight: bold; }
+  .army-col .a-list li {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px;
+    padding: 4px 0;
+    border-top: 1px solid currentColor;
+    border-color: rgba(0,0,0,0.15);
+    align-items: baseline;
+  }
+  .army-col .a-list li:first-child { border-top: 0; }
+  .army-col .a-list .lbl {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .army-col .a-list .val { font-weight: 700; }
+
+  .vs-divider {
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--ink);
+    border-right: 1px solid var(--ink);
+  }
+  .vs-divider .vs {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 48px;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  /* === FACTOID === */
+  .factoid {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 30px 0;
+    margin: 40px 0;
+    text-align: center;
+  }
+  .factoid .num {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 90px;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .factoid .desc {
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* === SIDE NOTE / DID YOU KNOW === */
+  .sidenote {
+    background: var(--paper);
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    margin: 28px 0;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .sidenote .h {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .sidenote.warn { border-color: var(--c-onin); }
+  .sidenote.warn .h { color: var(--c-onin); }
+  .sidenote.tip { border-color: var(--c-yamashiro); }
+  .sidenote.tip .h { color: var(--c-yamashiro); }
+
+  /* === COMPARE TABLE === */
+  .compare-board {
+    margin: 40px 0;
+    border-top: 2px solid var(--ink);
+  }
+  .compare-board .row {
+    display: grid;
+    grid-template-columns: 130px repeat(3, 1fr);
+    border-bottom: 1px solid var(--rule);
+  }
+  .compare-board .row.head {
+    border-bottom: 1px solid var(--ink);
+    background: var(--ivory);
+  }
+  .compare-board .row > div {
+    padding: 14px 14px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .compare-board .row > div:not(:first-child) { border-left: 1px solid var(--rule); }
+  .compare-board .row .lab {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    align-self: center;
+  }
+  .compare-board .row.head .col-h {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .compare-board .row.head .col-h .yr {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 2px;
+  }
+  .compare-board .row.head .c1 { color: var(--c-onin); }
+  .compare-board .row.head .c2 { color: var(--c-yamashiro); }
+  .compare-board .row.head .c3 { color: var(--c-kaga); }
+
+  /* === CONNECTION DIAGRAM === */
+  .connection {
+    margin: 40px 0;
+    padding: 36px 30px;
+    background: var(--ivory);
+    border: 1px solid var(--rule);
+  }
+  .connection .step {
+    padding: 16px 0;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .connection .step .yr {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink-mute);
+    text-align: right;
+  }
+  .connection .step.s1 .yr { color: var(--c-onin); }
+  .connection .step.s2 .yr { color: var(--c-yamashiro); }
+  .connection .step.s3 .yr { color: var(--c-kaga); }
+  .connection .step .text {
+    font-family: "Noto Serif JP", serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .connection .step .text strong {
+    font-weight: 700;
+    border: 0;
+    padding: 0;
+  }
+  .connection .arrow {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
+    color: var(--ink-mute);
+    padding: 4px 0;
+    letter-spacing: 0.2em;
+  }
+  .connection .conclusion {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--ink);
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: var(--ink);
+  }
+
+  /* === Q&A === */
+  .qa {
+    margin: 28px 0;
+    padding: 24px 26px;
+    background: var(--paper);
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+  }
+  .qa .q {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    padding-left: 32px;
+    position: relative;
+  }
+  .qa .q::before {
+    content: "Q.";
+    position: absolute;
+    left: 0; top: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gold);
+    font-size: 22px;
+  }
+  .qa .a {
+    font-size: 14px;
+    line-height: 1.85;
+    padding-left: 32px;
+    position: relative;
+    color: var(--ink-soft);
+  }
+  .qa .a::before {
+    content: "A.";
+    position: absolute;
+    left: 0; top: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 22px;
+  }
+
+  /* === CHEAT CARDS (final) === */
+  .cheat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 36px 0;
+  }
+  .cheat-card {
+    background: white;
+    border: 1px solid var(--ink);
+    padding: 28px 22px;
+    position: relative;
+  }
+  .cheat-card .tt {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+    letter-spacing: 0.15em;
+  }
+  .cheat-card .yr {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .cheat-card.c1 { border-color: var(--c-onin); }
+  .cheat-card.c1 .yr { color: var(--c-onin); }
+  .cheat-card.c2 { border-color: var(--c-yamashiro); }
+  .cheat-card.c2 .yr { color: var(--c-yamashiro); }
+  .cheat-card.c3 { border-color: var(--c-kaga); }
+  .cheat-card.c3 .yr { color: var(--c-kaga); }
+  .cheat-card .name {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 19px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cheat-card .body {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+  }
+
+  /* === Memorize block (年号) === */
+  .gorou {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 32px;
+    margin: 40px 0;
+    border-radius: 0;
+  }
+  .gorou .h {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 18px;
+  }
+  .gorou .item {
+    padding: 14px 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .gorou .item .yr {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .gorou .item .verse {
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--paper);
+  }
+  .gorou .item .verse strong {
+    color: white;
+    border: 0;
+    background: rgba(180,138,54,0.3);
+    padding: 1px 4px;
+  }
 
   /* === MAP === */
-  .map-box {
-    background: white;
-    border: 3px solid var(--dark);
-    border-radius: 12px;
-    padding: 12px;
-    margin: 12px 0;
+  .map {
+    margin: 28px auto;
+    max-width: 480px;
+    padding: 24px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
     text-align: center;
   }
   .map-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 3px;
-    max-width: 360px;
-    margin: 8px auto;
-    font-size: 10px;
+    gap: 4px;
+    margin-bottom: 12px;
   }
   .map-grid div {
-    background: #e9e9e9;
-    padding: 6px 2px;
-    border-radius: 3px;
+    background: var(--ivory);
+    padding: 8px 4px;
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--ink-mute);
   }
-  .map-grid .here {
-    background: var(--purple);
+  .map-grid .here-y {
+    background: var(--c-yamashiro);
     color: white;
-    font-weight: bold;
+    font-weight: 700;
   }
-  .map-grid .here2 {
-    background: var(--blue);
+  .map-grid .here-k {
+    background: var(--c-kaga);
     color: white;
-    font-weight: bold;
+    font-weight: 700;
   }
-  .map-caption {
-    font-size: 11px;
-    color: #666;
-    margin-top: 4px;
+  .map .cap {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-mute);
   }
 
-  /* === PRINT STYLES === */
+  /* === COLOPHON === */
+  .colophon {
+    text-align: center;
+    padding: 60px 32px;
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+  }
+  .colophon .mark {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .colophon .name {
+    font-family: "Noto Serif JP", serif;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 4px;
+  }
+  .colophon .sub {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 720px) {
+    .spread, .opener-inner { padding: 50px 28px; }
+    .cover { padding: 50px 28px 40px; }
+    .cover h1 { font-size: 48px; }
+    .cover .three-grid { grid-template-columns: 1fr; gap: 20px; }
+    .opener .ch-num { font-size: 70px; }
+    .opener h1 { font-size: 38px; }
+    .opener .key-stat-row { gap: 30px; flex-wrap: wrap; }
+    h2.story-title { font-size: 30px; }
+    .portraits { grid-template-columns: 1fr; }
+    .battle-grid { grid-template-columns: 1fr; }
+    .vs-divider { padding: 14px 0; border-left: 0; border-right: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+    .compare-board .row { grid-template-columns: 90px 1fr 1fr 1fr; }
+    .compare-board .row > div { padding: 10px 8px; font-size: 11px; }
+    .cheat-grid { grid-template-columns: 1fr; }
+    .pull-quote .text { font-size: 19px; }
+    .factoid .num { font-size: 64px; }
+  }
+
+  /* === PRINT === */
   @media print {
     @page {
       size: A4 portrait;
-      margin: 8mm;
+      margin: 0;
     }
-    body {
-      background: white !important;
-      padding: 0;
+    body { background: white; }
+    .magazine {
+      max-width: 100%;
+      box-shadow: none;
     }
-    .book { max-width: 100%; }
-    .page {
-      box-shadow: none !important;
-      border: none;
-      margin-bottom: 0;
-      border-radius: 0;
-      page-break-inside: avoid;
-      page-break-after: always;
-      padding: 16px;
-    }
-    .page:last-child { page-break-after: auto; }
-    .cover { padding: 60px 24px 80px; }
-    .panel, .card, .stamp, .tips, .warn, .quiz-box, .arrow-steps, .battle, .lead-box, .memo {
+    .spread, .opener-inner, .cover {
+      padding: 40px 36px;
       page-break-inside: avoid;
     }
-    h3 { page-break-after: avoid; }
+    .opener, .spread, .cover { page-break-after: always; }
+    .colophon { page-break-after: auto; }
+    .portrait, .ss-row, .tl-event, .pull-quote, .factoid, .sidenote, .qa, .cheat-card, .gorou, .connection {
+      page-break-inside: avoid;
+    }
+    h2.story-title, h3 { page-break-after: avoid; }
   }
 </style>
 </head>
 <body>
-<div class="book">
+<div class="magazine">
 
-<!-- ====================== COVER ====================== -->
-<div class="page cover">
-  <div class="small">中学受験社会 ★ ぐんぐん理解シリーズ</div>
-  <h1>応仁の乱<span class="deco">&</span><br>二つの一揆</h1>
-  <div class="tagline">― マンガみたいに楽しく、テストみたいにバッチリ ―</div>
-  <div class="three-badges">
-    <div class="badge">
-      <div class="num">1</div>
-      <div class="icon">⚔️</div>
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div class="meta-row">
+    <div>Volume 01 ─ Muromachi Files</div>
+    <div class="right">中学受験 / 社会 / 室町後期</div>
+  </div>
+
+  <div class="issue-num">Issue 01 — Spring</div>
+  <h1>応仁の乱<span class="amp">&</span><br>二つの一揆</h1>
+  <div class="deck">
+    京都を11年燃やした大乱、農民が大名を追い出した8年、信者がつくった100年の国 ─ 教科書では数行で終わる三つの事件は、じつは一本の物語でつながっている。</div>
+
+  <div class="three-grid">
+    <div class="ev">
+      <div class="num">FILE Ⅰ</div>
+      <div class="yr">1467</div>
       <div class="ttl">応仁の乱</div>
-      <div class="yr">1467年</div>
+      <div class="desc">将軍家のたった一つの跡継ぎ問題が、なぜ京都全体を焼く11年戦争になったのか。</div>
     </div>
-    <div class="badge">
-      <div class="num">2</div>
-      <div class="icon">🌾</div>
+    <div class="ev">
+      <div class="num">FILE Ⅱ</div>
+      <div class="yr">1485</div>
       <div class="ttl">山城の国一揆</div>
-      <div class="yr">1485年</div>
+      <div class="desc">疲れ果てた農民と地元武士が「もう自分たちでやる」と宣言した、自治8年間の物語。</div>
     </div>
-    <div class="badge">
-      <div class="num">3</div>
-      <div class="icon">🙏</div>
+    <div class="ev">
+      <div class="num">FILE Ⅲ</div>
+      <div class="yr">1488</div>
       <div class="ttl">加賀の一向一揆</div>
-      <div class="yr">1488年</div>
+      <div class="desc">信仰でつながった人々が守護大名を倒し、なんと100年も続いた「百姓の国」。</div>
     </div>
   </div>
-  <div class="for">📚 for 小学6年生 ・ 中学受験対策</div>
-</div>
 
-<!-- ====================== INTRO ====================== -->
-<div class="page">
-  <div class="ch-header c-intro">
-    <div class="chapter-no">PROLOGUE</div>
-    <h2>世の中がガラッと変わる、その前に</h2>
-    <div class="icon">🌏</div>
-    <div class="sub">― 室町幕府がだんだん弱っていった、3つのワケ ―</div>
-  </div>
-
-  <div class="lead-box">
-    むかし、室町幕府は3代将軍・足利義満(あしかがよしみつ)のころ、すっごく安定していたんだよ。<br>
-    でもね、義満が亡くなったあと、だんだん幕府は弱くなっちゃう。なんで?
-  </div>
-
-  <h3>ナゾを解くカギは、登場人物の話を聞くこと!</h3>
-
-  <div class="talk-row">
-    <div class="talker"><div class="face y">👑</div><div class="name">将軍さん</div></div>
-    <div class="bubble">「義満おじいちゃんみたいなカリスマがいなくて、ぼくたち将軍は弱っちいんだよね…暗殺されたり病弱だったり…💦」</div>
-  </div>
-
-  <div class="talk-row right">
-    <div class="talker"><div class="face r">🏯</div><div class="name">守護大名</div></div>
-    <div class="bubble">「ふっふっふ。地方は俺たち守護大名が支配してるんだ。幕府よりオレらの方が強いぜ!」</div>
-  </div>
-
-  <div class="talk-row">
-    <div class="talker"><div class="face g">🌾</div><div class="name">農民さん</div></div>
-    <div class="bubble">「ぼくらだって、二毛作で食べ物が増えて、市でお金もうけて、村(惣)で団結したんだ。バカにしないでよね!」</div>
-  </div>
-
-  <div class="arrow-steps">
-    <div class="arrow-step">
-      <div class="num-circle">①</div>
-      <div class="text-step"><strong>将軍がよわい</strong>。義満のあと、リーダーシップが続かなかった。</div>
-    </div>
-    <div class="arrow-step">
-      <div class="num-circle">②</div>
-      <div class="text-step"><strong>大名が強くなった</strong>。地方を仕切る守護大名が、幕府の言うことを聞かなくなった。</div>
-    </div>
-    <div class="arrow-step">
-      <div class="num-circle">③</div>
-      <div class="text-step"><strong>農民が元気</strong>。村で団結して「自分たちで決める」ようになった。</div>
-    </div>
-    <div class="big-arrow">⬇</div>
-    <div class="result-box">「上はグラグラ、下はパワー全開」<br>= なにかキッカケがあったら、ドカン!とくる時代</div>
-  </div>
-
-  <div class="memo">
-    📝 <strong>そのキッカケ</strong>が、これから話す<strong>「応仁の乱」</strong>! ここから世の中の常識がひっくり返っていくよ。
+  <div class="footer">
+    <div>For the curious 6th grader</div>
+    <div class="price">A field guide to medieval Japan</div>
   </div>
 </div>
 
-<!-- ====================== CHAPTER 1: 応仁の乱 ====================== -->
-<div class="page">
-  <div class="ch-header c-onin">
-    <div class="chapter-no">CHAPTER 1 ・ 1467 - 1477</div>
-    <h2>応仁の乱</h2>
-    <div class="icon">⚔️🔥</div>
-    <div class="sub">京都が11年間も燃えた、史上最大の大ゲンカ</div>
-  </div>
-
-  <div class="lead-box">
-    将軍夫婦の<strong>「跡継ぎ問題」</strong>が、なんで京都全体が燃える11年戦争になったの?<br>
-    じつは、<strong>3つのケンカ</strong>が同時にこんがらがったから! まず登場人物に会ってみよう!
-  </div>
-
-  <h3 class="c-onin">⭐ 登場人物カード(トレカ風!)</h3>
-  <div class="cards">
-    <div class="card">
-      <div class="top-band">8代将軍</div>
-      <div class="av">🎨</div>
-      <div class="name">足利義政</div>
-      <div class="role-row"><span class="role">芸術がだいすき</span></div>
-      <div class="desc">政治はめんどくさい。「もう将軍やめたい〜」と弟に跡を譲ろうとした優柔不断な人。あとで銀閣寺を建てる文化人。</div>
-      <div class="stats">
-        <div class="stat"><div class="lbl">政治力</div><div class="val">★☆☆</div></div>
-        <div class="stat"><div class="lbl">文化力</div><div class="val">★★★</div></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="top-band">義政の妻</div>
-      <div class="av">👘</div>
-      <div class="name">日野富子</div>
-      <div class="role-row"><span class="role">しっかり者</span></div>
-      <div class="desc">「うちの子(義尚)を将軍にしたい!」と強く主張。お金もうけがめっちゃ上手で、戦争中もちゃっかり稼いでいた。</div>
-      <div class="stats">
-        <div class="stat"><div class="lbl">主張力</div><div class="val">★★★</div></div>
-        <div class="stat"><div class="lbl">商売力</div><div class="val">★★★</div></div>
-      </div>
-    </div>
-    <div class="card east">
-      <div class="top-band">東軍リーダー</div>
-      <div class="av">⚔️</div>
-      <div class="name">細川勝元</div>
-      <div class="role-row"><span class="role">管領(かんれい)</span></div>
-      <div class="desc">幕府ナンバー2の管領。日野富子&義尚の味方。京都の<strong>東</strong>に陣をはった。</div>
-      <div class="stats">
-        <div class="stat"><div class="lbl">頭脳</div><div class="val">★★★</div></div>
-        <div class="stat"><div class="lbl">兵力</div><div class="val">16万</div></div>
-      </div>
-    </div>
-    <div class="card west">
-      <div class="top-band">西軍リーダー</div>
-      <div class="av">🛡️</div>
-      <div class="name">山名宗全</div>
-      <div class="role-row"><span class="role">赤入道(あかにゅうどう)</span></div>
-      <div class="desc">こわもての強い大名。義政の弟・義視の味方。京都の<strong>西</strong>に陣をはった。これが「<strong>西陣</strong>」(西陣織)の由来!</div>
-      <div class="stats">
-        <div class="stat"><div class="lbl">迫力</div><div class="val">★★★</div></div>
-        <div class="stat"><div class="lbl">兵力</div><div class="val">11万</div></div>
-      </div>
+<!-- ============ INTRO ============ -->
+<div class="opener intro">
+  <div class="opener-inner">
+    <div class="ch-tag">PROLOGUE</div>
+    <div class="ch-num">00</div>
+    <h1>世の中が、ひっくり返る前夜。</h1>
+    <div class="subline">3代将軍・足利義満の安定期は終わった。室町幕府はなぜ、ゆっくりと、しかし確実に弱っていったのか。</div>
+    <div class="key-stat-row">
+      <div class="stat"><div class="lbl">時代</div><div class="val">15c</div></div>
+      <div class="stat"><div class="lbl">舞台</div><div class="val">Kyoto</div></div>
+      <div class="stat"><div class="lbl">登場人物</div><div class="val">1000s</div></div>
     </div>
   </div>
-
-  <h3 class="c-onin">💥 なぜケンカに? ― 3つの対立がからまった!</h3>
-  <div class="panels">
-    <div class="panel">
-      <div class="num">1</div>
-      <div class="ttl">将軍の跡継ぎケンカ</div>
-      <div class="pic">👶 vs 🧑</div>
-      <div class="body">義政の弟<span class="blue">義視(よしみ)</span> vs 富子の子<span class="blue">義尚(よしひさ)</span>。「次の将軍はどっち?」</div>
-    </div>
-    <div class="panel">
-      <div class="num">2</div>
-      <div class="ttl">畠山家の家督ケンカ</div>
-      <div class="pic">⚔️ vs ⚔️</div>
-      <div class="body">管領家の畠山氏でも、政長 vs 義就(よしひろ)が当主の座を奪い合っていた。</div>
-    </div>
-    <div class="panel">
-      <div class="num">3</div>
-      <div class="ttl">大名の権力ケンカ</div>
-      <div class="pic">😡 vs 😤</div>
-      <div class="body"><span class="blue">細川勝元</span> vs <span class="blue">山名宗全</span>がもともと仲が悪かった。</div>
-    </div>
-  </div>
-  <div class="big-arrow">⬇ ぜんぶ絡まってドカン!</div>
-  <div class="result-box">1467年、ついに開戦! 「東軍 vs 西軍」全国規模の大バトル</div>
 </div>
 
-<!-- ====================== 応仁の乱 PAGE 2 ====================== -->
-<div class="page">
-  <div class="ch-header c-onin" style="padding: 14px;">
-    <h2 style="font-size: 22px;">⚔️ 東軍 vs 西軍 と、11年の物語</h2>
+<div class="spread">
+  <div class="section-label">
+    <div class="num">i.</div>
+    <div class="lab"><strong>BACKGROUND</strong> ─ なぜ崩壊は始まったか</div>
+  </div>
+  <h2 class="story-title">三つの「ゆらぎ」が、<em>同時に</em>進行していた。</h2>
+  <p class="story-deck drop-cap">義満の死後、室町幕府を支えていた均衡が少しずつ崩れていく。将軍は病気がちで暗殺もあり、地方の守護大名は領国を固めて独立色を強め、農民は<strong>惣(そう)</strong>という自治組織で力を蓄えた。「上はぐらぐら、下はみなぎる」── それが応仁の乱の前夜だ。</p>
+
+  <div class="story-steps">
+    <div class="ss-row">
+      <div class="num">i</div>
+      <div class="body">
+        <h4>将軍の権威が消えていった</h4>
+        <p>3代義満ほどのカリスマは続かず、4代以降の将軍は短命・暗殺・病弱が相次いだ。幕府の中心がぐらつき始める。</p>
+      </div>
+    </div>
+    <div class="ss-row">
+      <div class="num">ii</div>
+      <div class="body">
+        <h4>守護大名が、独立国家のようになった</h4>
+        <p>地方を治める守護たちは「半済(年貢の半分)」などの特権を得て、領国の実質支配者へ。幕府より自分の領地を優先するように。</p>
+      </div>
+    </div>
+    <div class="ss-row">
+      <div class="num">iii</div>
+      <div class="body">
+        <h4>農民が、政治をする側に回った</h4>
+        <p>二毛作・水車・市の発達で経済力をつけた農民は、村ごとに惣を組織し、寄合で物事を決めるようになった。「自分たちで決める」感覚の誕生。</p>
+      </div>
+    </div>
+    <div class="ss-row outcome">
+      <div class="num">→</div>
+      <div class="body">
+        <h4>結論 ── 何かのきっかけで、ドミノは倒れる。</h4>
+        <p>そのきっかけが、これから語る<strong>応仁の乱</strong>。ここから世の中の「常識」が、一気に書き換わっていく。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHAPTER 1: 応仁の乱 ============ -->
+<div class="opener c1">
+  <div class="opener-inner">
+    <div class="ch-tag">FILE Ⅰ ─ 1467 / 京都</div>
+    <div class="ch-num">01</div>
+    <h1>応仁の乱<br>──11年、京都が燃えた。</h1>
+    <div class="subline">将軍夫婦の跡継ぎ問題が、なぜ全国を巻き込む大戦争に発展したのか。三つの対立が、同じ瞬間に絡まった。</div>
+    <div class="key-stat-row">
+      <div class="stat"><div class="lbl">期間</div><div class="val">11<span style="font-size:18px">年</span></div></div>
+      <div class="stat"><div class="lbl">兵力(東+西)</div><div class="val">27<span style="font-size:18px">万</span></div></div>
+      <div class="stat"><div class="lbl">京都の被害</div><div class="val">全焼</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="spread">
+  <div class="section-label">
+    <div class="num">01.</div>
+    <div class="lab"><strong>THE CAST</strong> ─ 物語を動かした4人</div>
+  </div>
+  <h2 class="story-title">登場人物は、たった<em>4人</em>。</h2>
+  <p class="story-deck">この大戦争を理解するカギは、実は将軍夫婦と二人の管領、合計4人の人間関係にある。彼らがどう絡んだのかを知れば、11年戦争のすべてが見えてくる。</p>
+
+  <div class="portraits">
+    <div class="portrait">
+      <div class="head">
+        <div class="glyph">政</div>
+        <div class="name-block">
+          <div class="role-tag">8th Shogun</div>
+          <div class="name">足利 義政</div>
+          <div class="read">あしかが よしまさ</div>
+        </div>
+      </div>
+      <div class="quote">「もう将軍はやめたい。弟に譲ろう。」</div>
+      <div class="bio">芸術を愛し、政治を嫌う優柔不断な将軍。妻・富子に押されっぱなし。後に銀閣寺を建て、文化人としては大きな足跡を残す。</div>
+    </div>
+
+    <div class="portrait">
+      <div class="head">
+        <div class="glyph">富</div>
+        <div class="name-block">
+          <div class="role-tag">Wife of Yoshimasa</div>
+          <div class="name">日野 富子</div>
+          <div class="read">ひの とみこ</div>
+        </div>
+      </div>
+      <div class="quote">「我が子・義尚こそ、次の将軍に。」</div>
+      <div class="bio">しっかり者で商才あり。実子の義尚が生まれた瞬間から「将軍は息子に」と動き出す。乱の最中も米相場や関銭で稼いだとされる。</div>
+    </div>
+
+    <div class="portrait east">
+      <div class="head">
+        <div class="glyph">細</div>
+        <div class="name-block">
+          <div class="role-tag">East Army Leader</div>
+          <div class="name">細川 勝元</div>
+          <div class="read">ほそかわ かつもと</div>
+        </div>
+      </div>
+      <div class="quote">「次の将軍は、義尚さまだ。」</div>
+      <div class="bio">幕府ナンバー2「管領」を務めた切れ者。富子・義尚側を支持し、京都の<strong>東</strong>に陣を構えた。だから「東軍」のリーダー。</div>
+    </div>
+
+    <div class="portrait west">
+      <div class="head">
+        <div class="glyph">宗</div>
+        <div class="name-block">
+          <div class="role-tag">West Army Leader</div>
+          <div class="name">山名 宗全</div>
+          <div class="read">やまな そうぜん</div>
+        </div>
+      </div>
+      <div class="quote">「いや、約束どおり義視さまだ。」</div>
+      <div class="bio">「赤入道」と呼ばれた強面の大名。義視を擁立し、京都の<strong>西</strong>に陣を構えた。これが現在も続く<strong>「西陣織」</strong>の地名の由来となる。</div>
+    </div>
   </div>
 
-  <div class="battle">
-    <div class="army-box east">
-      <h4>🔴 東軍</h4>
-      <ul>
-        <li>👑 リーダー: <strong>細川勝元</strong></li>
-        <li>👶 推す将軍: 足利義尚</li>
-        <li>📍 大名: 畠山政長 ほか</li>
-        <li>📌 陣地: 京都の<strong>東側</strong></li>
-        <li>👥 兵力: 約16万人</li>
+  <div class="pull-quote">
+    <div class="text">「人の世むなしい、<em>と歌われた11年は</em>、<br>たった4人の人間関係から始まった。」</div>
+    <div class="attribution">─ NARRATOR</div>
+  </div>
+</div>
+
+<div class="spread">
+  <div class="section-label">
+    <div class="num">02.</div>
+    <div class="lab"><strong>THE CAUSE</strong> ─ 三つの対立が、同時に絡まった</div>
+  </div>
+  <h2 class="story-title">なぜ、ここまで大事になった?</h2>
+  <p class="story-deck">単独なら処理できた問題が、三つ同時に重なったのが致命的だった。将軍家・管領家・大名同士、すべての火種が一気に発火する。</p>
+
+  <div class="story-steps">
+    <div class="ss-row">
+      <div class="num">①</div>
+      <div class="body">
+        <h4>将軍家の跡継ぎ争い</h4>
+        <p>義政の弟<span class="key">義視(よしみ)</span>を後継者にしたところ、富子に実子<span class="key">義尚(よしひさ)</span>が誕生。「次の将軍はどっち?」</p>
+      </div>
+    </div>
+    <div class="ss-row">
+      <div class="num">②</div>
+      <div class="body">
+        <h4>管領家・畠山氏の家督争い</h4>
+        <p>幕府ナンバー2の畠山氏でも、政長 vs 義就(よしひろ)が当主の座を奪い合っていた。</p>
+      </div>
+    </div>
+    <div class="ss-row">
+      <div class="num">③</div>
+      <div class="body">
+        <h4>大名同士の権力闘争</h4>
+        <p><span class="key">細川勝元</span>と<span class="key">山名宗全</span>はもともと不仲。両者の対抗心がすべての火種を一つにまとめ上げた。</p>
+      </div>
+    </div>
+    <div class="ss-row outcome">
+      <div class="num">→</div>
+      <div class="body">
+        <h4>1467年、ついに京都で開戦。</h4>
+        <p>東軍と西軍、合計約27万人が京都を主戦場に対峙。応仁の乱、開幕。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3><span class="marker">battle.</span>東軍 対 西軍</h3>
+
+  <div class="battle-grid">
+    <div class="army-col east">
+      <div class="a-tag">East Army</div>
+      <div class="a-name">東軍</div>
+      <div class="a-leader">led by 細川勝元</div>
+      <ul class="a-list">
+        <li><span class="lbl">推す将軍</span><span class="val">足利義尚</span></li>
+        <li><span class="lbl">主な大名</span><span class="val">畠山政長 ほか</span></li>
+        <li><span class="lbl">陣地</span><span class="val">京都・東側</span></li>
+        <li><span class="lbl">兵力</span><span class="val">約16万人</span></li>
       </ul>
     </div>
-    <div class="vs-big">VS</div>
-    <div class="army-box west">
-      <h4>🔵 西軍</h4>
-      <ul>
-        <li>👑 リーダー: <strong>山名宗全</strong></li>
-        <li>🧑 推す将軍: 足利義視</li>
-        <li>📍 大名: 畠山義就 ほか</li>
-        <li>📌 陣地: 京都の<strong>西側</strong>(=西陣)</li>
-        <li>👥 兵力: 約11万人</li>
+    <div class="vs-divider"><div class="vs">vs.</div></div>
+    <div class="army-col west">
+      <div class="a-tag">West Army</div>
+      <div class="a-name">西軍</div>
+      <div class="a-leader">led by 山名宗全</div>
+      <ul class="a-list">
+        <li><span class="lbl">推す将軍</span><span class="val">足利義視</span></li>
+        <li><span class="lbl">主な大名</span><span class="val">畠山義就 ほか</span></li>
+        <li><span class="lbl">陣地</span><span class="val">京都・西側</span></li>
+        <li><span class="lbl">兵力</span><span class="val">約11万人</span></li>
       </ul>
     </div>
   </div>
 
-  <h3 class="c-onin">📅 11年の流れ ― ゆっくり追ってみよう</h3>
-  <div class="timeline">
-    <div class="tl-event big">
-      <div class="yr-tag">1464年</div>
-      <div class="ev-text">義政「子どもがいないし、弟の<strong>義視</strong>を後継者にするね!」</div>
-    </div>
-    <div class="tl-event">
-      <div class="yr-tag">1465年</div>
-      <div class="ev-text">😱 富子に男の子(義尚)が生まれちゃった! 「やっぱり<strong>うちの子</strong>を将軍に!」</div>
-    </div>
-    <div class="tl-event big">
-      <div class="yr-tag">1467年</div>
-      <div class="ev-text">💥 <strong>開戦!</strong> 細川 vs 山名のケンカと結びついて、京都が戦場に!</div>
-    </div>
-    <div class="tl-event">
-      <div class="yr-tag">1473年</div>
-      <div class="ev-text">😢 リーダーの<strong>山名宗全</strong>と<strong>細川勝元</strong>が同じ年に病死…でも戦いはまだ続く。</div>
-    </div>
-    <div class="tl-event big">
-      <div class="yr-tag">1477年</div>
-      <div class="ev-text">😩 11年たって、なんとなく終わり。京都は焼け野原に…</div>
-    </div>
+  <div class="sidenote tip">
+    <div class="h">Did You Know</div>
+    西軍が陣を張った場所は、現在も<strong>「西陣」</strong>と呼ばれ、高級絹織物「西陣織」の産地として全国に知られている。応仁の乱の地名は、500年以上経った今も京都の地図に残り続けている。
+  </div>
+</div>
+
+<div class="spread">
+  <div class="section-label">
+    <div class="num">03.</div>
+    <div class="lab"><strong>THE TIMELINE</strong> ─ 11年の年表</div>
+  </div>
+  <h3><span class="marker">chronicle.</span>11年の流れを追う</h3>
+
+  <div class="timeline-wrap">
+    <div class="tl-event"><div class="yr">1464</div><div class="what">義政「子がないし、弟・義視を後継者にしよう」と決定。</div></div>
+    <div class="tl-event"><div class="yr">1465</div><div class="what">日野富子に男児・義尚が誕生。「やはり実子に継がせたい」と運命が反転する。</div></div>
+    <div class="tl-event key"><div class="yr">1467</div><div class="what"><span class="ev-tag">START</span>東軍と西軍、京都で開戦。応仁の乱、ついに勃発。</div></div>
+    <div class="tl-event"><div class="yr">1473</div><div class="what">山名宗全、細川勝元、リーダー二人が同年に病死。だが戦いは止まらない。</div></div>
+    <div class="tl-event key"><div class="yr">1477</div><div class="what"><span class="ev-tag">END</span>11年経って、決着のないまま自然消滅。京都は焼け野原に。</div></div>
   </div>
 
-  <h3 class="c-onin">🌅 何が変わった? ― 結果まとめ</h3>
-  <div class="panels">
-    <div class="panel">
+  <div class="factoid">
+    <div class="num">11<span style="font-size:48px">年</span></div>
+    <div class="desc">決着のないまま続いた、京都の戦火の長さ。</div>
+  </div>
+
+  <h3><span class="marker">aftermath.</span>11年がもたらしたもの</h3>
+
+  <div class="story-steps">
+    <div class="ss-row">
       <div class="num">A</div>
-      <div class="ttl">京都が焼け野原</div>
-      <div class="pic">🔥</div>
-      <div class="body">寺社や公家の屋敷の多くが燃えた。みんな大ショック。</div>
+      <div class="body">
+        <h4>京都が焼け野原に</h4>
+        <p>寺社・公家屋敷の多くが焼失。応仁の乱以前の京都の景観は、ほぼ失われた。</p>
+      </div>
     </div>
-    <div class="panel">
+    <div class="ss-row">
       <div class="num">B</div>
-      <div class="ttl">文化が地方へ</div>
-      <div class="pic">🚶‍♂️📚</div>
-      <div class="body">公家が地方へ逃げて、京都の文化が日本中に広まった。</div>
+      <div class="body">
+        <h4>文化が地方へ広がった</h4>
+        <p>戦火を逃れた公家たちが地方の大名を頼って疎開。京都中心だった文化が、全国に拡散していく。</p>
+      </div>
     </div>
-    <div class="panel">
+    <div class="ss-row">
       <div class="num">C</div>
-      <div class="ttl">幕府の権威ガタ落ち</div>
-      <div class="pic">📉</div>
-      <div class="body">将軍を尊敬する人が減って、各地の大名が好き勝手に。</div>
+      <div class="body">
+        <h4>幕府の権威が失墜</h4>
+        <p>「将軍がいるから秩序が保たれる」という常識が崩れた。各地で大名が独立的に振る舞い始める。</p>
+      </div>
     </div>
-    <div class="panel">
-      <div class="num">D</div>
-      <div class="ttl">戦国時代スタート!</div>
-      <div class="pic">🗾⚔️</div>
-      <div class="body">「下剋上」の時代へ突入。下から上を倒してもいい時代に!</div>
+    <div class="ss-row outcome">
+      <div class="num">→</div>
+      <div class="body">
+        <h4>結論 ── 戦国時代の幕開け。</h4>
+        <p>応仁の乱は「結果が出なかった戦争」。だが、その「決着のなさ」こそが、新しい時代の扉を開いた。</p>
+      </div>
     </div>
   </div>
 
-  <div class="stamp">
-    <div class="label">★ ここがポイント! ★</div>
-    <div class="main-text">応仁の乱 = 戦国時代のスタートライン!<br>「上(幕府)が崩れた」最初の事件</div>
-  </div>
-
-  <div class="tips">
-    <div class="tlabel">💎 入試で出るぞ!</div>
-    <ul>
-      <li>年号 <strong>1467年</strong> →「<strong>人の世むなしい</strong>(1467)応仁の乱」で覚える!</li>
-      <li>原因は「<strong>将軍家の跡継ぎ争い + 管領家の対立</strong>」と書く!</li>
-      <li>京都の「<strong>西陣織</strong>」は西軍の陣のあとが由来!(豆知識で差をつけよう✨)</li>
-    </ul>
+  <div class="sidenote">
+    <div class="h">Exam Notes ─ 入試で問われるツボ</div>
+    <strong>原因を聞かれたら</strong> ─「8代将軍・足利義政の跡継ぎ争い + 管領家(細川と山名)の対立」。<br>
+    <strong>年号は</strong> ─「人の世むなしい(1467)応仁の乱」。<br>
+    <strong>結果を一言で</strong> ─「幕府の権威が失墜し、戦国時代へ入る分岐点」。
   </div>
 </div>
 
-<!-- ====================== CHAPTER 2: 山城の国一揆 ====================== -->
-<div class="page">
-  <div class="ch-header c-yamashiro">
-    <div class="chapter-no">CHAPTER 2 ・ 1485 - 1493</div>
-    <h2>山城の国一揆</h2>
-    <div class="icon">🌾✊</div>
-    <div class="sub">フツーの人たちが、大名を追い出した8年間</div>
+<!-- ============ CHAPTER 2: 山城の国一揆 ============ -->
+<div class="opener c2">
+  <div class="opener-inner">
+    <div class="ch-tag">FILE Ⅱ ─ 1485 / 山城国南部</div>
+    <div class="ch-num">02</div>
+    <h1>山城の国一揆<br>──庶民が、大名を追い出した。</h1>
+    <div class="subline">武士と農民が手を組み、領地を支配していた両畠山軍を追放。約8年間、自分たちで国を治めた前代未聞の事件。</div>
+    <div class="key-stat-row">
+      <div class="stat"><div class="lbl">自治期間</div><div class="val">8<span style="font-size:18px">年</span></div></div>
+      <div class="stat"><div class="lbl">運営</div><div class="val">36<span style="font-size:18px">人</span></div></div>
+      <div class="stat"><div class="lbl">追放</div><div class="val">畠山×2</div></div>
+    </div>
   </div>
+</div>
 
-  <div class="lead-box">
-    応仁の乱が終わっても、平和は来なかった…。延長戦が続いて、村もボロボロ。<br>
-    そこで地元の人たちが、ついに<strong>「もうたくさん!自分たちで何とかする!」</strong>と立ち上がったんだ!
+<div class="spread">
+  <div class="section-label">
+    <div class="num">04.</div>
+    <div class="lab"><strong>THE STAGE</strong> ─ なぜ山城だったのか</div>
   </div>
+  <h2 class="story-title">応仁の乱の<em>延長戦</em>に、人々は限界を迎えた。</h2>
+  <p class="story-deck drop-cap">応仁の乱が終わっても、戦火は止まらなかった。管領家の畠山氏は政長派と義就派に分裂したまま、山城国(京都府南部)で内輪もめを8年も続けていた。田畑は荒れ、農民は飢え、地元の武士=国人(こくじん)も疲弊していく。</p>
 
-  <h3 class="c-yamashiro">📍 ここで起きた! ― 山城国(京都府の南部)</h3>
-  <div class="map-box">
+  <div class="map">
     <div class="map-grid">
       <div>越前</div><div>近江</div><div>丹波</div><div>京都</div>
-      <div class="here2">山城</div><div>大和</div><div>河内</div><div>和泉</div>
+      <div class="here-y">山城</div><div>大和</div><div>河内</div><div>和泉</div>
     </div>
-    <div class="map-caption">⬆️ 山城国(京都府の南部) 応仁の乱で激戦地だった場所</div>
+    <div class="cap">山城国 ─ 現在の京都府南部、応仁の乱でも激戦地だった</div>
   </div>
 
-  <h3 class="c-yamashiro">😤 なんで一揆が起きた?</h3>
+  <h3><span class="marker">trigger.</span>限界を超えた瞬間</h3>
 
-  <div class="talk-row">
-    <div class="talker"><div class="face r">😡</div><div class="name">畠山政長</div></div>
-    <div class="bubble">「ぼくが本物の畠山の当主だ!」</div>
-  </div>
-  <div class="talk-row right">
-    <div class="talker"><div class="face r">😠</div><div class="name">畠山義就</div></div>
-    <div class="bubble">「いやいや、おれが本物の当主だぞ!」</div>
-  </div>
-  <div class="talk-row">
-    <div class="talker"><div class="face g">😭</div><div class="name">農民さん</div></div>
-    <div class="bubble">「ふたりとも、いつまでケンカしてるの?もう8年も…田んぼがメチャメチャだよ!!」</div>
-  </div>
-  <div class="talk-row right">
-    <div class="talker"><div class="face b">💪</div><div class="name">国人(地元の武士)</div></div>
-    <div class="bubble">「ちょっと待って! ぼくたち地元のみんなで力を合わせれば、追い出せるんじゃない?!」</div>
-  </div>
-
-  <div class="arrow-steps">
-    <div class="arrow-step">
-      <div class="num-circle">1</div>
-      <div class="text-step">応仁の乱が終わっても、畠山家が<span class="blue">政長派 vs 義就派</span>で内輪もめ。</div>
+  <div class="story-steps">
+    <div class="ss-row">
+      <div class="num">i</div>
+      <div class="body">
+        <h4>畠山政長 vs 畠山義就、終わらない内輪もめ</h4>
+        <p>応仁の乱の後も、畠山家は二派に分裂したまま。山城国で軍をぶつけ合う日々が、なんと8年続いた。</p>
+      </div>
     </div>
-    <div class="arrow-step">
-      <div class="num-circle">2</div>
-      <div class="text-step">どっちも「俺が本物!」と山城国でずっと軍を戦わせる。<strong>8年も!</strong></div>
+    <div class="ss-row">
+      <div class="num">ii</div>
+      <div class="body">
+        <h4>田畑は荒れ、人々は疲弊</h4>
+        <p>農民は飢え、地元の武士「国人」も限界。「いつまで続くのか」という怒りが、共通の不満として蓄積していった。</p>
+      </div>
     </div>
-    <div class="arrow-step">
-      <div class="num-circle">3</div>
-      <div class="text-step">田畑が荒れて農民は飢え、地元の武士(<span class="blue">国人</span>)も限界。</div>
+    <div class="ss-row">
+      <div class="num">iii</div>
+      <div class="body">
+        <h4>1485年12月、国人36人が集会</h4>
+        <p>地元武士たちが結束し、農民もこれに加わる。「両畠山軍は出て行け」と要求し、両軍を撤退させることに成功する。</p>
+      </div>
     </div>
-    <div class="big-arrow">⬇ もう限界!</div>
-    <div class="result-box">1485年12月、国人36人が集会! 農民もまとまり、両畠山軍に「出て行け!」</div>
-  </div>
-
-  <h3 class="c-yamashiro">🎉 8年間の自治の物語</h3>
-  <div class="timeline">
-    <div class="tl-event big">
-      <div class="yr-tag">1485.12</div>
-      <div class="ev-text">国人36人が集まり、農民とタッグ! 両畠山軍に「出て行け!」</div>
-    </div>
-    <div class="tl-event">
-      <div class="yr-tag">1486年</div>
-      <div class="ev-text">両軍が撤退! 「<strong>国中掟法(こくちゅうじょうほう)</strong>」という掟を作って、<strong>月行事</strong>36人が交代で国を治める。</div>
-    </div>
-    <div class="tl-event">
-      <div class="yr-tag">87-92年</div>
-      <div class="ev-text">およそ<strong>8年</strong>、武士+農民の連合自治がつづく。</div>
-    </div>
-    <div class="tl-event big">
-      <div class="yr-tag">1493年</div>
-      <div class="ev-text">内部のもめごと+幕府の介入で、自治は終了。でも歴史に名を残した!</div>
+    <div class="ss-row outcome">
+      <div class="num">→</div>
+      <div class="body">
+        <h4>武士と農民の連合軍が、大名を追い出した。</h4>
+        <p>「下が上を倒せる」── 室町の常識を打ち破った瞬間。</p>
+      </div>
     </div>
   </div>
 
-  <div class="stamp" style="border-color: var(--blue);">
-    <div class="label" style="color: var(--blue);">★ ここがすごい! ★</div>
-    <div class="main-text">山城の国一揆 = 「下からの政治」の最初の成功例!<br>武士+農民でみんなで国を運営した</div>
-  </div>
-
-  <div class="quiz-box">
-    <div class="q">なんで農民まで参加できたの?</div>
-    <div class="a">国人(地元の小武士)だけじゃ大名軍に勝てなかったから! 室町時代に<strong>惣村</strong>で団結する力をつけた農民たちと、武士が「敵の敵は味方!」で手を組んだのが勝因なんだ。</div>
-  </div>
-
-  <div class="tips">
-    <div class="tlabel">💎 入試で出るぞ!</div>
-    <ul>
-      <li>年号 <strong>1485年</strong> ・場所 <strong>山城国(京都府南部)</strong></li>
-      <li>主役は「<strong>国人(武士)+農民</strong>」←「農民だけ」と書くとバツ!</li>
-      <li>自治の期間は<strong>約8年間</strong> ・追い出した相手は<strong>畠山政長と畠山義就</strong></li>
-    </ul>
+  <div class="pull-quote">
+    <div class="text">「治めるのは大名だ、<em>と決まっていた時代に</em>、<br>農民と地元武士は、自分たちで治めると決めた。」</div>
+    <div class="attribution">─ THE TURNING POINT</div>
   </div>
 </div>
 
-<!-- ====================== CHAPTER 3: 加賀の一向一揆 ====================== -->
-<div class="page">
-  <div class="ch-header c-kaga">
-    <div class="chapter-no">CHAPTER 3 ・ 1488 - 1580</div>
-    <h2>加賀の一向一揆</h2>
-    <div class="icon">🙏✨</div>
-    <div class="sub">なんと約100年! 信者がつくった国の物語</div>
+<div class="spread">
+  <div class="section-label">
+    <div class="num">05.</div>
+    <div class="lab"><strong>THE 8 YEARS</strong> ─ 自治の8年間</div>
+  </div>
+  <h3><span class="marker">chronicle.</span>自治の年表</h3>
+
+  <div class="timeline-wrap">
+    <div class="tl-event key c2"><div class="yr">1485.12</div><div class="what"><span class="ev-tag">START</span>国人36人が集会、農民と連合し、両畠山軍に撤退を要求。両軍が撤退。</div></div>
+    <div class="tl-event"><div class="yr">1486</div><div class="what">「<strong>国中掟法(こくちゅうじょうほう)</strong>」を制定。<strong>月行事(つきぎょうじ)</strong>36人が交代で国を運営。</div></div>
+    <div class="tl-event"><div class="yr">87 - 92</div><div class="what">およそ8年間、武士と農民の連合自治が続く。寺社や荘園の支配は維持しつつ、自分たちで秩序を保った。</div></div>
+    <div class="tl-event key c2"><div class="yr">1493</div><div class="what"><span class="ev-tag">END</span>内部の意見対立と幕府の介入により、自治は終了。だが歴史にはくっきりと名を残した。</div></div>
   </div>
 
-  <div class="lead-box">
-    山城の国一揆が「8年」だったのに、加賀(石川県)では<strong>100年も</strong>!?<br>
-    一つの場所が、お殿さまじゃなくて<strong>信者さんたち</strong>に治められた、世界でも珍しい事件なんだ!
+  <div class="factoid">
+    <div class="num">8<span style="font-size:48px">年</span></div>
+    <div class="desc">武士と農民の連合が、自分たちの国を治めた期間。</div>
   </div>
 
-  <h3 class="c-kaga">📍 場所はここ ― 加賀(かが=石川県南部)</h3>
-  <div class="map-box">
+  <div class="qa">
+    <div class="q">なぜ農民まで参加できた? 武士だけでは足りなかったのか。</div>
+    <div class="a">国人(地元の小武士)だけでは大名軍に勝てなかったから。だが、室町時代に<strong>惣村</strong>で「自分たちで決める」訓練を積んできた農民たちが、武士と手を組んだとき、初めて大名を押し返す力が生まれた。「呉越同舟(ごえつどうしゅう)」── 普段は対立する者でも、共通の敵には団結する。</div>
+  </div>
+
+  <div class="sidenote tip">
+    <div class="h">Why It Matters</div>
+    山城の国一揆は、わずか8年で終わったとはいえ、「下からの政治」が成立しうることを日本中の人に知らせた事件。これは加賀の一向一揆など、その後の自治運動への大きなインスピレーションとなる。
+  </div>
+
+  <div class="sidenote warn">
+    <div class="h">Exam Notes ─ ここで間違えやすい</div>
+    主役を「<strong>農民だけ</strong>」と書くと減点。正解は「<strong>国人(地元の武士)+農民</strong>」。両畠山軍(政長と義就)を追放したという「両」がポイント。場所は<strong>山城国(京都府南部)</strong>、加賀(石川県)と取り違えない。
+  </div>
+</div>
+
+<!-- ============ CHAPTER 3: 加賀の一向一揆 ============ -->
+<div class="opener c3">
+  <div class="opener-inner">
+    <div class="ch-tag">FILE Ⅲ ─ 1488 / 加賀(石川県)</div>
+    <div class="ch-num">03</div>
+    <h1>加賀の一向一揆<br>──信者が、100年の国を作った。</h1>
+    <div class="subline">浄土真宗(一向宗)の信者たちが守護大名を倒し、「百姓の持ちたる国」と呼ばれた約100年間の自治を実現した、歴史的奇跡。</div>
+    <div class="key-stat-row">
+      <div class="stat"><div class="lbl">自治期間</div><div class="val">≈100<span style="font-size:18px">年</span></div></div>
+      <div class="stat"><div class="lbl">蜂起兵力</div><div class="val">20<span style="font-size:18px">万</span></div></div>
+      <div class="stat"><div class="lbl">滅ぼした側</div><div class="val">信長</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="spread">
+  <div class="section-label">
+    <div class="num">06.</div>
+    <div class="lab"><strong>THE FAITH</strong> ─ 信仰のチカラ</div>
+  </div>
+  <h2 class="story-title">なぜ100年も、続いたのか?</h2>
+  <p class="story-deck drop-cap">山城の国一揆が8年で終わったのに対し、加賀の一向一揆は約100年も続いた。その秘密は「信仰の力」と、一人の天才布教者・蓮如(れんにょ)にある。</p>
+
+  <div class="map">
     <div class="map-grid">
       <div>陸奥</div><div>出羽</div><div>越後</div><div>能登</div>
-      <div class="here">加賀</div><div>越中</div><div>飛騨</div><div>信濃</div>
+      <div class="here-k">加賀</div><div>越中</div><div>飛騨</div><div>信濃</div>
     </div>
-    <div class="map-caption">⬆️ 加賀(石川県南部)。北陸地方の中心地</div>
+    <div class="cap">加賀 ─ 北陸の中心地、現在の石川県南部</div>
   </div>
 
-  <h3 class="c-kaga">🙏 そもそも「一向宗」って何?</h3>
-  <p style="background: #fff5e6; padding: 12px; border-radius: 8px;">
-    <strong>一向宗 = 浄土真宗(じょうどしんしゅう)</strong>のこと!<br>
-    鎌倉時代に<strong>親鸞(しんらん)</strong>さんが開いた仏教の一派で、「<strong>南無阿弥陀仏</strong>と唱えれば誰でも救われる」というシンプルな教え。<br>
-    だから武士・農民・商工業者、いろんな人に大人気!
-  </p>
+  <h3><span class="marker">religion.</span>一向宗とは何か</h3>
+  <p><strong>一向宗 = 浄土真宗</strong>のこと。鎌倉時代に<span class="purple">親鸞(しんらん)</span>が開いた仏教の一派で、「南無阿弥陀仏と唱えれば、誰でも救われる」というシンプルな教え。武士・農民・商工業者、誰でも入れる「開かれた信仰」だったため、爆発的に広まった。</p>
 
-  <h3 class="c-kaga">⭐ 登場人物カード</h3>
-  <div class="cards">
-    <div class="card kaga">
-      <div class="top-band">開祖(鎌倉時代)</div>
-      <div class="av">📿</div>
-      <div class="name">親鸞</div>
-      <div class="role-row"><span class="role">浄土真宗の開祖</span></div>
-      <div class="desc">「他力本願」 ― 阿弥陀さまにすがれば誰でも救われる、と説いた人。<br><strong>※鎌倉時代の人だよ! 時代まちがえ注意!</strong></div>
+  <div class="portraits">
+    <div class="portrait k">
+      <div class="head">
+        <div class="glyph">親</div>
+        <div class="name-block">
+          <div class="role-tag">Founder ─ Kamakura Era</div>
+          <div class="name">親鸞</div>
+          <div class="read">しんらん</div>
+        </div>
+      </div>
+      <div class="quote">「他力本願 ─ 阿弥陀さまにすがれば、誰でも救われる。」</div>
+      <div class="bio">浄土真宗の開祖。<strong>鎌倉時代</strong>の僧で、加賀の一向一揆(室町時代)とは時代が違うことに注意。彼の教えが、200年後に巨大な政治力に変わる。</div>
     </div>
-    <div class="card kaga">
-      <div class="top-band">布教の天才(室町)</div>
-      <div class="av">✉️</div>
-      <div class="name">蓮如(れんにょ)</div>
-      <div class="role-row"><span class="role">本願寺8代目</span></div>
-      <div class="desc">わかりやすい手紙(<strong>御文</strong>)を書いて教えを広めた! 北陸で信者が大爆発!</div>
-    </div>
-    <div class="card kaga">
-      <div class="top-band">滅ぼされる側</div>
-      <div class="av">⚔️</div>
-      <div class="name">富樫政親</div>
-      <div class="role-row"><span class="role">加賀の守護大名</span></div>
-      <div class="desc">最初は信者と仲良かったけど、力をつけすぎた信者と対立。1488年、自害…</div>
-    </div>
-  </div>
 
-  <h3 class="c-kaga">💥 なんで守護大名を倒せたの?</h3>
-  <div class="arrow-steps">
-    <div class="arrow-step">
-      <div class="num-circle">1</div>
-      <div class="text-step"><strong>蓮如さんの布教大成功!</strong> 加賀には信者(本願寺の門徒)がたくさん!</div>
+    <div class="portrait k">
+      <div class="head">
+        <div class="glyph">蓮</div>
+        <div class="name-block">
+          <div class="role-tag">Master Evangelist</div>
+          <div class="name">蓮如</div>
+          <div class="read">れんにょ</div>
+        </div>
+      </div>
+      <div class="quote">「むずかしい言葉では伝わらぬ。手紙で書こう。」</div>
+      <div class="bio">本願寺8代目。わかりやすい手紙(<strong>御文(おふみ)</strong>)を書いて教えを広め、北陸に信者を爆発的に増やした「布教の天才」。</div>
     </div>
-    <div class="arrow-step">
-      <div class="num-circle">2</div>
-      <div class="text-step">「<span class="purple">講(こう)</span>」という信者の集まりが村ごとにあって、強い結びつき。「同じ仏さまを拝む仲間」=最強!</div>
-    </div>
-    <div class="arrow-step">
-      <div class="num-circle">3</div>
-      <div class="text-step">守護大名の<strong>富樫政親</strong>が信者をいじめようとしたから、信者(武士+農民)が大反撃!</div>
-    </div>
-    <div class="big-arrow">⬇ 1488年</div>
-    <div class="result-box">20万人とも言われる信者軍が、富樫の高尾城を包囲!<br>富樫政親は自害、守護大名が消滅!</div>
-  </div>
 
-  <h3 class="c-kaga">🏛️ 「百姓の持ちたる国」って?</h3>
-  <p>守護大名がいなくなった加賀は、本願寺と国人(地元武士)・農民が運営する<strong>「百姓の持ちたる国(ひゃくしょうのもちたるくに)」</strong>になった!<br>
-  これは当時の人がそう呼んだ言葉で、教科書にも必ず出てくるよ⭐</p>
+    <div class="portrait k">
+      <div class="head">
+        <div class="glyph">富</div>
+        <div class="name-block">
+          <div class="role-tag">Defeated Lord</div>
+          <div class="name">富樫 政親</div>
+          <div class="read">とがし まさちか</div>
+        </div>
+      </div>
+      <div class="quote">「信者の力が、わしの想像を超えている…」</div>
+      <div class="bio">加賀の守護大名。最初は信者と協力していたが、力をつけすぎた信者と対立。1488年、高尾城を包囲され自害。富樫氏滅亡。</div>
+    </div>
 
-  <div class="memo">
-    📝 <strong>記述で書けたら満点!</strong><br>
-    「加賀は<strong>百姓の持ちたる国</strong>と呼ばれ、約100年間、本願寺と門徒(信者)で治められた」
+    <div class="portrait k">
+      <div class="head">
+        <div class="glyph">信</div>
+        <div class="name-block">
+          <div class="role-tag">Final Conqueror</div>
+          <div class="name">織田 信長</div>
+          <div class="read">おだ のぶなが</div>
+        </div>
+      </div>
+      <div class="quote">「宗教が国を持つだと?── 認めん。」</div>
+      <div class="bio">100年後の戦国大名。1580年、加賀の一向一揆を攻め滅ぼす。石山本願寺との10年戦争(石山合戦)も知られる。</div>
+    </div>
   </div>
 </div>
 
-<!-- ====================== 加賀 PAGE 2 ====================== -->
-<div class="page">
-  <div class="ch-header c-kaga" style="padding: 14px;">
-    <h2 style="font-size: 22px;">⏳ なぜ100年もつづいたの?</h2>
+<div class="spread">
+  <div class="section-label">
+    <div class="num">07.</div>
+    <div class="lab"><strong>THE REVOLUTION</strong> ─ 守護を倒した1488</div>
+  </div>
+  <h3><span class="marker">how.</span>なぜ守護大名を倒せたのか</h3>
+
+  <div class="story-steps">
+    <div class="ss-row">
+      <div class="num">i</div>
+      <div class="body">
+        <h4>蓮如の布教成功</h4>
+        <p>加賀には、本願寺の門徒(信者)が大量にいた。蓮如の「御文」が農村の隅々まで届き、信仰のネットワークが広がっていた。</p>
+      </div>
+    </div>
+    <div class="ss-row">
+      <div class="num">ii</div>
+      <div class="body">
+        <h4>「講(こう)」の組織力</h4>
+        <p>村ごとにあった信者の集まり「講」が、強固な結束を生んだ。<span class="purple">血縁や主従関係を超え、信仰でつながる仲間</span>は、何より裏切らない。</p>
+      </div>
+    </div>
+    <div class="ss-row">
+      <div class="num">iii</div>
+      <div class="body">
+        <h4>守護・富樫政親の弾圧</h4>
+        <p>力をつけすぎた信者を脅威と見た富樫が弾圧に動いた瞬間、信者(武士+農民)が一斉に反撃。20万人とも言われる軍勢が高尾城を包囲した。</p>
+      </div>
+    </div>
+    <div class="ss-row outcome">
+      <div class="num">→</div>
+      <div class="body">
+        <h4>1488年、富樫政親自害。守護大名が消滅。</h4>
+        <p>そして加賀は、「<strong>百姓の持ちたる国</strong>」となる。</p>
+      </div>
+    </div>
   </div>
 
-  <div class="panels">
-    <div class="panel">
+  <div class="pull-quote">
+    <div class="text">「<em>百姓ノ持タル国ノヤウニナリ行キ候。</em><br>百姓が、国を持つようになりつつある。」</div>
+    <div class="attribution">─ 公家・近衛政家の日記より(意訳)</div>
+  </div>
+
+  <h3><span class="marker">why.</span>なぜ100年も続いたのか</h3>
+
+  <div class="story-steps">
+    <div class="ss-row">
       <div class="num">①</div>
-      <div class="ttl">信仰でつながる仲間</div>
-      <div class="pic">🤝</div>
-      <div class="body">同じ阿弥陀さまを拝む仲間は<strong>絶対裏切らない</strong>。普通の主従関係より強い!</div>
+      <div class="body">
+        <h4>信仰でつながる仲間は、絶対に裏切らない</h4>
+        <p>同じ阿弥陀仏を拝む者同士の結束は、武士の主従関係よりも強かった。</p>
+      </div>
     </div>
-    <div class="panel">
+    <div class="ss-row">
       <div class="num">②</div>
-      <div class="ttl">本願寺がバックに</div>
-      <div class="pic">🏯</div>
-      <div class="body">京都→大坂(石山本願寺)に強大な本部があった。全国から支援!</div>
+      <div class="body">
+        <h4>本願寺という巨大な後ろ盾</h4>
+        <p>京都(後に大坂・石山本願寺)に本部があり、全国規模で支援を受けられた。</p>
+      </div>
     </div>
-    <div class="panel">
+    <div class="ss-row">
       <div class="num">③</div>
-      <div class="ttl">他の大名が忙しい</div>
-      <div class="pic">😵</div>
-      <div class="body">戦国時代だから、隣の朝倉や上杉も自分の戦いで手いっぱい。攻めてこれない!</div>
+      <div class="body">
+        <h4>戦国時代で、攻める側に余裕がなかった</h4>
+        <p>周辺の戦国大名(朝倉・上杉)も自分の戦いで手一杯で、加賀を攻め落とす余力がなかった。</p>
+      </div>
     </div>
-    <div class="panel">
+    <div class="ss-row">
       <div class="num">④</div>
-      <div class="ttl">自治がうまい</div>
-      <div class="pic">📋</div>
-      <div class="body">「講」のネットワークがそのまま行政組織になった。みんな運営上手!</div>
+      <div class="body">
+        <h4>「講」がそのまま行政組織になった</h4>
+        <p>信仰のネットワークが、自治のインフラとして機能した。組織として完成度が高かった。</p>
+      </div>
+    </div>
+    <div class="ss-row outcome">
+      <div class="num">→</div>
+      <div class="body">
+        <h4>1488 - 1580、約100年。</h4>
+        <p>そして1580年、織田信長によって滅ぼされ、加賀の100年は幕を閉じた。</p>
+      </div>
     </div>
   </div>
 
-  <h3 class="c-kaga">⚰️ そして…100年の終わり</h3>
-  <div class="talk-row">
-    <div class="talker"><div class="face r">😈</div><div class="name">織田信長</div></div>
-    <div class="bubble">「宗教が国を持つだと…?わしには邪魔だ。徹底的にやっつけてやる!」</div>
+  <div class="factoid">
+    <div class="num">100<span style="font-size:48px">年</span></div>
+    <div class="desc">「百姓の持ちたる国」が続いた、世界史上でも稀な期間。</div>
   </div>
 
-  <p>1580年、<strong>織田信長</strong>に攻め滅ぼされて加賀の一向一揆は終わったよ。信長は石山本願寺(大坂)とも10年戦って屈服させた(石山合戦)。「宗教の力」をめちゃくちゃ恐れた信長による徹底弾圧だったんだ。</p>
-
-  <div class="stamp" style="border-color: var(--purple);">
-    <div class="label" style="color: var(--purple);">★ ここがポイント! ★</div>
-    <div class="main-text">加賀の一向一揆 = 「宗教の力」が国を作った!<br>「百姓の持ちたる国」=記述の決め台詞!</div>
-  </div>
-
-  <div class="tips">
-    <div class="tlabel">💎 入試で出るぞ!</div>
-    <ul>
-      <li>年号 <strong>1488年</strong> ・場所 <strong>加賀(石川県)</strong></li>
-      <li>宗派は<strong>浄土真宗(一向宗)</strong> ・開祖は<strong>親鸞</strong>(鎌倉時代)・布教者は<strong>蓮如</strong></li>
-      <li>キーフレーズ「<strong>百姓の持ちたる国</strong>」は記述で書けるように!</li>
-      <li>約<strong>100年間</strong>続いて、<strong>織田信長</strong>に滅ぼされた</li>
-    </ul>
+  <div class="sidenote">
+    <div class="h">Exam Notes ─ ここで点を取る</div>
+    宗派は<strong>浄土真宗(一向宗)</strong>。開祖は<strong>親鸞(鎌倉時代)</strong>、布教者は<strong>蓮如(室町)</strong>。場所は<strong>加賀=石川県</strong>。年号<strong>1488</strong>。決め台詞は「<strong>百姓の持ちたる国</strong>」。最終的に滅ぼしたのは<strong>織田信長</strong>(1580)。
   </div>
 </div>
 
-<!-- ====================== COMPARE ====================== -->
-<div class="page">
-  <div class="ch-header c-compare">
-    <div class="chapter-no">CHAPTER 4</div>
-    <h2>3つを並べて比べてみよう!</h2>
-    <div class="icon">📊</div>
-    <div class="sub">取り違え防止! 一気に分かる比較表</div>
-  </div>
-
-  <div class="lead-box">
-    ここまで見てきた3つの事件、<strong>「あれ、どれがどれだっけ?」</strong>ってなりがち。<br>
-    でも、この表を見ればもうダイジョーブ!⭐
-  </div>
-
-  <table class="compare-table">
-    <tr>
-      <th class="h0"></th>
-      <th class="h1">⚔️ 応仁の乱</th>
-      <th class="h2">🌾 山城の国一揆</th>
-      <th class="h3">🙏 加賀の一向一揆</th>
-    </tr>
-    <tr>
-      <td>起きた年</td>
-      <td class="t1"><strong>1467</strong>年</td>
-      <td class="t2"><strong>1485</strong>年</td>
-      <td class="t3"><strong>1488</strong>年</td>
-    </tr>
-    <tr>
-      <td>続いた期間</td>
-      <td class="t1">11年</td>
-      <td class="t2">約8年</td>
-      <td class="t3"><strong>約100年!</strong></td>
-    </tr>
-    <tr>
-      <td>場所</td>
-      <td class="t1">京都(全国に波及)</td>
-      <td class="t2">山城国南部(京都府南部)</td>
-      <td class="t3">加賀(石川県)</td>
-    </tr>
-    <tr>
-      <td>誰が中心?</td>
-      <td class="t1">大名たち<br>(細川 vs 山名)</td>
-      <td class="t2">国人(武士)+農民</td>
-      <td class="t3">一向宗の信者<br>(武士+農民)</td>
-    </tr>
-    <tr>
-      <td>性格</td>
-      <td class="t1">大名同士の戦争</td>
-      <td class="t2">地域自治の一揆</td>
-      <td class="t3">宗教自治の一揆</td>
-    </tr>
-    <tr>
-      <td>結果</td>
-      <td class="t1">京都が焼け野原<br>戦国時代へ</td>
-      <td class="t2">幕府の介入で終了</td>
-      <td class="t3">織田信長に滅ぼされる</td>
-    </tr>
-    <tr>
-      <td>キーフレーズ</td>
-      <td class="t1">「人の世むなしい」</td>
-      <td class="t2">武士+農民の連合</td>
-      <td class="t3">「百姓の持ちたる国」</td>
-    </tr>
-  </table>
-
-  <h3>🧭 3つの関係 ― ストーリーで覚えよう!</h3>
-  <div class="arrow-steps">
-    <div class="arrow-step">
-      <div class="num-circle">①</div>
-      <div class="text-step"><strong>応仁の乱(1467)</strong>で幕府の権威が崩れる<br>=「ストッパーがなくなった」</div>
+<!-- ============ CHAPTER 4: COMPARE ============ -->
+<div class="opener compare" style="color: var(--ink);">
+  <div class="opener-inner">
+    <div class="ch-tag" style="color: rgba(26,26,40,0.6);">SYNTHESIS ─ 三つを並べて</div>
+    <div class="ch-num" style="color: rgba(26,26,40,0.15);">04</div>
+    <h1 style="color: var(--ink);">三つの事件は、<br>一本の物語だった。</h1>
+    <div class="subline" style="color: rgba(26,26,40,0.75);">権威の崩壊と、民衆の覚醒。応仁の乱から加賀の一向一揆まで、わずか21年間で日本社会の常識は書き換えられた。</div>
+    <div class="key-stat-row" style="border-color: rgba(26,26,40,0.25);">
+      <div class="stat"><div class="lbl" style="color:rgba(26,26,40,0.6);">事件数</div><div class="val" style="color:var(--ink);">3</div></div>
+      <div class="stat"><div class="lbl" style="color:rgba(26,26,40,0.6);">経過年</div><div class="val" style="color:var(--ink);">21<span style="font-size:18px">年</span></div></div>
+      <div class="stat"><div class="lbl" style="color:rgba(26,26,40,0.6);">時代の境目</div><div class="val" style="color:var(--ink);">→ 戦国</div></div>
     </div>
-    <div class="big-arrow">⬇ 18年後…</div>
-    <div class="arrow-step">
-      <div class="num-circle">②</div>
-      <div class="text-step"><strong>山城の国一揆(1485)</strong>:武士+農民が大名を追放<br>=「下から上を倒せる」と気づいた!</div>
-    </div>
-    <div class="big-arrow">⬇ たった3年後…</div>
-    <div class="arrow-step">
-      <div class="num-circle">③</div>
-      <div class="text-step"><strong>加賀の一向一揆(1488)</strong>:信者が守護大名を倒す<br>=「宗教の力で100年自治!」</div>
-    </div>
-    <div class="result-box">3つあわせて「権威が崩れて、民衆が目覚めた時代」!</div>
-  </div>
-
-  <div class="warn">
-    <div class="wlabel">⚠️ ここに注意!</div>
-    <ul>
-      <li><strong>応仁の乱は「一揆」じゃない</strong> ← 大名同士の戦争。「次の一揆を選べ」で応仁の乱を選んじゃう子が多い!</li>
-      <li><strong>親鸞は鎌倉時代の人</strong> ← 一向一揆は室町だけど、開祖の親鸞は鎌倉時代!</li>
-      <li><strong>山城の国一揆は「農民だけ」じゃない</strong> ← 国人(武士)も主役!</li>
-      <li><strong>加賀=石川県、山城=京都府南部</strong> ← 場所を取り違えない!</li>
-    </ul>
   </div>
 </div>
 
-<!-- ====================== FINAL: EXAM PREP ====================== -->
-<div class="page">
-  <div class="ch-header c-final">
-    <div class="chapter-no">FINAL CHAPTER</div>
-    <h2>テストでバッチリ!</h2>
-    <div class="icon">🎯💯</div>
-    <div class="sub">これだけ覚えれば、この単元は得点源!</div>
+<div class="spread">
+  <div class="section-label">
+    <div class="num">08.</div>
+    <div class="lab"><strong>THE MATRIX</strong> ─ 一目でわかる比較表</div>
+  </div>
+  <h2 class="story-title">三つを並べて、<em>違い</em>を見抜く。</h2>
+  <p class="story-deck">「どれがどれだか分からなくなる」── そう感じたら、この表を何度でも眺めてほしい。それぞれの個性が、はっきりと浮かび上がってくるはずだ。</p>
+
+  <div class="compare-board">
+    <div class="row head">
+      <div class="lab"></div>
+      <div class="col-h c1">応仁の乱<span class="yr">1467</span></div>
+      <div class="col-h c2">山城の国一揆<span class="yr">1485</span></div>
+      <div class="col-h c3">加賀の一向一揆<span class="yr">1488</span></div>
+    </div>
+    <div class="row">
+      <div class="lab">期間</div>
+      <div>11年</div>
+      <div>約8年</div>
+      <div><strong>約100年</strong></div>
+    </div>
+    <div class="row">
+      <div class="lab">場所</div>
+      <div>京都(全国へ)</div>
+      <div>山城国南部(京都府)</div>
+      <div>加賀(石川県)</div>
+    </div>
+    <div class="row">
+      <div class="lab">主役</div>
+      <div>大名たち<br>(細川 vs 山名)</div>
+      <div>国人(武士)+農民</div>
+      <div>一向宗信者<br>(武士+農民)</div>
+    </div>
+    <div class="row">
+      <div class="lab">性格</div>
+      <div>大名同士の戦争</div>
+      <div>地域自治の一揆</div>
+      <div>宗教自治の一揆</div>
+    </div>
+    <div class="row">
+      <div class="lab">結果</div>
+      <div>京都焼失・戦国時代へ</div>
+      <div>幕府介入で終了</div>
+      <div>織田信長に滅ぼされる</div>
+    </div>
+    <div class="row">
+      <div class="lab">決め台詞</div>
+      <div>「人の世むなしい」</div>
+      <div>武士+農民の連合</div>
+      <div>「百姓の持ちたる国」</div>
+    </div>
   </div>
 
-  <h3>📝 入試によく出る記述問題&模範解答</h3>
+  <h3><span class="marker">storyline.</span>三つは、つながっている</h3>
 
-  <div class="quiz-box">
+  <div class="connection">
+    <div class="step s1">
+      <div class="yr">1467</div>
+      <div class="text"><strong>応仁の乱</strong>で、幕府の権威が崩壊する。<br><span style="color:var(--ink-mute);">「上を縛るストッパー」が外れた。</span></div>
+    </div>
+    <div class="arrow">— 18 years later —</div>
+    <div class="step s2">
+      <div class="yr">1485</div>
+      <div class="text"><strong>山城の国一揆</strong>で、武士+農民が大名を追放する。<br><span style="color:var(--ink-mute);">「下が上を倒せる」と、人々が気づいた。</span></div>
+    </div>
+    <div class="arrow">— only 3 years later —</div>
+    <div class="step s3">
+      <div class="yr">1488</div>
+      <div class="text"><strong>加賀の一向一揆</strong>で、信者が守護大名を倒す。<br><span style="color:var(--ink-mute);">「信仰の力」で100年の自治国家が誕生。</span></div>
+    </div>
+    <div class="conclusion">三つあわせて ── 「権威が崩れ、民衆が目覚めた時代」。</div>
+  </div>
+
+  <div class="sidenote warn">
+    <div class="h">Critical Distinction ─ 取り違えない</div>
+    <strong>応仁の乱は「一揆」ではない。</strong>これは大名同士の戦争であり、「次の一揆を選べ」という設問では入らない。<strong>親鸞は鎌倉時代</strong>の人物。一向一揆そのものは室町時代だが、開祖の活動時代を間違えないこと。
+  </div>
+</div>
+
+<!-- ============ CHAPTER 5: EXAM ============ -->
+<div class="opener final">
+  <div class="opener-inner">
+    <div class="ch-tag">EXAM PREP ─ 入試で使う形に</div>
+    <div class="ch-num">05</div>
+    <h1>テストで、<br>確実に<em>得点する</em>。</h1>
+    <div class="subline">ここまで読んだあとは、入試で「何を聞かれるか」を知って、答えられる形に整えるだけ。この単元は、得点源になる。</div>
+  </div>
+</div>
+
+<div class="spread">
+  <div class="section-label">
+    <div class="num">09.</div>
+    <div class="lab"><strong>QUICK REFERENCE</strong> ─ 三枚のカード</div>
+  </div>
+
+  <div class="cheat-grid">
+    <div class="cheat-card c1">
+      <div class="tt">FILE Ⅰ</div>
+      <div class="yr">1467</div>
+      <div class="name">応仁の乱</div>
+      <div class="body">義政の跡継ぎ + 細川 vs 山名 → 京都焼け野原 → <strong>戦国時代の幕開け</strong>。</div>
+    </div>
+    <div class="cheat-card c2">
+      <div class="tt">FILE Ⅱ</div>
+      <div class="yr">1485</div>
+      <div class="name">山城の国一揆</div>
+      <div class="body">両畠山にうんざり → 武士+農民で追放 → <strong>約8年間の自治</strong>。</div>
+    </div>
+    <div class="cheat-card c3">
+      <div class="tt">FILE Ⅲ</div>
+      <div class="yr">1488</div>
+      <div class="name">加賀の一向一揆</div>
+      <div class="body">蓮如の布教 → 信者が守護を倒す → <strong>「百姓の持ちたる国」100年</strong>。</div>
+    </div>
+  </div>
+
+  <h3><span class="marker">essays.</span>記述問題と模範解答</h3>
+
+  <div class="qa">
     <div class="q">応仁の乱はなぜ起きたか、簡潔に説明しなさい。</div>
     <div class="a">8代将軍・足利義政の跡継ぎ争いに、管領家(細川と山名)の対立が結びついて起きた。</div>
   </div>
 
-  <div class="quiz-box">
+  <div class="qa">
     <div class="q">山城の国一揆について、誰がどのように行動したか説明しなさい。</div>
     <div class="a">山城国南部の国人(地元の武士)と農民が協力し、対立する両畠山軍を追い出して、約8年間自治を行った。</div>
   </div>
 
-  <div class="quiz-box">
-    <div class="q">加賀の一向一揆について、なぜ「百姓の持ちたる国」と呼ばれたか説明しなさい。</div>
+  <div class="qa">
+    <div class="q">加賀の一向一揆が「百姓の持ちたる国」と呼ばれた理由を説明しなさい。</div>
     <div class="a">浄土真宗(一向宗)の信者である武士や農民が守護大名・富樫氏を倒し、約100年間、本願寺と門徒たちで国を治めたから。</div>
   </div>
 
-  <h3>⭐ ひと目チートシート!</h3>
-  <div class="cheat">
-    <div class="cheat-item r">
-      <div class="icon-big">⚔️</div>
-      <div class="ttl">応仁の乱</div>
-      <div class="yr-line">1467年</div>
-      <div class="body-text">義政の跡継ぎ + 細川 vs 山名 → 京都焼け野原 → 戦国時代へ</div>
+  <div class="gorou">
+    <div class="h">Mnemonic ─ 年号ゴロを声に出して</div>
+    <div class="item">
+      <div class="yr">1467</div>
+      <div class="verse"><strong>人の世むなしい</strong> ─ 応仁の乱、開戦。</div>
     </div>
-    <div class="cheat-item b">
-      <div class="icon-big">🌾</div>
-      <div class="ttl">山城の国一揆</div>
-      <div class="yr-line">1485年</div>
-      <div class="body-text">両畠山にウンザリ → 武士+農民で追放 → 8年自治</div>
+    <div class="item">
+      <div class="yr">1485</div>
+      <div class="verse"><strong>いよ! ハチクロ</strong> ─ 山城の国一揆、自治始まる。</div>
     </div>
-    <div class="cheat-item p">
-      <div class="icon-big">🙏</div>
-      <div class="ttl">加賀の一向一揆</div>
-      <div class="yr-line">1488年</div>
-      <div class="body-text">蓮如の布教 → 信者が守護を倒す → 100年「百姓の持ちたる国」</div>
+    <div class="item">
+      <div class="yr">1488</div>
+      <div class="verse"><strong>いよ! ハチハチ</strong> ─ 加賀の一向一揆、富樫滅ぶ。</div>
     </div>
   </div>
 
-  <h3>🎵 年号ゴロ ― 声に出して覚えよう!</h3>
-  <div class="memo" style="transform: rotate(0);">
-    🎤 <strong>1467 応仁の乱</strong> →「<strong>人の世むなしい</strong>(ひとのよむなしい)応仁の乱」<br>
-    🎤 <strong>1485 山城の国一揆</strong> →「<strong>いよ!ハチクロ</strong>(1485)、山城自治!」<br>
-    🎤 <strong>1488 加賀の一向一揆</strong> →「<strong>いよ!ハチハチ</strong>(1488)、加賀の信者!」
+  <div class="pull-quote">
+    <div class="text">「三つを<em>ストーリー</em>で語れたなら、<br>この単元は、もう怖くない。」</div>
+    <div class="attribution">─ TO THE CURIOUS READER</div>
   </div>
+</div>
 
-  <div class="stamp" style="border-color: var(--green);">
-    <div class="label" style="color: var(--green);">★ 最終チェック ★</div>
-    <div class="main-text">この3つを「ストーリー」で語れたら、<br>もう中学受験の歴史で<strong>この単元はカンペキ!</strong>🎉</div>
-  </div>
-
-  <div style="text-align: center; margin-top: 24px; font-size: 11px; color: #999;">
-    📖 ぐんぐん理解シリーズ ・ 応仁の乱と二つの一揆編
-  </div>
+<!-- ============ COLOPHON ============ -->
+<div class="colophon">
+  <div class="mark">M.F.</div>
+  <div class="name">Muromachi Files ─ Volume 01</div>
+  <div class="sub">A field guide to the late Muromachi era</div>
 </div>
 
 </div>
