@@ -11,26 +11,31 @@
   :root {
     --ivory:    #f5efe2;
     --paper:    #fbf7ec;
+    --cream:    #faf3e0;
     --ink:      #1a1a28;
     --ink-soft: #4a4a5e;
     --ink-mute: #8a8a9a;
     --rule:     #e0d8c5;
 
-    /* Chapter accents */
     --c-onin:        #b8312d;
     --c-onin-deep:   #7a1f1c;
     --c-onin-soft:   #f4dad7;
+    --c-onin-flame:  #e8754a;
 
     --c-yamashiro:   #1f4e6b;
     --c-yamashiro-deep: #133344;
     --c-yamashiro-soft: #d6e4ec;
+    --c-yamashiro-leaf: #4a7c5e;
 
     --c-kaga:        #5e3a87;
     --c-kaga-deep:   #3d2557;
     --c-kaga-soft:   #e3daee;
+    --c-kaga-lotus:  #d896c4;
 
     --gold:     #b48a36;
     --gold-soft:#f0e3c4;
+    --gold-bright: #e9c44a;
+    --sakura:   #f4c5d0;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,10 +46,8 @@
     color: var(--ink);
     line-height: 1.85;
     font-size: 15px;
-    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
-
   .magazine {
     max-width: 880px;
     margin: 0 auto;
@@ -53,33 +56,26 @@
     overflow: hidden;
     position: relative;
   }
-
-  /* === SHARED === */
-  .serif { font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif; }
+  .serif { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; }
   .display { font-family: "Cormorant Garamond", "Noto Serif JP", serif; font-weight: 500; }
-  .mono { font-family: "Inter", -apple-system, sans-serif; letter-spacing: 0.02em; font-feature-settings: "tnum"; }
+  .mono { font-family: "Inter", -apple-system, sans-serif; font-feature-settings: "tnum"; }
 
-  .spread {
-    padding: 80px 64px;
-    position: relative;
-  }
+  .spread { padding: 70px 56px; position: relative; }
   .spread + .spread { border-top: 1px solid var(--rule); }
 
-  /* === COVER === */
+  /* ============ COVER ============ */
   .cover {
     background:
       radial-gradient(circle at 20% 30%, rgba(184,49,45,0.08) 0%, transparent 40%),
       radial-gradient(circle at 80% 70%, rgba(94,58,135,0.08) 0%, transparent 40%),
       linear-gradient(180deg, var(--paper) 0%, #f1ead8 100%);
-    padding: 90px 64px 70px;
+    padding: 70px 56px 50px;
     position: relative;
     overflow: hidden;
   }
   .cover::before {
     content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
     background: linear-gradient(90deg, var(--c-onin), var(--c-yamashiro), var(--c-kaga));
   }
   .cover .meta-row {
@@ -88,15 +84,15 @@
     align-items: center;
     border-bottom: 1px solid var(--ink);
     padding-bottom: 14px;
-    margin-bottom: 60px;
+    margin-bottom: 36px;
     font-family: "Inter", sans-serif;
     font-size: 11px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--ink);
   }
   .cover .meta-row .right { color: var(--ink-soft); }
-
+  .cover-hero { margin: 20px 0 30px; }
+  .cover-hero svg { display: block; width: 100%; height: auto; }
   .cover .issue-num {
     font-family: "Cormorant Garamond", serif;
     font-size: 13px;
@@ -108,10 +104,9 @@
   .cover h1 {
     font-family: "Noto Serif JP", serif;
     font-weight: 900;
-    font-size: 78px;
+    font-size: 70px;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: var(--ink);
     margin-bottom: 20px;
   }
   .cover h1 .amp {
@@ -123,41 +118,43 @@
   }
   .cover .deck {
     font-family: "Noto Serif JP", serif;
-    font-weight: 400;
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.7;
     color: var(--ink-soft);
     max-width: 580px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     border-left: 3px solid var(--gold);
     padding-left: 18px;
   }
-
   .cover .three-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 50px;
-    padding-top: 40px;
+    gap: 24px;
+    padding-top: 30px;
     border-top: 1px solid var(--rule);
-  }
-  .cover .ev {
-    position: relative;
   }
   .cover .ev .num {
     font-family: "Cormorant Garamond", serif;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 0.3em;
     color: var(--ink-mute);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
+  .cover .ev .icon-box {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .cover .ev .icon-box svg { height: 100%; width: auto; }
   .cover .ev .yr {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
     font-weight: 500;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .cover .ev:nth-child(1) .yr { color: var(--c-onin); }
   .cover .ev:nth-child(2) .yr { color: var(--c-yamashiro); }
@@ -165,7 +162,7 @@
   .cover .ev .ttl {
     font-family: "Noto Serif JP", serif;
     font-weight: 700;
-    font-size: 21px;
+    font-size: 19px;
     margin-bottom: 6px;
     line-height: 1.4;
   }
@@ -174,9 +171,8 @@
     color: var(--ink-soft);
     line-height: 1.7;
   }
-
   .cover .footer {
-    margin-top: 70px;
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -192,10 +188,9 @@
     font-size: 14px;
     color: var(--ink-soft);
     text-transform: none;
-    letter-spacing: 0.05em;
   }
 
-  /* === SECTION HEADER === */
+  /* ============ SECTIONS ============ */
   .section-label {
     display: flex;
     align-items: baseline;
@@ -207,8 +202,7 @@
   .section-label .num {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 30px;
     color: var(--gold);
     line-height: 1;
   }
@@ -225,10 +219,9 @@
   h2.story-title {
     font-family: "Noto Serif JP", serif;
     font-weight: 900;
-    font-size: 44px;
+    font-size: 40px;
     line-height: 1.25;
-    letter-spacing: -0.01em;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   h2.story-title em {
     font-family: "Cormorant Garamond", serif;
@@ -238,30 +231,25 @@
   }
   .story-deck {
     font-family: "Noto Serif JP", serif;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.85;
     color: var(--ink-soft);
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     max-width: 620px;
   }
-
-  /* === BODY === */
   h3 {
     font-family: "Noto Serif JP", serif;
     font-weight: 700;
-    font-size: 24px;
-    margin: 50px 0 18px;
-    letter-spacing: -0.005em;
+    font-size: 22px;
+    margin: 40px 0 16px;
     line-height: 1.4;
   }
   h3 .marker {
-    display: inline-block;
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--gold);
     margin-right: 8px;
-    font-weight: 500;
   }
   p { margin-bottom: 14px; }
   p strong { font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--gold-soft); padding-bottom: 1px; }
@@ -269,32 +257,35 @@
   .blue { font-weight: 700; color: var(--c-yamashiro); }
   .purple { font-weight: 700; color: var(--c-kaga); }
 
-  /* === CHAPTER OPENER (full-bleed) === */
+  /* ============ CHAPTER OPENER ============ */
   .opener {
-    padding: 0;
     color: white;
     position: relative;
     overflow: hidden;
   }
-  .opener.c1 { background: linear-gradient(135deg, var(--c-onin) 0%, var(--c-onin-deep) 100%); }
-  .opener.c2 { background: linear-gradient(135deg, var(--c-yamashiro) 0%, var(--c-yamashiro-deep) 100%); }
-  .opener.c3 { background: linear-gradient(135deg, var(--c-kaga) 0%, var(--c-kaga-deep) 100%); }
-  .opener.intro { background: linear-gradient(135deg, #2d3e50 0%, #1a1a28 100%); }
-  .opener.compare { background: linear-gradient(135deg, var(--gold) 0%, #8c6722 100%); }
-  .opener.final { background: linear-gradient(135deg, #2d3e50 0%, var(--c-kaga-deep) 100%); }
+  .opener.c1 { background: linear-gradient(150deg, var(--c-onin) 0%, var(--c-onin-deep) 100%); }
+  .opener.c2 { background: linear-gradient(150deg, var(--c-yamashiro) 0%, var(--c-yamashiro-deep) 100%); }
+  .opener.c3 { background: linear-gradient(150deg, var(--c-kaga) 0%, var(--c-kaga-deep) 100%); }
+  .opener.intro { background: linear-gradient(150deg, #2d3e50 0%, #1a1a28 100%); }
+  .opener.compare { background: linear-gradient(150deg, var(--gold) 0%, #8c6722 100%); }
+  .opener.final { background: linear-gradient(150deg, #2d3e50 0%, var(--c-kaga-deep) 100%); }
 
+  .opener-illust {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .opener-illust svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
   .opener-inner {
-    padding: 100px 64px 90px;
+    padding: 50px 56px 60px;
     position: relative;
     z-index: 2;
-  }
-  .opener::before {
-    content: "";
-    position: absolute;
-    top: -50%; right: -30%;
-    width: 80%; height: 200%;
-    background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 50%);
-    pointer-events: none;
   }
   .opener .ch-tag {
     font-family: "Cormorant Garamond", serif;
@@ -302,46 +293,44 @@
     font-size: 13px;
     letter-spacing: 0.25em;
     color: rgba(255,255,255,0.7);
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   }
   .opener .ch-tag::before {
     content: "";
-    width: 36px; height: 1px;
+    width: 32px; height: 1px;
     background: rgba(255,255,255,0.7);
   }
   .opener .ch-num {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 110px;
+    font-size: 90px;
     line-height: 1;
     color: rgba(255,255,255,0.18);
-    margin-bottom: -20px;
+    margin-bottom: -16px;
     font-weight: 500;
   }
   .opener h1 {
     font-family: "Noto Serif JP", serif;
     font-weight: 900;
-    font-size: 64px;
+    font-size: 56px;
     line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   .opener .subline {
     font-family: "Noto Serif JP", serif;
-    font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 1.7;
     color: rgba(255,255,255,0.85);
     max-width: 560px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
   .opener .key-stat-row {
     display: flex;
-    gap: 60px;
-    padding-top: 36px;
+    gap: 50px;
+    padding-top: 30px;
     border-top: 1px solid rgba(255,255,255,0.25);
   }
   .opener .stat .lbl {
@@ -350,32 +339,60 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.65);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   .opener .stat .val {
     font-family: "Cormorant Garamond", serif;
     font-weight: 500;
     font-style: italic;
-    font-size: 38px;
+    font-size: 36px;
     line-height: 1;
     color: white;
   }
 
-  /* === PULL QUOTE === */
+  /* ============ ILLUSTRATIONS ============ */
+  .illust-figure {
+    margin: 32px -16px;
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 24px;
+    text-align: center;
+    border: 1px solid var(--rule);
+  }
+  .illust-figure svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  .illust-figure .caption {
+    margin-top: 14px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .illust-figure .caption strong {
+    border: 0;
+    color: var(--ink);
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+  }
+
+  /* ============ PULL QUOTE ============ */
   .pull-quote {
-    margin: 50px -20px;
-    padding: 30px 40px;
+    margin: 40px -16px;
+    padding: 28px 36px;
     border-top: 2px solid var(--ink);
     border-bottom: 2px solid var(--ink);
     text-align: center;
+    position: relative;
   }
   .pull-quote .text {
     font-family: "Noto Serif JP", serif;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 24px;
     line-height: 1.6;
-    color: var(--ink);
-    letter-spacing: -0.005em;
   }
   .pull-quote .text em {
     font-family: "Cormorant Garamond", serif;
@@ -387,34 +404,45 @@
     font-style: italic;
     font-size: 13px;
     color: var(--ink-mute);
-    margin-top: 14px;
-    letter-spacing: 0.05em;
+    margin-top: 12px;
   }
-
-  /* === DROP CAP === */
   .drop-cap::first-letter {
     font-family: "Noto Serif JP", serif;
     font-weight: 900;
-    font-size: 68px;
+    font-size: 64px;
     float: left;
     line-height: 0.85;
     margin: 6px 10px 0 0;
     color: var(--gold);
   }
 
-  /* === CHARACTER PORTRAITS === */
+  /* ============ CHARACTER PORTRAITS ============ */
   .portraits {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    margin: 36px 0 30px;
+    gap: 24px;
+    margin: 32px 0;
   }
   .portrait {
     background: var(--paper);
     border: 1px solid var(--rule);
-    padding: 26px 24px 22px;
+    padding: 0 0 22px;
     position: relative;
-    transition: transform 0.2s;
+    overflow: hidden;
+  }
+  .portrait .frame {
+    background: var(--cream);
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait .frame svg {
+    height: 95%;
+    width: auto;
   }
   .portrait::before {
     content: "";
@@ -423,36 +451,16 @@
     width: 4px;
     height: 100%;
     background: var(--ink-mute);
+    z-index: 3;
   }
   .portrait.east::before { background: var(--c-onin); }
+  .portrait.east .frame { background: var(--c-onin-soft); }
   .portrait.west::before { background: var(--c-yamashiro); }
+  .portrait.west .frame { background: var(--c-yamashiro-soft); }
   .portrait.k::before { background: var(--c-kaga); }
-  .portrait .head {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 16px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .portrait .glyph {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--ivory);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Noto Serif JP", serif;
-    font-weight: 900;
-    font-size: 26px;
-    color: var(--ink);
-    border: 1.5px solid var(--ink);
-  }
-  .portrait.east .glyph { color: var(--c-onin); border-color: var(--c-onin); background: var(--c-onin-soft); }
-  .portrait.west .glyph { color: var(--c-yamashiro); border-color: var(--c-yamashiro); background: var(--c-yamashiro-soft); }
-  .portrait.k .glyph { color: var(--c-kaga); border-color: var(--c-kaga); background: var(--c-kaga-soft); }
-  .portrait .name-block .role-tag {
+  .portrait.k .frame { background: var(--c-kaga-soft); }
+  .portrait .info { padding: 18px 22px 0; }
+  .portrait .role-tag {
     font-family: "Inter", sans-serif;
     font-size: 9px;
     letter-spacing: 0.25em;
@@ -460,45 +468,42 @@
     color: var(--ink-mute);
     margin-bottom: 4px;
   }
-  .portrait .name-block .name {
+  .portrait .name {
     font-family: "Noto Serif JP", serif;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 21px;
     line-height: 1.1;
     margin-bottom: 2px;
   }
-  .portrait .name-block .read {
+  .portrait .read {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
     font-size: 13px;
     color: var(--ink-mute);
-    letter-spacing: 0.02em;
   }
   .portrait .quote {
     font-family: "Noto Serif JP", serif;
     font-style: italic;
-    font-size: 14px;
-    color: var(--ink);
+    font-size: 13px;
     border-left: 2px solid var(--gold);
     padding: 4px 0 4px 12px;
-    margin-bottom: 12px;
+    margin: 14px 22px 12px;
     line-height: 1.6;
   }
   .portrait .bio {
+    padding: 0 22px;
     font-size: 13px;
     line-height: 1.8;
     color: var(--ink-soft);
   }
 
-  /* === NUMBERED STORY STEPS === */
-  .story-steps {
-    margin: 36px 0;
-  }
+  /* ============ STORY STEPS ============ */
+  .story-steps { margin: 30px 0; }
   .ss-row {
     display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 20px;
-    padding: 18px 0;
+    grid-template-columns: 70px 1fr;
+    gap: 18px;
+    padding: 16px 0;
     border-top: 1px solid var(--rule);
     align-items: start;
   }
@@ -506,18 +511,16 @@
   .ss-row .num {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 56px;
+    font-size: 50px;
     line-height: 1;
     color: var(--gold);
     font-weight: 500;
   }
-  .ss-row .body {
-    padding-top: 8px;
-  }
+  .ss-row .body { padding-top: 6px; }
   .ss-row .body h4 {
     font-family: "Noto Serif JP", serif;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 6px;
   }
   .ss-row .body p {
@@ -529,49 +532,38 @@
   .ss-row.outcome {
     border-top: 2px solid var(--ink);
     margin-top: 8px;
-    padding-top: 22px;
+    padding-top: 20px;
     background: linear-gradient(90deg, var(--gold-soft) 0%, transparent 70%);
-    padding-left: 16px;
-    margin-left: -16px;
+    padding-left: 14px;
+    margin-left: -14px;
   }
   .ss-row.outcome .num { color: var(--ink); font-style: normal; }
-  .ss-row.outcome .body h4 { color: var(--ink); }
 
-  /* === TIMELINE (vertical, elegant) === */
-  .timeline-wrap {
-    margin: 32px 0;
-  }
+  /* ============ TIMELINE ============ */
   .tl-event {
     display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 24px;
-    padding: 18px 0;
+    grid-template-columns: 100px 36px 1fr;
+    gap: 16px;
+    padding: 16px 0;
     border-top: 1px solid var(--rule);
-    align-items: baseline;
+    align-items: center;
   }
   .tl-event:last-child { border-bottom: 1px solid var(--rule); }
   .tl-event .yr {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
     font-weight: 500;
-    font-size: 28px;
+    font-size: 26px;
     line-height: 1;
-    color: var(--ink);
     text-align: right;
   }
   .tl-event.key .yr { color: var(--c-onin); font-weight: 700; }
   .tl-event.key.c2 .yr { color: var(--c-yamashiro); }
   .tl-event.key.c3 .yr { color: var(--c-kaga); }
-  .tl-event .what {
-    font-family: "Noto Serif JP", serif;
-    font-size: 15px;
-    line-height: 1.75;
-    color: var(--ink);
-  }
-  .tl-event.key .what {
-    font-weight: 700;
-    font-size: 16px;
-  }
+  .tl-event .icon { display: flex; justify-content: center; align-items: center; }
+  .tl-event .icon svg { width: 30px; height: 30px; }
+  .tl-event .what { font-family: "Noto Serif JP", serif; font-size: 14px; line-height: 1.7; }
+  .tl-event.key .what { font-weight: 700; font-size: 15px; }
   .tl-event .what .ev-tag {
     display: inline-block;
     font-family: "Inter", sans-serif;
@@ -580,32 +572,26 @@
     text-transform: uppercase;
     background: var(--ink);
     color: var(--paper);
-    padding: 2px 8px;
-    margin-right: 10px;
-    vertical-align: 3px;
+    padding: 2px 7px;
+    margin-right: 8px;
   }
 
-  /* === TWO-COLUMN BATTLE === */
+  /* ============ BATTLE ============ */
+  .battle-wrap { margin: 36px 0; }
+  .battle-illust {
+    background: linear-gradient(180deg, var(--c-onin-soft) 0%, var(--cream) 50%, var(--c-yamashiro-soft) 100%);
+    padding: 30px 20px 0;
+    border-top: 1px solid var(--ink);
+  }
+  .battle-illust svg { display: block; width: 100%; max-width: 700px; margin: 0 auto; height: auto; }
   .battle-grid {
     display: grid;
-    grid-template-columns: 1fr 80px 1fr;
-    gap: 0;
-    margin: 40px 0;
-    align-items: stretch;
-    border-top: 1px solid var(--ink);
+    grid-template-columns: 1fr 70px 1fr;
     border-bottom: 1px solid var(--ink);
   }
-  .army-col {
-    padding: 28px 26px;
-  }
-  .army-col.east {
-    background: var(--c-onin-soft);
-    color: var(--c-onin-deep);
-  }
-  .army-col.west {
-    background: var(--c-yamashiro-soft);
-    color: var(--c-yamashiro-deep);
-  }
+  .army-col { padding: 26px 24px; }
+  .army-col.east { background: var(--c-onin-soft); color: var(--c-onin-deep); }
+  .army-col.west { background: var(--c-yamashiro-soft); color: var(--c-yamashiro-deep); }
   .army-col .a-tag {
     font-family: "Inter", sans-serif;
     font-size: 10px;
@@ -617,29 +603,23 @@
   .army-col .a-name {
     font-family: "Noto Serif JP", serif;
     font-weight: 900;
-    font-size: 34px;
+    font-size: 30px;
     line-height: 1.1;
     margin-bottom: 4px;
   }
   .army-col .a-leader {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 16px;
-    margin-bottom: 16px;
+    font-size: 15px;
+    margin-bottom: 14px;
     opacity: 0.85;
   }
-  .army-col .a-list {
-    list-style: none;
-    font-size: 13px;
-    line-height: 1.9;
-  }
+  .army-col .a-list { list-style: none; font-size: 13px; line-height: 1.8; }
   .army-col .a-list li {
     display: grid;
     grid-template-columns: 80px 1fr;
-    gap: 8px;
     padding: 4px 0;
-    border-top: 1px solid currentColor;
-    border-color: rgba(0,0,0,0.15);
+    border-top: 1px solid rgba(0,0,0,0.15);
     align-items: baseline;
   }
   .army-col .a-list li:first-child { border-top: 0; }
@@ -651,7 +631,6 @@
     opacity: 0.6;
   }
   .army-col .a-list .val { font-weight: 700; }
-
   .vs-divider {
     background: var(--paper);
     display: flex;
@@ -663,42 +642,51 @@
   .vs-divider .vs {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-weight: 500;
-    font-size: 48px;
-    color: var(--ink);
+    font-size: 42px;
     line-height: 1;
   }
 
-  /* === FACTOID === */
+  /* ============ FACTOID ============ */
   .factoid {
     border-top: 1px solid var(--ink);
     border-bottom: 1px solid var(--ink);
-    padding: 30px 0;
-    margin: 40px 0;
+    padding: 24px 0;
+    margin: 36px 0;
     text-align: center;
+    position: relative;
   }
+  .factoid::before, .factoid::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><circle cx='15' cy='15' r='3' fill='%23b48a36'/><circle cx='15' cy='5' r='2' fill='%23b48a36' opacity='0.5'/><circle cx='15' cy='25' r='2' fill='%23b48a36' opacity='0.5'/><circle cx='5' cy='15' r='2' fill='%23b48a36' opacity='0.5'/><circle cx='25' cy='15' r='2' fill='%23b48a36' opacity='0.5'/></svg>") no-repeat center;
+    top: -16px;
+  }
+  .factoid::before { left: calc(50% - 90px); }
+  .factoid::after { right: calc(50% - 90px); }
   .factoid .num {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
     font-weight: 500;
-    font-size: 90px;
+    font-size: 80px;
     line-height: 1;
     color: var(--gold);
   }
   .factoid .desc {
     font-family: "Noto Serif JP", serif;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--ink-soft);
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
-  /* === SIDE NOTE / DID YOU KNOW === */
+  /* ============ SIDENOTE ============ */
   .sidenote {
     background: var(--paper);
     border-left: 4px solid var(--gold);
-    padding: 18px 22px;
-    margin: 28px 0;
-    font-size: 14px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 13px;
     line-height: 1.8;
   }
   .sidenote .h {
@@ -708,21 +696,18 @@
     text-transform: uppercase;
     color: var(--gold);
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .sidenote.warn { border-color: var(--c-onin); }
   .sidenote.warn .h { color: var(--c-onin); }
   .sidenote.tip { border-color: var(--c-yamashiro); }
   .sidenote.tip .h { color: var(--c-yamashiro); }
 
-  /* === COMPARE TABLE === */
-  .compare-board {
-    margin: 40px 0;
-    border-top: 2px solid var(--ink);
-  }
+  /* ============ COMPARE ============ */
+  .compare-board { margin: 36px 0; border-top: 2px solid var(--ink); }
   .compare-board .row {
     display: grid;
-    grid-template-columns: 130px repeat(3, 1fr);
+    grid-template-columns: 110px repeat(3, 1fr);
     border-bottom: 1px solid var(--rule);
   }
   .compare-board .row.head {
@@ -730,7 +715,7 @@
     background: var(--ivory);
   }
   .compare-board .row > div {
-    padding: 14px 14px;
+    padding: 14px 12px;
     font-size: 13px;
     line-height: 1.6;
   }
@@ -746,7 +731,7 @@
   .compare-board .row.head .col-h {
     font-family: "Noto Serif JP", serif;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
   }
   .compare-board .row.head .col-h .yr {
     font-family: "Cormorant Garamond", serif;
@@ -756,30 +741,32 @@
     display: block;
     margin-top: 2px;
   }
+  .compare-board .row.head .col-h svg {
+    height: 28px; width: auto; display: block; margin-bottom: 4px;
+  }
   .compare-board .row.head .c1 { color: var(--c-onin); }
   .compare-board .row.head .c2 { color: var(--c-yamashiro); }
   .compare-board .row.head .c3 { color: var(--c-kaga); }
 
-  /* === CONNECTION DIAGRAM === */
+  /* ============ CONNECTION ============ */
   .connection {
-    margin: 40px 0;
-    padding: 36px 30px;
+    margin: 36px 0;
+    padding: 32px 28px;
     background: var(--ivory);
     border: 1px solid var(--rule);
+    position: relative;
   }
   .connection .step {
-    padding: 16px 0;
+    padding: 14px 0;
     display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 18px;
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
     align-items: baseline;
   }
   .connection .step .yr {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-weight: 500;
     font-size: 22px;
-    color: var(--ink-mute);
     text-align: right;
   }
   .connection .step.s1 .yr { color: var(--c-onin); }
@@ -789,11 +776,6 @@
     font-family: "Noto Serif JP", serif;
     font-size: 14px;
     line-height: 1.7;
-  }
-  .connection .step .text strong {
-    font-weight: 700;
-    border: 0;
-    padding: 0;
   }
   .connection .arrow {
     font-family: "Cormorant Garamond", serif;
@@ -805,20 +787,19 @@
     letter-spacing: 0.2em;
   }
   .connection .conclusion {
-    margin-top: 18px;
-    padding-top: 18px;
+    margin-top: 16px;
+    padding-top: 16px;
     border-top: 1px solid var(--ink);
     font-family: "Noto Serif JP", serif;
     font-weight: 700;
     font-size: 16px;
     text-align: center;
-    color: var(--ink);
   }
 
-  /* === Q&A === */
+  /* ============ Q&A ============ */
   .qa {
-    margin: 28px 0;
-    padding: 24px 26px;
+    margin: 24px 0;
+    padding: 22px 24px;
     background: var(--paper);
     border-top: 2px solid var(--ink);
     border-bottom: 1px solid var(--rule);
@@ -826,11 +807,11 @@
   .qa .q {
     font-family: "Noto Serif JP", serif;
     font-weight: 700;
-    font-size: 17px;
-    line-height: 1.6;
-    margin-bottom: 14px;
-    padding-left: 32px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 30px;
     position: relative;
+    line-height: 1.6;
   }
   .qa .q::before {
     content: "Q.";
@@ -838,14 +819,13 @@
     left: 0; top: 0;
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-weight: 500;
     color: var(--gold);
     font-size: 22px;
   }
   .qa .a {
     font-size: 14px;
     line-height: 1.85;
-    padding-left: 32px;
+    padding-left: 30px;
     position: relative;
     color: var(--ink-soft);
   }
@@ -855,39 +835,48 @@
     left: 0; top: 0;
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-weight: 500;
     color: var(--ink);
     font-size: 22px;
   }
 
-  /* === CHEAT CARDS (final) === */
+  /* ============ CHEAT CARDS ============ */
   .cheat-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    margin: 36px 0;
+    gap: 20px;
+    margin: 32px 0;
   }
   .cheat-card {
     background: white;
     border: 1px solid var(--ink);
-    padding: 28px 22px;
+    padding: 22px 18px;
     position: relative;
   }
+  .cheat-card .icon-top {
+    height: 60px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cheat-card .icon-top svg { height: 100%; width: auto; }
   .cheat-card .tt {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--ink-mute);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: 0.15em;
+    text-align: center;
   }
   .cheat-card .yr {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
     font-weight: 500;
-    font-size: 44px;
+    font-size: 38px;
     line-height: 1;
     margin-bottom: 8px;
+    text-align: center;
   }
   .cheat-card.c1 { border-color: var(--c-onin); }
   .cheat-card.c1 .yr { color: var(--c-onin); }
@@ -898,25 +887,25 @@
   .cheat-card .name {
     font-family: "Noto Serif JP", serif;
     font-weight: 900;
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.3;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--rule);
+    text-align: center;
   }
   .cheat-card .body {
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 1.8;
     color: var(--ink-soft);
   }
 
-  /* === Memorize block (年号) === */
+  /* ============ MNEMONIC ============ */
   .gorou {
     background: var(--ink);
     color: var(--paper);
-    padding: 36px 32px;
-    margin: 40px 0;
-    border-radius: 0;
+    padding: 32px 28px;
+    margin: 36px 0;
   }
   .gorou .h {
     font-family: "Cormorant Garamond", serif;
@@ -924,29 +913,27 @@
     font-size: 14px;
     color: var(--gold);
     letter-spacing: 0.2em;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .gorou .item {
-    padding: 14px 0;
+    padding: 12px 0;
     border-top: 1px solid rgba(255,255,255,0.15);
     display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 20px;
+    grid-template-columns: 90px 1fr;
+    gap: 18px;
     align-items: baseline;
   }
   .gorou .item .yr {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-weight: 500;
-    font-size: 32px;
+    font-size: 30px;
     color: var(--gold);
     line-height: 1;
   }
   .gorou .item .verse {
     font-family: "Noto Serif JP", serif;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
-    color: var(--paper);
   }
   .gorou .item .verse strong {
     color: white;
@@ -955,50 +942,33 @@
     padding: 1px 4px;
   }
 
-  /* === MAP === */
-  .map {
+  /* ============ MAP ============ */
+  .map-fig {
     margin: 28px auto;
-    max-width: 480px;
-    padding: 24px;
-    background: var(--paper);
-    border: 1px solid var(--rule);
+    max-width: 540px;
     text-align: center;
   }
-  .map-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 4px;
-    margin-bottom: 12px;
-  }
-  .map-grid div {
-    background: var(--ivory);
-    padding: 8px 4px;
-    font-family: "Inter", sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.05em;
-    color: var(--ink-mute);
-  }
-  .map-grid .here-y {
-    background: var(--c-yamashiro);
-    color: white;
-    font-weight: 700;
-  }
-  .map-grid .here-k {
-    background: var(--c-kaga);
-    color: white;
-    font-weight: 700;
-  }
-  .map .cap {
+  .map-fig svg { width: 100%; height: auto; }
+  .map-fig .cap {
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--ink-mute);
+    margin-top: 8px;
   }
 
-  /* === COLOPHON === */
+  /* ============ SECTION ORNAMENTS ============ */
+  .ornament {
+    text-align: center;
+    margin: 32px 0;
+    color: var(--gold);
+  }
+  .ornament svg { width: 110px; height: 24px; }
+
+  /* ============ COLOPHON ============ */
   .colophon {
     text-align: center;
-    padding: 60px 32px;
+    padding: 50px 28px;
     background: var(--ink);
     color: rgba(255,255,255,0.7);
   }
@@ -1023,44 +993,35 @@
     color: rgba(255,255,255,0.5);
   }
 
-  /* === RESPONSIVE === */
   @media (max-width: 720px) {
-    .spread, .opener-inner { padding: 50px 28px; }
-    .cover { padding: 50px 28px 40px; }
-    .cover h1 { font-size: 48px; }
-    .cover .three-grid { grid-template-columns: 1fr; gap: 20px; }
-    .opener .ch-num { font-size: 70px; }
-    .opener h1 { font-size: 38px; }
-    .opener .key-stat-row { gap: 30px; flex-wrap: wrap; }
-    h2.story-title { font-size: 30px; }
+    .spread, .opener-inner { padding: 40px 22px; }
+    .cover { padding: 40px 22px 30px; }
+    .cover h1 { font-size: 42px; }
+    .cover .three-grid { grid-template-columns: 1fr; gap: 18px; }
+    .opener-illust { height: 160px; }
+    .opener .ch-num { font-size: 60px; }
+    .opener h1 { font-size: 32px; }
+    .opener .key-stat-row { gap: 24px; flex-wrap: wrap; }
+    h2.story-title { font-size: 26px; }
     .portraits { grid-template-columns: 1fr; }
     .battle-grid { grid-template-columns: 1fr; }
     .vs-divider { padding: 14px 0; border-left: 0; border-right: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-    .compare-board .row { grid-template-columns: 90px 1fr 1fr 1fr; }
-    .compare-board .row > div { padding: 10px 8px; font-size: 11px; }
+    .compare-board .row { grid-template-columns: 80px 1fr 1fr 1fr; }
+    .compare-board .row > div { padding: 8px 6px; font-size: 11px; }
     .cheat-grid { grid-template-columns: 1fr; }
-    .pull-quote .text { font-size: 19px; }
-    .factoid .num { font-size: 64px; }
+    .pull-quote .text { font-size: 18px; }
+    .factoid .num { font-size: 60px; }
+    .tl-event { grid-template-columns: 70px 28px 1fr; }
   }
 
-  /* === PRINT === */
   @media print {
-    @page {
-      size: A4 portrait;
-      margin: 0;
-    }
+    @page { size: A4 portrait; margin: 0; }
     body { background: white; }
-    .magazine {
-      max-width: 100%;
-      box-shadow: none;
-    }
-    .spread, .opener-inner, .cover {
-      padding: 40px 36px;
-      page-break-inside: avoid;
-    }
+    .magazine { max-width: 100%; box-shadow: none; }
+    .spread, .opener-inner, .cover { padding: 36px 30px; }
     .opener, .spread, .cover { page-break-after: always; }
     .colophon { page-break-after: auto; }
-    .portrait, .ss-row, .tl-event, .pull-quote, .factoid, .sidenote, .qa, .cheat-card, .gorou, .connection {
+    .portrait, .ss-row, .tl-event, .pull-quote, .factoid, .sidenote, .qa, .cheat-card, .gorou, .connection, .illust-figure, .battle-wrap {
       page-break-inside: avoid;
     }
     h2.story-title, h3 { page-break-after: avoid; }
@@ -1068,35 +1029,433 @@
 </style>
 </head>
 <body>
+
+<!-- ===================== SVG SYMBOL LIBRARY ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+
+    <!-- Mountain silhouette (multi-layer) -->
+    <symbol id="mountains-far" viewBox="0 0 800 200" preserveAspectRatio="xMidYEnd meet">
+      <polygon points="0,200 80,120 160,160 240,90 320,140 400,70 480,130 560,100 640,150 720,80 800,140 800,200" fill="currentColor" opacity="0.4"/>
+    </symbol>
+    <symbol id="mountains-near" viewBox="0 0 800 200" preserveAspectRatio="xMidYEnd meet">
+      <polygon points="0,200 100,140 200,170 280,120 360,160 460,100 540,150 640,110 720,160 800,130 800,200" fill="currentColor"/>
+    </symbol>
+
+    <!-- Castle silhouette -->
+    <symbol id="castle" viewBox="0 0 200 200">
+      <g fill="currentColor">
+        <!-- Stone base -->
+        <polygon points="20,200 180,200 165,150 35,150"/>
+        <!-- 1st floor -->
+        <rect x="45" y="115" width="110" height="35"/>
+        <!-- 1st roof -->
+        <path d="M30 115 Q100 90 170 115 L165 122 L35 122 Z"/>
+        <!-- 2nd floor -->
+        <rect x="65" y="80" width="70" height="30"/>
+        <!-- 2nd roof -->
+        <path d="M55 80 Q100 60 145 80 L140 86 L60 86 Z"/>
+        <!-- 3rd floor / top -->
+        <rect x="80" y="50" width="40" height="25"/>
+        <!-- top roof -->
+        <path d="M70 50 Q100 32 130 50 L127 56 L73 56 Z"/>
+        <!-- shachihoko -->
+        <rect x="96" y="35" width="8" height="15"/>
+        <circle cx="100" cy="32" r="3"/>
+      </g>
+    </symbol>
+
+    <!-- Burning castle (orange flames) -->
+    <symbol id="burning-castle" viewBox="0 0 240 200">
+      <g>
+        <!-- Smoke clouds -->
+        <ellipse cx="80" cy="30" rx="45" ry="15" fill="#1a1a28" opacity="0.3"/>
+        <ellipse cx="150" cy="20" rx="55" ry="18" fill="#1a1a28" opacity="0.4"/>
+        <ellipse cx="180" cy="40" rx="40" ry="12" fill="#1a1a28" opacity="0.3"/>
+        <!-- Flames behind -->
+        <path d="M70 100 Q60 60 90 50 Q85 80 100 60 Q105 90 120 55 Q120 90 140 65 Q140 95 155 70 Q150 95 170 80 Q165 100 180 95 L180 110 L60 110 Z" fill="#e8754a"/>
+        <path d="M75 100 Q70 75 95 70 Q92 90 105 75 Q108 95 122 78 Q125 95 145 82 Q142 100 162 88 Q160 105 175 98 L175 110 L70 110 Z" fill="#f4a261" opacity="0.85"/>
+        <path d="M85 100 Q83 85 100 85 Q102 95 113 88 Q115 100 130 92 Q132 100 148 95 Q150 105 165 100 L165 110 L80 110 Z" fill="#ffd089" opacity="0.7"/>
+        <!-- Castle in flames -->
+        <g fill="#1a1a28">
+          <polygon points="40,200 200,200 185,165 55,165"/>
+          <rect x="65" y="135" width="110" height="30"/>
+          <path d="M50 135 Q120 115 190 135 L185 142 L55 142 Z"/>
+          <rect x="85" y="105" width="70" height="28"/>
+          <path d="M75 105 Q120 88 165 105 L160 111 L80 111 Z"/>
+          <rect x="100" y="80" width="40" height="22"/>
+          <path d="M90 80 Q120 64 150 80 L147 86 L93 86 Z"/>
+          <rect x="116" y="68" width="8" height="12"/>
+        </g>
+      </g>
+    </symbol>
+
+    <!-- Samurai silhouette -->
+    <symbol id="samurai" viewBox="0 0 100 160">
+      <g fill="currentColor">
+        <!-- Helmet (kabuto) with horns -->
+        <path d="M30 18 Q50 0 70 18 L72 35 L28 35 Z"/>
+        <path d="M28 18 L18 8 L25 22 Z"/>
+        <path d="M72 18 L82 8 L75 22 Z"/>
+        <!-- Face -->
+        <ellipse cx="50" cy="42" rx="14" ry="10"/>
+        <!-- Body / armor -->
+        <path d="M22 55 L78 55 L82 100 L72 105 L72 130 L28 130 L28 105 L18 100 Z"/>
+        <!-- Legs -->
+        <rect x="30" y="130" width="14" height="28"/>
+        <rect x="56" y="130" width="14" height="28"/>
+        <!-- Sword on back -->
+        <line x1="70" y1="30" x2="92" y2="80" stroke="currentColor" stroke-width="3"/>
+        <rect x="68" y="28" width="6" height="10" transform="rotate(28 71 33)"/>
+      </g>
+    </symbol>
+
+    <!-- Court noble (公家) -->
+    <symbol id="noble" viewBox="0 0 100 160">
+      <g fill="currentColor">
+        <!-- Eboshi hat -->
+        <path d="M40 5 L60 5 L62 30 L38 30 Z"/>
+        <!-- Face -->
+        <circle cx="50" cy="40" r="11"/>
+        <!-- Robe (sokutai) -->
+        <path d="M20 55 L80 55 L88 130 L75 138 L75 158 L25 158 L25 138 L12 130 Z"/>
+        <!-- Sleeves -->
+        <ellipse cx="14" cy="80" rx="10" ry="22"/>
+        <ellipse cx="86" cy="80" rx="10" ry="22"/>
+        <!-- Belt -->
+        <rect x="20" y="92" width="60" height="5" opacity="0.3"/>
+      </g>
+    </symbol>
+
+    <!-- Court lady -->
+    <symbol id="court-lady" viewBox="0 0 100 160">
+      <g fill="currentColor">
+        <!-- Long hair -->
+        <path d="M35 25 L65 25 L70 55 L75 130 L25 130 L30 55 Z"/>
+        <!-- Face -->
+        <ellipse cx="50" cy="38" rx="12" ry="14"/>
+        <!-- Layered junihitoe robe -->
+        <path d="M18 60 L82 60 L92 138 L78 145 L78 158 L22 158 L22 145 L8 138 Z"/>
+        <!-- Layer suggestions -->
+        <path d="M22 75 L78 75" stroke="currentColor" stroke-width="0.5" opacity="0.4" fill="none"/>
+        <path d="M20 95 L80 95" stroke="currentColor" stroke-width="0.5" opacity="0.4" fill="none"/>
+        <path d="M18 115 L82 115" stroke="currentColor" stroke-width="0.5" opacity="0.4" fill="none"/>
+      </g>
+    </symbol>
+
+    <!-- Buddhist monk -->
+    <symbol id="monk" viewBox="0 0 100 160">
+      <g fill="currentColor">
+        <!-- Bald head -->
+        <ellipse cx="50" cy="30" rx="18" ry="20"/>
+        <!-- Body / robe -->
+        <path d="M22 55 L78 55 L84 135 L72 142 L72 158 L28 158 L28 142 L16 135 Z"/>
+        <!-- Sash (kesa) diagonal -->
+        <path d="M22 55 L78 95 L80 105 L24 65 Z" opacity="0.5"/>
+        <!-- Prayer beads -->
+        <circle cx="40" cy="98" r="2.5"/>
+        <circle cx="48" cy="100" r="2.5"/>
+        <circle cx="56" cy="100" r="2.5"/>
+        <circle cx="64" cy="98" r="2.5"/>
+      </g>
+    </symbol>
+
+    <!-- Farmer with hoe -->
+    <symbol id="farmer" viewBox="0 0 100 160">
+      <g fill="currentColor">
+        <!-- Straw hat -->
+        <path d="M20 30 L80 30 L70 38 L30 38 Z"/>
+        <ellipse cx="50" cy="32" rx="20" ry="6"/>
+        <!-- Face -->
+        <circle cx="50" cy="48" r="10"/>
+        <!-- Body / simple kimono -->
+        <path d="M28 60 L72 60 L74 130 L66 135 L66 158 L34 158 L34 135 L26 130 Z"/>
+        <!-- Hoe handle -->
+        <line x1="78" y1="30" x2="92" y2="120" stroke="currentColor" stroke-width="3"/>
+        <!-- Hoe blade -->
+        <path d="M88 118 L102 122 L96 135 L82 130 Z"/>
+        <!-- Arm -->
+        <line x1="72" y1="65" x2="86" y2="80" stroke="currentColor" stroke-width="6"/>
+      </g>
+    </symbol>
+
+    <!-- Banner (military flag) -->
+    <symbol id="banner" viewBox="0 0 60 200">
+      <g fill="currentColor">
+        <!-- Pole -->
+        <rect x="28" y="0" width="4" height="200"/>
+        <!-- Flag -->
+        <rect x="32" y="10" width="26" height="120"/>
+        <!-- Decoration on top -->
+        <circle cx="30" cy="6" r="6"/>
+      </g>
+    </symbol>
+
+    <!-- Cherry blossom -->
+    <symbol id="sakura" viewBox="0 0 40 40">
+      <g fill="#f4c5d0" stroke="#d896a4" stroke-width="0.5">
+        <ellipse cx="20" cy="8" rx="5" ry="7"/>
+        <ellipse cx="32" cy="15" rx="5" ry="7" transform="rotate(72 32 15)"/>
+        <ellipse cx="28" cy="30" rx="5" ry="7" transform="rotate(144 28 30)"/>
+        <ellipse cx="12" cy="30" rx="5" ry="7" transform="rotate(-144 12 30)"/>
+        <ellipse cx="8" cy="15" rx="5" ry="7" transform="rotate(-72 8 15)"/>
+      </g>
+      <circle cx="20" cy="20" r="3" fill="#e9c44a"/>
+    </symbol>
+
+    <!-- Lotus -->
+    <symbol id="lotus" viewBox="0 0 80 80">
+      <g>
+        <!-- Petals back row -->
+        <path d="M40 70 Q15 55 18 30 Q30 35 40 60 Z" fill="#d896c4"/>
+        <path d="M40 70 Q65 55 62 30 Q50 35 40 60 Z" fill="#d896c4"/>
+        <!-- Petals middle -->
+        <path d="M40 70 Q22 50 28 22 Q35 32 40 58 Z" fill="#e8b3d4"/>
+        <path d="M40 70 Q58 50 52 22 Q45 32 40 58 Z" fill="#e8b3d4"/>
+        <!-- Front center petal -->
+        <path d="M40 72 Q33 55 36 18 Q40 28 44 18 Q47 55 40 72 Z" fill="#f0c4dc"/>
+        <!-- Center -->
+        <ellipse cx="40" cy="62" rx="6" ry="4" fill="#b48a36"/>
+      </g>
+    </symbol>
+
+    <!-- Temple gate (torii style) -->
+    <symbol id="temple" viewBox="0 0 200 160">
+      <g fill="currentColor">
+        <!-- Platform -->
+        <rect x="10" y="135" width="180" height="15"/>
+        <!-- Steps -->
+        <rect x="80" y="150" width="40" height="10"/>
+        <!-- Columns -->
+        <rect x="30" y="60" width="8" height="75"/>
+        <rect x="68" y="60" width="8" height="75"/>
+        <rect x="124" y="60" width="8" height="75"/>
+        <rect x="162" y="60" width="8" height="75"/>
+        <!-- Beam -->
+        <rect x="25" y="55" width="150" height="6"/>
+        <!-- Main roof curve -->
+        <path d="M5 55 Q100 25 195 55 L185 65 L15 65 Z"/>
+        <!-- Roof curl up corners -->
+        <path d="M5 55 Q-2 50 8 45 L15 50 Z"/>
+        <path d="M195 55 Q202 50 192 45 L185 50 Z"/>
+        <!-- Top finial -->
+        <rect x="95" y="20" width="10" height="35"/>
+        <circle cx="100" cy="18" r="4" fill="#b48a36"/>
+      </g>
+    </symbol>
+
+    <!-- Crowd (group of farmers) -->
+    <symbol id="crowd" viewBox="0 0 400 100">
+      <g fill="currentColor">
+        <!-- Back row of heads -->
+        <circle cx="40" cy="40" r="8"/>
+        <circle cx="80" cy="35" r="8"/>
+        <circle cx="120" cy="42" r="8"/>
+        <circle cx="160" cy="38" r="8"/>
+        <circle cx="200" cy="35" r="8"/>
+        <circle cx="240" cy="42" r="8"/>
+        <circle cx="280" cy="38" r="8"/>
+        <circle cx="320" cy="35" r="8"/>
+        <circle cx="360" cy="40" r="8"/>
+        <!-- Bodies (shoulders) -->
+        <path d="M30 50 L50 50 L52 70 L28 70 Z"/>
+        <path d="M70 45 L90 45 L92 70 L68 70 Z"/>
+        <path d="M110 52 L130 52 L132 70 L108 70 Z"/>
+        <path d="M150 48 L170 48 L172 70 L148 70 Z"/>
+        <path d="M190 45 L210 45 L212 70 L188 70 Z"/>
+        <path d="M230 52 L250 52 L252 70 L228 70 Z"/>
+        <path d="M270 48 L290 48 L292 70 L268 70 Z"/>
+        <path d="M310 45 L330 45 L332 70 L308 70 Z"/>
+        <path d="M350 50 L370 50 L372 70 L348 70 Z"/>
+        <!-- Raised tools (hoes/sticks) -->
+        <line x1="60" y1="20" x2="50" y2="50" stroke="currentColor" stroke-width="2"/>
+        <line x1="100" y1="15" x2="90" y2="50" stroke="currentColor" stroke-width="2"/>
+        <line x1="180" y1="18" x2="170" y2="50" stroke="currentColor" stroke-width="2"/>
+        <line x1="220" y1="12" x2="210" y2="50" stroke="currentColor" stroke-width="2"/>
+        <line x1="300" y1="20" x2="290" y2="50" stroke="currentColor" stroke-width="2"/>
+        <line x1="340" y1="15" x2="330" y2="50" stroke="currentColor" stroke-width="2"/>
+        <!-- Front bodies -->
+        <rect x="25" y="70" width="350" height="30"/>
+      </g>
+    </symbol>
+
+    <!-- Map of Japan (simplified) -->
+    <symbol id="japan-map" viewBox="0 0 500 280">
+      <g>
+        <!-- Hokkaido -->
+        <path d="M380 30 Q420 20 450 40 Q455 60 440 75 Q420 80 400 75 Q385 65 380 50 Z" fill="#d4cdb6" stroke="#8a8a9a" stroke-width="0.8"/>
+        <!-- Honshu -->
+        <path d="M120 145 Q150 130 180 132 Q220 130 250 145 Q290 152 320 140 Q350 130 380 110 Q400 100 410 115 Q415 130 400 145 Q380 160 360 158 Q340 160 320 175 Q300 185 280 188 Q260 192 240 185 Q220 180 200 178 Q180 175 160 175 Q140 173 120 165 Q108 155 120 145 Z" fill="#d4cdb6" stroke="#8a8a9a" stroke-width="0.8"/>
+        <!-- Shikoku -->
+        <path d="M195 195 Q220 195 235 205 Q230 215 215 215 Q200 213 192 205 Z" fill="#d4cdb6" stroke="#8a8a9a" stroke-width="0.8"/>
+        <!-- Kyushu -->
+        <path d="M115 195 Q140 195 155 215 Q150 235 130 235 Q110 230 105 215 Q105 200 115 195 Z" fill="#d4cdb6" stroke="#8a8a9a" stroke-width="0.8"/>
+      </g>
+    </symbol>
+
+    <!-- Ornament: scrollwork divider -->
+    <symbol id="ornament-line" viewBox="0 0 200 40">
+      <g stroke="currentColor" stroke-width="1" fill="none">
+        <line x1="0" y1="20" x2="80" y2="20"/>
+        <circle cx="100" cy="20" r="6" fill="currentColor"/>
+        <circle cx="100" cy="20" r="3" fill="#fbf7ec"/>
+        <line x1="120" y1="20" x2="200" y2="20"/>
+        <path d="M85 20 Q95 12 100 20" fill="none"/>
+        <path d="M115 20 Q105 28 100 20" fill="none"/>
+      </g>
+    </symbol>
+
+    <!-- Banner mini icon -->
+    <symbol id="i-banner" viewBox="0 0 30 40">
+      <g fill="currentColor">
+        <rect x="13" y="0" width="2" height="40"/>
+        <polygon points="15,4 28,4 25,22 15,22"/>
+      </g>
+    </symbol>
+
+    <!-- Sword icon -->
+    <symbol id="i-sword" viewBox="0 0 30 30">
+      <g fill="currentColor">
+        <line x1="5" y1="25" x2="25" y2="5" stroke="currentColor" stroke-width="2"/>
+        <rect x="20" y="2" width="3" height="3"/>
+        <rect x="2" y="22" width="6" height="2"/>
+      </g>
+    </symbol>
+
+    <!-- Flame icon -->
+    <symbol id="i-flame" viewBox="0 0 30 30">
+      <path d="M15 28 Q5 22 10 12 Q12 18 15 14 Q15 8 22 6 Q18 14 22 14 Q26 20 22 24 Q18 28 15 28 Z" fill="currentColor"/>
+    </symbol>
+
+    <!-- Star/decoration icon -->
+    <symbol id="i-star" viewBox="0 0 30 30">
+      <polygon points="15,3 18,12 27,12 20,18 23,27 15,22 7,27 10,18 3,12 12,12" fill="currentColor"/>
+    </symbol>
+
+    <!-- Document/letter icon (for 蓮如's御文) -->
+    <symbol id="i-letter" viewBox="0 0 30 30">
+      <g fill="currentColor">
+        <rect x="5" y="5" width="20" height="22" rx="1"/>
+        <line x1="9" y1="11" x2="21" y2="11" stroke="#fbf7ec" stroke-width="1"/>
+        <line x1="9" y1="15" x2="21" y2="15" stroke="#fbf7ec" stroke-width="1"/>
+        <line x1="9" y1="19" x2="17" y2="19" stroke="#fbf7ec" stroke-width="1"/>
+      </g>
+    </symbol>
+
+    <!-- Bell icon (temple) -->
+    <symbol id="i-bell" viewBox="0 0 30 30">
+      <g fill="currentColor">
+        <path d="M15 4 Q9 4 8 14 L8 22 L22 22 L22 14 Q21 4 15 4 Z"/>
+        <rect x="13" y="22" width="4" height="3"/>
+        <rect x="14" y="2" width="2" height="3"/>
+      </g>
+    </symbol>
+
+    <!-- Crown icon -->
+    <symbol id="i-crown" viewBox="0 0 30 30">
+      <g fill="currentColor">
+        <polygon points="5,22 8,10 12,18 15,8 18,18 22,10 25,22"/>
+        <rect x="5" y="22" width="20" height="3"/>
+        <circle cx="15" cy="6" r="2"/>
+      </g>
+    </symbol>
+
+  </defs>
+</svg>
+
+
 <div class="magazine">
 
-<!-- ============ COVER ============ -->
+<!-- ===================== COVER ===================== -->
 <div class="cover">
   <div class="meta-row">
     <div>Volume 01 ─ Muromachi Files</div>
     <div class="right">中学受験 / 社会 / 室町後期</div>
   </div>
 
+  <!-- HERO ILLUSTRATION -->
+  <div class="cover-hero">
+    <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sky gradient -->
+      <defs>
+        <linearGradient id="skyG" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fff5d6"/>
+          <stop offset="60%" stop-color="#f4c5d0" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#fbf7ec"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="280" fill="url(#skyG)"/>
+      <!-- Sun -->
+      <circle cx="640" cy="80" r="38" fill="#e9c44a" opacity="0.7"/>
+      <circle cx="640" cy="80" r="28" fill="#f4c5d0" opacity="0.6"/>
+      <!-- Far mountains -->
+      <g style="color: #5e3a87;"><use href="#mountains-far" x="0" y="80" width="800" height="200"/></g>
+      <!-- Near mountains -->
+      <g style="color: #1f4e6b;"><use href="#mountains-near" x="0" y="100" width="800" height="180"/></g>
+      <!-- Castle in distance -->
+      <g style="color: #b8312d;" transform="translate(420 120)">
+        <use href="#castle" width="100" height="100"/>
+      </g>
+      <!-- Three figures (samurai, farmer, monk) -->
+      <g style="color: #1a1a28;" transform="translate(120 110)">
+        <use href="#samurai" width="60" height="100"/>
+      </g>
+      <g style="color: #1a1a28;" transform="translate(220 110)">
+        <use href="#farmer" width="60" height="100"/>
+      </g>
+      <g style="color: #1a1a28;" transform="translate(320 110)">
+        <use href="#monk" width="60" height="100"/>
+      </g>
+      <!-- Banners -->
+      <g style="color: #b8312d;" transform="translate(105 90)">
+        <use href="#banner" width="20" height="80"/>
+      </g>
+      <g style="color: #1f4e6b;" transform="translate(290 90)">
+        <use href="#banner" width="20" height="80"/>
+      </g>
+      <g style="color: #5e3a87;" transform="translate(385 90)">
+        <use href="#banner" width="20" height="80"/>
+      </g>
+      <!-- Cherry blossoms scattered -->
+      <use href="#sakura" x="60" y="40" width="22" height="22"/>
+      <use href="#sakura" x="180" y="20" width="18" height="18"/>
+      <use href="#sakura" x="540" y="50" width="20" height="20"/>
+      <use href="#sakura" x="720" y="30" width="22" height="22"/>
+      <use href="#sakura" x="40" y="200" width="18" height="18"/>
+      <use href="#sakura" x="760" y="180" width="22" height="22"/>
+      <!-- Ground -->
+      <rect x="0" y="220" width="800" height="60" fill="#8a7c5e" opacity="0.3"/>
+    </svg>
+  </div>
+
   <div class="issue-num">Issue 01 — Spring</div>
   <h1>応仁の乱<span class="amp">&</span><br>二つの一揆</h1>
-  <div class="deck">
-    京都を11年燃やした大乱、農民が大名を追い出した8年、信者がつくった100年の国 ─ 教科書では数行で終わる三つの事件は、じつは一本の物語でつながっている。</div>
+  <div class="deck">京都を11年燃やした大乱、農民が大名を追い出した8年、信者がつくった100年の国 ─ 教科書では数行で終わる三つの事件は、じつは一本の物語でつながっている。</div>
 
   <div class="three-grid">
     <div class="ev">
       <div class="num">FILE Ⅰ</div>
+      <div class="icon-box">
+        <svg viewBox="0 0 100 100"><g style="color:#b8312d"><use href="#burning-castle" width="100" height="100"/></g></svg>
+      </div>
       <div class="yr">1467</div>
       <div class="ttl">応仁の乱</div>
       <div class="desc">将軍家のたった一つの跡継ぎ問題が、なぜ京都全体を焼く11年戦争になったのか。</div>
     </div>
     <div class="ev">
       <div class="num">FILE Ⅱ</div>
+      <div class="icon-box">
+        <svg viewBox="0 0 200 100"><g style="color:#1f4e6b"><use href="#crowd" x="0" y="0" width="200" height="80"/></g></svg>
+      </div>
       <div class="yr">1485</div>
       <div class="ttl">山城の国一揆</div>
       <div class="desc">疲れ果てた農民と地元武士が「もう自分たちでやる」と宣言した、自治8年間の物語。</div>
     </div>
     <div class="ev">
       <div class="num">FILE Ⅲ</div>
+      <div class="icon-box">
+        <svg viewBox="0 0 100 100"><g style="color:#5e3a87"><use href="#temple" x="0" y="10" width="100" height="80"/></g></svg>
+      </div>
       <div class="yr">1488</div>
       <div class="ttl">加賀の一向一揆</div>
       <div class="desc">信仰でつながった人々が守護大名を倒し、なんと100年も続いた「百姓の国」。</div>
@@ -1109,8 +1468,37 @@
   </div>
 </div>
 
-<!-- ============ INTRO ============ -->
+
+<!-- ===================== INTRO ===================== -->
 <div class="opener intro">
+  <div class="opener-illust">
+    <svg viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="220" fill="#1a1a28"/>
+      <!-- Stars/decoration -->
+      <circle cx="100" cy="40" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="200" cy="30" r="1" fill="white" opacity="0.5"/>
+      <circle cx="350" cy="50" r="1.2" fill="white" opacity="0.7"/>
+      <circle cx="500" cy="35" r="1" fill="white" opacity="0.5"/>
+      <circle cx="650" cy="45" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="730" cy="25" r="1" fill="white" opacity="0.5"/>
+      <!-- Distant mountains -->
+      <g style="color:#3d3d50"><use href="#mountains-far" x="0" y="60" width="800" height="160"/></g>
+      <!-- Three figures - showing 3 social classes -->
+      <g style="color:#b48a36" transform="translate(180 70)">
+        <use href="#noble" width="80" height="130"/>
+      </g>
+      <g style="color:#b48a36" transform="translate(360 70)">
+        <use href="#samurai" width="80" height="130"/>
+      </g>
+      <g style="color:#b48a36" transform="translate(540 70)">
+        <use href="#farmer" width="80" height="130"/>
+      </g>
+      <!-- Labels under each -->
+      <text x="220" y="215" fill="white" font-family="Cormorant Garamond" font-style="italic" font-size="13" text-anchor="middle">公家・将軍</text>
+      <text x="400" y="215" fill="white" font-family="Cormorant Garamond" font-style="italic" font-size="13" text-anchor="middle">武士・大名</text>
+      <text x="580" y="215" fill="white" font-family="Cormorant Garamond" font-style="italic" font-size="13" text-anchor="middle">農民・町衆</text>
+    </svg>
+  </div>
   <div class="opener-inner">
     <div class="ch-tag">PROLOGUE</div>
     <div class="ch-num">00</div>
@@ -1162,10 +1550,45 @@
       </div>
     </div>
   </div>
+
+  <div class="ornament">
+    <svg viewBox="0 0 200 40"><use href="#ornament-line" width="200" height="40"/></svg>
+  </div>
 </div>
 
-<!-- ============ CHAPTER 1: 応仁の乱 ============ -->
+
+<!-- ===================== CHAPTER 1 ===================== -->
 <div class="opener c1">
+  <div class="opener-illust">
+    <svg viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="fireSky" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#7a1f1c"/>
+          <stop offset="50%" stop-color="#b8312d"/>
+          <stop offset="100%" stop-color="#e8754a"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="220" fill="url(#fireSky)"/>
+      <!-- Smoke -->
+      <ellipse cx="200" cy="50" rx="120" ry="35" fill="#1a1a28" opacity="0.4"/>
+      <ellipse cx="450" cy="30" rx="180" ry="30" fill="#1a1a28" opacity="0.5"/>
+      <ellipse cx="650" cy="55" rx="120" ry="30" fill="#1a1a28" opacity="0.4"/>
+      <!-- Mountain silhouette -->
+      <g style="color:#1a1a28; opacity:0.7"><use href="#mountains-far" x="0" y="100" width="800" height="120"/></g>
+      <!-- Multiple burning castles in distance -->
+      <g style="color:#1a1a28" transform="translate(50 100)"><use href="#burning-castle" width="100" height="100"/></g>
+      <g transform="translate(280 80)"><use href="#burning-castle" width="160" height="140"/></g>
+      <g style="color:#1a1a28" transform="translate(550 110)"><use href="#burning-castle" width="100" height="100"/></g>
+      <g style="color:#1a1a28" transform="translate(680 120)"><use href="#burning-castle" width="80" height="80"/></g>
+      <!-- Flame embers -->
+      <circle cx="120" cy="160" r="2" fill="#e9c44a"/>
+      <circle cx="180" cy="140" r="1.5" fill="#ffd089"/>
+      <circle cx="260" cy="170" r="2" fill="#e9c44a"/>
+      <circle cx="500" cy="155" r="2" fill="#ffd089"/>
+      <circle cx="600" cy="175" r="1.5" fill="#e9c44a"/>
+      <circle cx="700" cy="165" r="2" fill="#ffd089"/>
+    </svg>
+  </div>
   <div class="opener-inner">
     <div class="ch-tag">FILE Ⅰ ─ 1467 / 京都</div>
     <div class="ch-num">01</div>
@@ -1189,52 +1612,52 @@
 
   <div class="portraits">
     <div class="portrait">
-      <div class="head">
-        <div class="glyph">政</div>
-        <div class="name-block">
-          <div class="role-tag">8th Shogun</div>
-          <div class="name">足利 義政</div>
-          <div class="read">あしかが よしまさ</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 100 160"><g style="color:#1a1a28"><use href="#noble" width="100" height="160"/></g></svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">8th Shogun</div>
+        <div class="name">足利 義政</div>
+        <div class="read">あしかが よしまさ</div>
       </div>
       <div class="quote">「もう将軍はやめたい。弟に譲ろう。」</div>
       <div class="bio">芸術を愛し、政治を嫌う優柔不断な将軍。妻・富子に押されっぱなし。後に銀閣寺を建て、文化人としては大きな足跡を残す。</div>
     </div>
 
     <div class="portrait">
-      <div class="head">
-        <div class="glyph">富</div>
-        <div class="name-block">
-          <div class="role-tag">Wife of Yoshimasa</div>
-          <div class="name">日野 富子</div>
-          <div class="read">ひの とみこ</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 100 160"><g style="color:#1a1a28"><use href="#court-lady" width="100" height="160"/></g></svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">Wife of Yoshimasa</div>
+        <div class="name">日野 富子</div>
+        <div class="read">ひの とみこ</div>
       </div>
       <div class="quote">「我が子・義尚こそ、次の将軍に。」</div>
       <div class="bio">しっかり者で商才あり。実子の義尚が生まれた瞬間から「将軍は息子に」と動き出す。乱の最中も米相場や関銭で稼いだとされる。</div>
     </div>
 
     <div class="portrait east">
-      <div class="head">
-        <div class="glyph">細</div>
-        <div class="name-block">
-          <div class="role-tag">East Army Leader</div>
-          <div class="name">細川 勝元</div>
-          <div class="read">ほそかわ かつもと</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 140 160"><g style="color:#7a1f1c"><use href="#samurai" x="20" y="0" width="100" height="160"/></g><g style="color:#b8312d"><use href="#banner" x="0" y="0" width="30" height="140"/></g></svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">East Army Leader</div>
+        <div class="name">細川 勝元</div>
+        <div class="read">ほそかわ かつもと</div>
       </div>
       <div class="quote">「次の将軍は、義尚さまだ。」</div>
       <div class="bio">幕府ナンバー2「管領」を務めた切れ者。富子・義尚側を支持し、京都の<strong>東</strong>に陣を構えた。だから「東軍」のリーダー。</div>
     </div>
 
     <div class="portrait west">
-      <div class="head">
-        <div class="glyph">宗</div>
-        <div class="name-block">
-          <div class="role-tag">West Army Leader</div>
-          <div class="name">山名 宗全</div>
-          <div class="read">やまな そうぜん</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 140 160"><g style="color:#133344"><use href="#samurai" x="20" y="0" width="100" height="160"/></g><g style="color:#1f4e6b"><use href="#banner" x="0" y="0" width="30" height="140"/></g></svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">West Army Leader</div>
+        <div class="name">山名 宗全</div>
+        <div class="read">やまな そうぜん</div>
       </div>
       <div class="quote">「いや、約束どおり義視さまだ。」</div>
       <div class="bio">「赤入道」と呼ばれた強面の大名。義視を擁立し、京都の<strong>西</strong>に陣を構えた。これが現在も続く<strong>「西陣織」</strong>の地名の由来となる。</div>
@@ -1288,29 +1711,84 @@
 
   <h3><span class="marker">battle.</span>東軍 対 西軍</h3>
 
-  <div class="battle-grid">
-    <div class="army-col east">
-      <div class="a-tag">East Army</div>
-      <div class="a-name">東軍</div>
-      <div class="a-leader">led by 細川勝元</div>
-      <ul class="a-list">
-        <li><span class="lbl">推す将軍</span><span class="val">足利義尚</span></li>
-        <li><span class="lbl">主な大名</span><span class="val">畠山政長 ほか</span></li>
-        <li><span class="lbl">陣地</span><span class="val">京都・東側</span></li>
-        <li><span class="lbl">兵力</span><span class="val">約16万人</span></li>
-      </ul>
+  <div class="battle-wrap">
+    <div class="battle-illust">
+      <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- East side (red) -->
+        <g style="color:#b8312d">
+          <use href="#banner" x="40" y="40" width="30" height="120"/>
+          <use href="#banner" x="90" y="50" width="26" height="110"/>
+          <use href="#banner" x="135" y="35" width="30" height="125"/>
+        </g>
+        <g style="color:#7a1f1c" transform="translate(50 90)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+        <g style="color:#7a1f1c" transform="translate(110 95)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+        <g style="color:#7a1f1c" transform="translate(170 95)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+        <g style="color:#7a1f1c" transform="translate(225 95)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+
+        <!-- Center fire -->
+        <g style="color:#e8754a" transform="translate(310 110)">
+          <use href="#i-flame" width="40" height="40"/>
+        </g>
+        <g style="color:#b8312d" transform="translate(335 95)">
+          <use href="#i-flame" width="30" height="30"/>
+        </g>
+        <text x="350" y="70" fill="#1a1a28" font-family="Cormorant Garamond" font-style="italic" font-size="40" text-anchor="middle">vs.</text>
+
+        <!-- West side (blue) -->
+        <g style="color:#133344" transform="translate(420 95)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+        <g style="color:#133344" transform="translate(475 95)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+        <g style="color:#133344" transform="translate(535 95)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+        <g style="color:#133344" transform="translate(595 90)">
+          <use href="#samurai" width="50" height="80"/>
+        </g>
+        <g style="color:#1f4e6b">
+          <use href="#banner" x="540" y="40" width="30" height="120"/>
+          <use href="#banner" x="585" y="50" width="26" height="110"/>
+          <use href="#banner" x="630" y="35" width="30" height="125"/>
+        </g>
+
+        <!-- Ground -->
+        <line x1="0" y1="180" x2="700" y2="180" stroke="#1a1a28" stroke-width="1" opacity="0.3"/>
+      </svg>
     </div>
-    <div class="vs-divider"><div class="vs">vs.</div></div>
-    <div class="army-col west">
-      <div class="a-tag">West Army</div>
-      <div class="a-name">西軍</div>
-      <div class="a-leader">led by 山名宗全</div>
-      <ul class="a-list">
-        <li><span class="lbl">推す将軍</span><span class="val">足利義視</span></li>
-        <li><span class="lbl">主な大名</span><span class="val">畠山義就 ほか</span></li>
-        <li><span class="lbl">陣地</span><span class="val">京都・西側</span></li>
-        <li><span class="lbl">兵力</span><span class="val">約11万人</span></li>
-      </ul>
+    <div class="battle-grid">
+      <div class="army-col east">
+        <div class="a-tag">East Army</div>
+        <div class="a-name">東軍</div>
+        <div class="a-leader">led by 細川勝元</div>
+        <ul class="a-list">
+          <li><span class="lbl">推す将軍</span><span class="val">足利義尚</span></li>
+          <li><span class="lbl">主な大名</span><span class="val">畠山政長 ほか</span></li>
+          <li><span class="lbl">陣地</span><span class="val">京都・東側</span></li>
+          <li><span class="lbl">兵力</span><span class="val">約16万人</span></li>
+        </ul>
+      </div>
+      <div class="vs-divider"><div class="vs">vs.</div></div>
+      <div class="army-col west">
+        <div class="a-tag">West Army</div>
+        <div class="a-name">西軍</div>
+        <div class="a-leader">led by 山名宗全</div>
+        <ul class="a-list">
+          <li><span class="lbl">推す将軍</span><span class="val">足利義視</span></li>
+          <li><span class="lbl">主な大名</span><span class="val">畠山義就 ほか</span></li>
+          <li><span class="lbl">陣地</span><span class="val">京都・西側</span></li>
+          <li><span class="lbl">兵力</span><span class="val">約11万人</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -1327,12 +1805,12 @@
   </div>
   <h3><span class="marker">chronicle.</span>11年の流れを追う</h3>
 
-  <div class="timeline-wrap">
-    <div class="tl-event"><div class="yr">1464</div><div class="what">義政「子がないし、弟・義視を後継者にしよう」と決定。</div></div>
-    <div class="tl-event"><div class="yr">1465</div><div class="what">日野富子に男児・義尚が誕生。「やはり実子に継がせたい」と運命が反転する。</div></div>
-    <div class="tl-event key"><div class="yr">1467</div><div class="what"><span class="ev-tag">START</span>東軍と西軍、京都で開戦。応仁の乱、ついに勃発。</div></div>
-    <div class="tl-event"><div class="yr">1473</div><div class="what">山名宗全、細川勝元、リーダー二人が同年に病死。だが戦いは止まらない。</div></div>
-    <div class="tl-event key"><div class="yr">1477</div><div class="what"><span class="ev-tag">END</span>11年経って、決着のないまま自然消滅。京都は焼け野原に。</div></div>
+  <div>
+    <div class="tl-event"><div class="yr">1464</div><div class="icon"><svg style="color:#b48a36"><use href="#i-crown"/></svg></div><div class="what">義政「子がないし、弟・義視を後継者にしよう」と決定。</div></div>
+    <div class="tl-event"><div class="yr">1465</div><div class="icon"><svg style="color:#d896c4"><use href="#i-star"/></svg></div><div class="what">日野富子に男児・義尚が誕生。「やはり実子に継がせたい」と運命が反転する。</div></div>
+    <div class="tl-event key"><div class="yr">1467</div><div class="icon"><svg style="color:#b8312d"><use href="#i-flame"/></svg></div><div class="what"><span class="ev-tag">START</span>東軍と西軍、京都で開戦。応仁の乱、ついに勃発。</div></div>
+    <div class="tl-event"><div class="yr">1473</div><div class="icon"><svg style="color:#4a4a5e"><use href="#i-bell"/></svg></div><div class="what">山名宗全、細川勝元、リーダー二人が同年に病死。だが戦いは止まらない。</div></div>
+    <div class="tl-event key"><div class="yr">1477</div><div class="icon"><svg style="color:#b8312d"><use href="#i-sword"/></svg></div><div class="what"><span class="ev-tag">END</span>11年経って、決着のないまま自然消滅。京都は焼け野原に。</div></div>
   </div>
 
   <div class="factoid">
@@ -1381,8 +1859,57 @@
   </div>
 </div>
 
-<!-- ============ CHAPTER 2: 山城の国一揆 ============ -->
+
+<!-- ===================== CHAPTER 2 ===================== -->
 <div class="opener c2">
+  <div class="opener-illust">
+    <svg viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dawnSky" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#133344"/>
+          <stop offset="50%" stop-color="#1f4e6b"/>
+          <stop offset="100%" stop-color="#4a7c5e"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="220" fill="url(#dawnSky)"/>
+      <!-- Sun -->
+      <circle cx="400" cy="60" r="35" fill="#e9c44a" opacity="0.7"/>
+      <!-- Far mountains -->
+      <g style="color:#0a1f2c"><use href="#mountains-far" x="0" y="80" width="800" height="140"/></g>
+      <!-- Crowd of people - left half farmers, right half samurai -->
+      <g style="color:#0a1f2c">
+        <use href="#crowd" x="0" y="130" width="400" height="90"/>
+      </g>
+      <!-- Banners raised -->
+      <g style="color:#4a7c5e">
+        <use href="#banner" x="100" y="80" width="20" height="80"/>
+        <use href="#banner" x="180" y="70" width="20" height="90"/>
+        <use href="#banner" x="270" y="85" width="20" height="75"/>
+      </g>
+      <!-- Right side: a few samurai with banners (国人) -->
+      <g style="color:#0a1f2c" transform="translate(450 120)">
+        <use href="#samurai" width="50" height="90"/>
+      </g>
+      <g style="color:#0a1f2c" transform="translate(520 120)">
+        <use href="#samurai" width="50" height="90"/>
+      </g>
+      <g style="color:#0a1f2c" transform="translate(590 125)">
+        <use href="#samurai" width="50" height="90"/>
+      </g>
+      <g style="color:#0a1f2c" transform="translate(660 120)">
+        <use href="#samurai" width="50" height="90"/>
+      </g>
+      <g style="color:#4a7c5e">
+        <use href="#banner" x="475" y="60" width="22" height="100"/>
+        <use href="#banner" x="555" y="55" width="22" height="105"/>
+        <use href="#banner" x="630" y="65" width="22" height="95"/>
+      </g>
+      <!-- Cherry petals scattered -->
+      <use href="#sakura" x="50" y="40" width="14" height="14"/>
+      <use href="#sakura" x="700" y="35" width="14" height="14"/>
+      <use href="#sakura" x="350" y="160" width="12" height="12"/>
+    </svg>
+  </div>
   <div class="opener-inner">
     <div class="ch-tag">FILE Ⅱ ─ 1485 / 山城国南部</div>
     <div class="ch-num">02</div>
@@ -1404,11 +1931,24 @@
   <h2 class="story-title">応仁の乱の<em>延長戦</em>に、人々は限界を迎えた。</h2>
   <p class="story-deck drop-cap">応仁の乱が終わっても、戦火は止まらなかった。管領家の畠山氏は政長派と義就派に分裂したまま、山城国(京都府南部)で内輪もめを8年も続けていた。田畑は荒れ、農民は飢え、地元の武士=国人(こくじん)も疲弊していく。</p>
 
-  <div class="map">
-    <div class="map-grid">
-      <div>越前</div><div>近江</div><div>丹波</div><div>京都</div>
-      <div class="here-y">山城</div><div>大和</div><div>河内</div><div>和泉</div>
-    </div>
+  <div class="map-fig">
+    <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sea/background -->
+      <rect width="500" height="280" fill="#d6e4ec"/>
+      <!-- Wave decoration -->
+      <path d="M0 245 Q25 240 50 245 Q75 250 100 245 Q125 240 150 245 Q175 250 200 245 Q225 240 250 245 Q275 250 300 245 Q325 240 350 245 Q375 250 400 245 Q425 240 450 245 Q475 250 500 245" stroke="#1f4e6b" fill="none" stroke-width="1" opacity="0.4"/>
+      <path d="M0 260 Q25 255 50 260 Q75 265 100 260 Q125 255 150 260 Q175 265 200 260 Q225 255 250 260 Q275 265 300 260 Q325 255 350 260 Q375 265 400 260 Q425 255 450 260 Q475 265 500 260" stroke="#1f4e6b" fill="none" stroke-width="1" opacity="0.3"/>
+      <!-- Japan -->
+      <use href="#japan-map" width="500" height="280"/>
+      <!-- 山城 marker -->
+      <circle cx="248" cy="172" r="14" fill="#1f4e6b"/>
+      <circle cx="248" cy="172" r="6" fill="white"/>
+      <line x1="248" y1="172" x2="290" y2="155" stroke="#1f4e6b" stroke-width="1.5"/>
+      <text x="295" y="158" fill="#1f4e6b" font-family="Noto Serif JP" font-size="14" font-weight="700">山城国</text>
+      <text x="295" y="172" fill="#4a4a5e" font-family="Cormorant Garamond" font-style="italic" font-size="11">(京都府南部)</text>
+      <!-- Title -->
+      <text x="250" y="30" text-anchor="middle" fill="#1a1a28" font-family="Cormorant Garamond" font-style="italic" font-size="14">map of Japan ─ where it happened</text>
+    </svg>
     <div class="cap">山城国 ─ 現在の京都府南部、応仁の乱でも激戦地だった</div>
   </div>
 
@@ -1445,6 +1985,45 @@
     </div>
   </div>
 
+  <!-- Big illustration: 36 people gathering -->
+  <div class="illust-figure">
+    <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Circle of 36 figures (representing the gathering) -->
+      <g style="color:#1f4e6b" transform="translate(300 110)">
+        <!-- Outer ring of small figures -->
+        <g><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(20)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(40)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(60)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(80)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(100)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(120)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(140)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(160)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(180)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(200)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(220)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(240)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(260)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(280)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(300)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(320)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <g transform="rotate(340)"><circle cx="0" cy="-80" r="6" fill="currentColor"/><rect x="-4" y="-74" width="8" height="14" fill="currentColor"/></g>
+        <!-- Inner circle: a few more -->
+        <g transform="rotate(10)"><circle cx="0" cy="-50" r="5" fill="currentColor" opacity="0.7"/></g>
+        <g transform="rotate(70)"><circle cx="0" cy="-50" r="5" fill="currentColor" opacity="0.7"/></g>
+        <g transform="rotate(130)"><circle cx="0" cy="-50" r="5" fill="currentColor" opacity="0.7"/></g>
+        <g transform="rotate(190)"><circle cx="0" cy="-50" r="5" fill="currentColor" opacity="0.7"/></g>
+        <g transform="rotate(250)"><circle cx="0" cy="-50" r="5" fill="currentColor" opacity="0.7"/></g>
+        <g transform="rotate(310)"><circle cx="0" cy="-50" r="5" fill="currentColor" opacity="0.7"/></g>
+        <!-- Center: 36 in big text -->
+        <text x="0" y="-2" text-anchor="middle" fill="#b48a36" font-family="Cormorant Garamond" font-style="italic" font-weight="500" font-size="58">36</text>
+        <text x="0" y="22" text-anchor="middle" fill="#1a1a28" font-family="Noto Serif JP" font-weight="700" font-size="14">国人 集会</text>
+      </g>
+    </svg>
+    <div class="caption"><strong>1485年12月</strong> ─ 国人36人が集まり、自治を始めた</div>
+  </div>
+
   <div class="pull-quote">
     <div class="text">「治めるのは大名だ、<em>と決まっていた時代に</em>、<br>農民と地元武士は、自分たちで治めると決めた。」</div>
     <div class="attribution">─ THE TURNING POINT</div>
@@ -1458,11 +2037,11 @@
   </div>
   <h3><span class="marker">chronicle.</span>自治の年表</h3>
 
-  <div class="timeline-wrap">
-    <div class="tl-event key c2"><div class="yr">1485.12</div><div class="what"><span class="ev-tag">START</span>国人36人が集会、農民と連合し、両畠山軍に撤退を要求。両軍が撤退。</div></div>
-    <div class="tl-event"><div class="yr">1486</div><div class="what">「<strong>国中掟法(こくちゅうじょうほう)</strong>」を制定。<strong>月行事(つきぎょうじ)</strong>36人が交代で国を運営。</div></div>
-    <div class="tl-event"><div class="yr">87 - 92</div><div class="what">およそ8年間、武士と農民の連合自治が続く。寺社や荘園の支配は維持しつつ、自分たちで秩序を保った。</div></div>
-    <div class="tl-event key c2"><div class="yr">1493</div><div class="what"><span class="ev-tag">END</span>内部の意見対立と幕府の介入により、自治は終了。だが歴史にはくっきりと名を残した。</div></div>
+  <div>
+    <div class="tl-event key c2"><div class="yr">1485.12</div><div class="icon"><svg style="color:#1f4e6b"><use href="#i-banner"/></svg></div><div class="what"><span class="ev-tag">START</span>国人36人が集会、農民と連合し、両畠山軍に撤退を要求。両軍が撤退。</div></div>
+    <div class="tl-event"><div class="yr">1486</div><div class="icon"><svg style="color:#b48a36"><use href="#i-letter"/></svg></div><div class="what">「<strong>国中掟法(こくちゅうじょうほう)</strong>」を制定。<strong>月行事(つきぎょうじ)</strong>36人が交代で国を運営。</div></div>
+    <div class="tl-event"><div class="yr">87 - 92</div><div class="icon"><svg style="color:#4a7c5e"><use href="#i-star"/></svg></div><div class="what">およそ8年間、武士と農民の連合自治が続く。寺社や荘園の支配は維持しつつ、自分たちで秩序を保った。</div></div>
+    <div class="tl-event key c2"><div class="yr">1493</div><div class="icon"><svg style="color:#1f4e6b"><use href="#i-bell"/></svg></div><div class="what"><span class="ev-tag">END</span>内部の意見対立と幕府の介入により、自治は終了。だが歴史にはくっきりと名を残した。</div></div>
   </div>
 
   <div class="factoid">
@@ -1486,8 +2065,49 @@
   </div>
 </div>
 
-<!-- ============ CHAPTER 3: 加賀の一向一揆 ============ -->
+
+<!-- ===================== CHAPTER 3 ===================== -->
 <div class="opener c3">
+  <div class="opener-illust">
+    <svg viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="zenSky" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#3d2557"/>
+          <stop offset="60%" stop-color="#5e3a87"/>
+          <stop offset="100%" stop-color="#8a5fb0"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="220" fill="url(#zenSky)"/>
+      <!-- Moon -->
+      <circle cx="650" cy="55" r="28" fill="#fff5d6" opacity="0.85"/>
+      <circle cx="660" cy="50" r="22" fill="#5e3a87" opacity="0.3"/>
+      <!-- Distant mountains -->
+      <g style="color:#2a1a40"><use href="#mountains-far" x="0" y="80" width="800" height="140"/></g>
+      <!-- Big temple in center -->
+      <g style="color:#2a1a40" transform="translate(280 70)">
+        <use href="#temple" width="240" height="160"/>
+      </g>
+      <!-- Lotus flowers floating -->
+      <use href="#lotus" x="80" y="160" width="50" height="50"/>
+      <use href="#lotus" x="160" y="170" width="40" height="40"/>
+      <use href="#lotus" x="600" y="160" width="50" height="50"/>
+      <use href="#lotus" x="680" y="175" width="40" height="40"/>
+      <use href="#lotus" x="40" y="190" width="35" height="35"/>
+      <use href="#lotus" x="730" y="190" width="35" height="35"/>
+      <!-- Praying figures (silhouettes) -->
+      <g style="color:#2a1a40" transform="translate(180 130)">
+        <use href="#monk" width="40" height="80"/>
+      </g>
+      <g style="color:#2a1a40" transform="translate(580 130)">
+        <use href="#monk" width="40" height="80"/>
+      </g>
+      <!-- Stars -->
+      <use href="#i-star" x="100" y="40" width="14" height="14" style="color:#e9c44a"/>
+      <use href="#i-star" x="200" y="25" width="10" height="10" style="color:#e9c44a"/>
+      <use href="#i-star" x="500" y="35" width="12" height="12" style="color:#e9c44a"/>
+      <use href="#i-star" x="730" y="20" width="10" height="10" style="color:#e9c44a"/>
+    </svg>
+  </div>
   <div class="opener-inner">
     <div class="ch-tag">FILE Ⅲ ─ 1488 / 加賀(石川県)</div>
     <div class="ch-num">03</div>
@@ -1509,11 +2129,20 @@
   <h2 class="story-title">なぜ100年も、続いたのか?</h2>
   <p class="story-deck drop-cap">山城の国一揆が8年で終わったのに対し、加賀の一向一揆は約100年も続いた。その秘密は「信仰の力」と、一人の天才布教者・蓮如(れんにょ)にある。</p>
 
-  <div class="map">
-    <div class="map-grid">
-      <div>陸奥</div><div>出羽</div><div>越後</div><div>能登</div>
-      <div class="here-k">加賀</div><div>越中</div><div>飛騨</div><div>信濃</div>
-    </div>
+  <div class="map-fig">
+    <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="500" height="280" fill="#e3daee"/>
+      <!-- Wave decoration -->
+      <path d="M0 245 Q25 240 50 245 Q75 250 100 245 Q125 240 150 245 Q175 250 200 245 Q225 240 250 245 Q275 250 300 245 Q325 240 350 245 Q375 250 400 245 Q425 240 450 245 Q475 250 500 245" stroke="#5e3a87" fill="none" stroke-width="1" opacity="0.4"/>
+      <use href="#japan-map" width="500" height="280"/>
+      <!-- 加賀 marker -->
+      <circle cx="290" cy="148" r="14" fill="#5e3a87"/>
+      <circle cx="290" cy="148" r="6" fill="white"/>
+      <line x1="290" y1="148" x2="335" y2="120" stroke="#5e3a87" stroke-width="1.5"/>
+      <text x="340" y="123" fill="#5e3a87" font-family="Noto Serif JP" font-size="14" font-weight="700">加賀</text>
+      <text x="340" y="137" fill="#4a4a5e" font-family="Cormorant Garamond" font-style="italic" font-size="11">(石川県南部)</text>
+      <text x="250" y="30" text-anchor="middle" fill="#1a1a28" font-family="Cormorant Garamond" font-style="italic" font-size="14">map of Japan ─ where it happened</text>
+    </svg>
     <div class="cap">加賀 ─ 北陸の中心地、現在の石川県南部</div>
   </div>
 
@@ -1522,52 +2151,58 @@
 
   <div class="portraits">
     <div class="portrait k">
-      <div class="head">
-        <div class="glyph">親</div>
-        <div class="name-block">
-          <div class="role-tag">Founder ─ Kamakura Era</div>
-          <div class="name">親鸞</div>
-          <div class="read">しんらん</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 100 160"><g style="color:#3d2557"><use href="#monk" width="100" height="160"/></g></svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">Founder ─ Kamakura Era</div>
+        <div class="name">親鸞</div>
+        <div class="read">しんらん</div>
       </div>
       <div class="quote">「他力本願 ─ 阿弥陀さまにすがれば、誰でも救われる。」</div>
       <div class="bio">浄土真宗の開祖。<strong>鎌倉時代</strong>の僧で、加賀の一向一揆(室町時代)とは時代が違うことに注意。彼の教えが、200年後に巨大な政治力に変わる。</div>
     </div>
 
     <div class="portrait k">
-      <div class="head">
-        <div class="glyph">蓮</div>
-        <div class="name-block">
-          <div class="role-tag">Master Evangelist</div>
-          <div class="name">蓮如</div>
-          <div class="read">れんにょ</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 140 160">
+          <g style="color:#3d2557"><use href="#monk" x="20" y="0" width="100" height="160"/></g>
+          <g style="color:#b48a36" transform="translate(95 60)"><use href="#i-letter" width="40" height="40"/></g>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">Master Evangelist</div>
+        <div class="name">蓮如</div>
+        <div class="read">れんにょ</div>
       </div>
       <div class="quote">「むずかしい言葉では伝わらぬ。手紙で書こう。」</div>
       <div class="bio">本願寺8代目。わかりやすい手紙(<strong>御文(おふみ)</strong>)を書いて教えを広め、北陸に信者を爆発的に増やした「布教の天才」。</div>
     </div>
 
     <div class="portrait k">
-      <div class="head">
-        <div class="glyph">富</div>
-        <div class="name-block">
-          <div class="role-tag">Defeated Lord</div>
-          <div class="name">富樫 政親</div>
-          <div class="read">とがし まさちか</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 100 160"><g style="color:#3d2557"><use href="#samurai" width="100" height="160"/></g></svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">Defeated Lord</div>
+        <div class="name">富樫 政親</div>
+        <div class="read">とがし まさちか</div>
       </div>
       <div class="quote">「信者の力が、わしの想像を超えている…」</div>
       <div class="bio">加賀の守護大名。最初は信者と協力していたが、力をつけすぎた信者と対立。1488年、高尾城を包囲され自害。富樫氏滅亡。</div>
     </div>
 
     <div class="portrait k">
-      <div class="head">
-        <div class="glyph">信</div>
-        <div class="name-block">
-          <div class="role-tag">Final Conqueror</div>
-          <div class="name">織田 信長</div>
-          <div class="read">おだ のぶなが</div>
-        </div>
+      <div class="frame">
+        <svg viewBox="0 0 140 160">
+          <g style="color:#3d2557"><use href="#samurai" x="20" y="0" width="100" height="160"/></g>
+          <g style="color:#5e3a87"><use href="#banner" x="0" y="0" width="30" height="140"/></g>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="role-tag">Final Conqueror</div>
+        <div class="name">織田 信長</div>
+        <div class="read">おだ のぶなが</div>
       </div>
       <div class="quote">「宗教が国を持つだと?── 認めん。」</div>
       <div class="bio">100年後の戦国大名。1580年、加賀の一向一揆を攻め滅ぼす。石山本願寺との10年戦争(石山合戦)も知られる。</div>
@@ -1581,6 +2216,41 @@
     <div class="lab"><strong>THE REVOLUTION</strong> ─ 守護を倒した1488</div>
   </div>
   <h3><span class="marker">how.</span>なぜ守護大名を倒せたのか</h3>
+
+  <!-- Big illustration: temple + believers -->
+  <div class="illust-figure">
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background sky gradient -->
+      <defs>
+        <linearGradient id="kagaScene" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#e3daee"/>
+          <stop offset="100%" stop-color="#faf3e0"/>
+        </linearGradient>
+      </defs>
+      <rect width="600" height="220" fill="url(#kagaScene)"/>
+      <!-- Mountains far -->
+      <g style="color:#5e3a87; opacity:0.3"><use href="#mountains-far" x="0" y="50" width="600" height="120"/></g>
+      <!-- Center: temple -->
+      <g style="color:#3d2557" transform="translate(180 30)">
+        <use href="#temple" width="240" height="160"/>
+      </g>
+      <!-- Crowd of believers approaching from both sides -->
+      <g style="color:#5e3a87">
+        <!-- Left crowd -->
+        <use href="#crowd" x="-20" y="160" width="200" height="50"/>
+      </g>
+      <g style="color:#5e3a87">
+        <!-- Right crowd -->
+        <use href="#crowd" x="420" y="160" width="200" height="50"/>
+      </g>
+      <!-- Lotus blooms -->
+      <use href="#lotus" x="50" y="150" width="40" height="40"/>
+      <use href="#lotus" x="510" y="150" width="40" height="40"/>
+      <!-- Floating praying hands / chants (small dots) -->
+      <text x="300" y="20" text-anchor="middle" fill="#b48a36" font-family="Noto Serif JP" font-size="13" opacity="0.7">南無阿弥陀仏</text>
+    </svg>
+    <div class="caption">本願寺の門徒たちが、信仰でひとつになり、守護大名・富樫氏を包囲していく</div>
+  </div>
 
   <div class="story-steps">
     <div class="ss-row">
@@ -1669,8 +2339,47 @@
   </div>
 </div>
 
-<!-- ============ CHAPTER 4: COMPARE ============ -->
+
+<!-- ===================== COMPARE ===================== -->
 <div class="opener compare" style="color: var(--ink);">
+  <div class="opener-illust">
+    <svg viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="220" fill="#b48a36"/>
+      <!-- Decorative pattern -->
+      <g opacity="0.2">
+        <circle cx="100" cy="60" r="40" fill="none" stroke="#1a1a28" stroke-width="1"/>
+        <circle cx="100" cy="60" r="25" fill="none" stroke="#1a1a28" stroke-width="1"/>
+        <circle cx="100" cy="60" r="10" fill="#1a1a28"/>
+        <circle cx="700" cy="160" r="40" fill="none" stroke="#1a1a28" stroke-width="1"/>
+        <circle cx="700" cy="160" r="25" fill="none" stroke="#1a1a28" stroke-width="1"/>
+        <circle cx="700" cy="160" r="10" fill="#1a1a28"/>
+      </g>
+      <!-- Three pillars -->
+      <g transform="translate(180 50)">
+        <g style="color:#b8312d"><use href="#burning-castle" width="100" height="100"/></g>
+        <text x="50" y="130" text-anchor="middle" fill="#1a1a28" font-family="Noto Serif JP" font-weight="700" font-size="16">応仁の乱</text>
+        <text x="50" y="150" text-anchor="middle" fill="#7a1f1c" font-family="Cormorant Garamond" font-style="italic" font-size="14">1467</text>
+      </g>
+      <g transform="translate(350 60)">
+        <g style="color:#1f4e6b"><use href="#crowd" x="0" y="20" width="100" height="60"/></g>
+        <text x="50" y="130" text-anchor="middle" fill="#1a1a28" font-family="Noto Serif JP" font-weight="700" font-size="16">山城の国一揆</text>
+        <text x="50" y="150" text-anchor="middle" fill="#133344" font-family="Cormorant Garamond" font-style="italic" font-size="14">1485</text>
+      </g>
+      <g transform="translate(520 50)">
+        <g style="color:#5e3a87"><use href="#temple" x="0" y="20" width="120" height="80"/></g>
+        <text x="60" y="130" text-anchor="middle" fill="#1a1a28" font-family="Noto Serif JP" font-weight="700" font-size="16">加賀の一向一揆</text>
+        <text x="60" y="150" text-anchor="middle" fill="#3d2557" font-family="Cormorant Garamond" font-style="italic" font-size="14">1488</text>
+      </g>
+      <!-- Arrows showing connection -->
+      <path d="M290 100 L350 100" stroke="#1a1a28" stroke-width="2" marker-end="url(#arr)"/>
+      <path d="M460 100 L520 100" stroke="#1a1a28" stroke-width="2" marker-end="url(#arr)"/>
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#1a1a28"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
   <div class="opener-inner">
     <div class="ch-tag" style="color: rgba(26,26,40,0.6);">SYNTHESIS ─ 三つを並べて</div>
     <div class="ch-num" style="color: rgba(26,26,40,0.15);">04</div>
@@ -1695,9 +2404,18 @@
   <div class="compare-board">
     <div class="row head">
       <div class="lab"></div>
-      <div class="col-h c1">応仁の乱<span class="yr">1467</span></div>
-      <div class="col-h c2">山城の国一揆<span class="yr">1485</span></div>
-      <div class="col-h c3">加賀の一向一揆<span class="yr">1488</span></div>
+      <div class="col-h c1">
+        <svg style="color:#b8312d"><use href="#burning-castle" width="32" height="28"/></svg>
+        応仁の乱<span class="yr">1467</span>
+      </div>
+      <div class="col-h c2">
+        <svg viewBox="0 0 60 28"><g style="color:#1f4e6b"><use href="#crowd" x="0" y="0" width="60" height="28"/></g></svg>
+        山城の国一揆<span class="yr">1485</span>
+      </div>
+      <div class="col-h c3">
+        <svg style="color:#5e3a87"><use href="#temple" width="40" height="28"/></svg>
+        加賀の一向一揆<span class="yr">1488</span>
+      </div>
     </div>
     <div class="row">
       <div class="lab">期間</div>
@@ -1763,8 +2481,44 @@
   </div>
 </div>
 
-<!-- ============ CHAPTER 5: EXAM ============ -->
+
+<!-- ===================== EXAM ===================== -->
 <div class="opener final">
+  <div class="opener-illust">
+    <svg viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="examSky" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1a1a28"/>
+          <stop offset="100%" stop-color="#3d2557"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="220" fill="url(#examSky)"/>
+      <!-- Many stars -->
+      <use href="#i-star" x="60" y="40" width="14" height="14" style="color:#e9c44a"/>
+      <use href="#i-star" x="180" y="60" width="10" height="10" style="color:#e9c44a"/>
+      <use href="#i-star" x="280" y="30" width="12" height="12" style="color:#e9c44a"/>
+      <use href="#i-star" x="500" y="55" width="10" height="10" style="color:#e9c44a"/>
+      <use href="#i-star" x="640" y="40" width="14" height="14" style="color:#e9c44a"/>
+      <use href="#i-star" x="730" y="65" width="10" height="10" style="color:#e9c44a"/>
+      <!-- Center: trophy / crown moment -->
+      <g transform="translate(360 70)">
+        <g style="color:#e9c44a">
+          <use href="#i-crown" width="80" height="80"/>
+        </g>
+        <text x="40" y="115" text-anchor="middle" fill="#e9c44a" font-family="Cormorant Garamond" font-style="italic" font-weight="500" font-size="24">100/100</text>
+      </g>
+      <!-- Three small icons at bottom for the chapters -->
+      <g transform="translate(150 160)">
+        <g style="color:#b8312d"><use href="#burning-castle" width="50" height="50"/></g>
+      </g>
+      <g transform="translate(380 165)">
+        <g style="color:#1f4e6b"><use href="#crowd" x="0" y="0" width="80" height="40"/></g>
+      </g>
+      <g transform="translate(580 160)">
+        <g style="color:#5e3a87"><use href="#temple" x="0" y="0" width="80" height="50"/></g>
+      </g>
+    </svg>
+  </div>
   <div class="opener-inner">
     <div class="ch-tag">EXAM PREP ─ 入試で使う形に</div>
     <div class="ch-num">05</div>
@@ -1781,18 +2535,21 @@
 
   <div class="cheat-grid">
     <div class="cheat-card c1">
+      <div class="icon-top"><svg style="color:#b8312d"><use href="#burning-castle" width="60" height="60"/></svg></div>
       <div class="tt">FILE Ⅰ</div>
       <div class="yr">1467</div>
       <div class="name">応仁の乱</div>
       <div class="body">義政の跡継ぎ + 細川 vs 山名 → 京都焼け野原 → <strong>戦国時代の幕開け</strong>。</div>
     </div>
     <div class="cheat-card c2">
+      <div class="icon-top"><svg viewBox="0 0 100 60"><g style="color:#1f4e6b"><use href="#crowd" x="0" y="0" width="100" height="50"/></g></svg></div>
       <div class="tt">FILE Ⅱ</div>
       <div class="yr">1485</div>
       <div class="name">山城の国一揆</div>
       <div class="body">両畠山にうんざり → 武士+農民で追放 → <strong>約8年間の自治</strong>。</div>
     </div>
     <div class="cheat-card c3">
+      <div class="icon-top"><svg style="color:#5e3a87"><use href="#temple" width="80" height="60"/></svg></div>
       <div class="tt">FILE Ⅲ</div>
       <div class="yr">1488</div>
       <div class="name">加賀の一向一揆</div>
@@ -1839,7 +2596,7 @@
   </div>
 </div>
 
-<!-- ============ COLOPHON ============ -->
+<!-- ===================== COLOPHON ===================== -->
 <div class="colophon">
   <div class="mark">M.F.</div>
   <div class="name">Muromachi Files ─ Volume 01</div>
